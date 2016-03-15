@@ -1,4 +1,5 @@
 accounts-base@1.2.3-beta.11
+aldeed:simple-schema@1.5.3
 allow-deny@1.0.1-beta.11
 audit-argument-checks@1.0.4
 autoupdate@1.2.5-beta.11
@@ -41,6 +42,7 @@ launch-screen@1.0.6-beta.11
 livedata@1.0.15
 localstorage@1.0.6-beta.11
 logging@1.0.9-beta.11
+mdg:validation-error@0.2.0
 meteor@1.1.11-beta.11
 meteor-base@1.0.1
 meteor-env-dev@0.0.1-beta.11

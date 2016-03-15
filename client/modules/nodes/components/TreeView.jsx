@@ -1,15 +1,17 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 
-import { Alert } from '../../bootstrap/components/Bootstrap.jsx';
+import { Alert, GridRow, GridColumn } from '../../bootstrap/components/Bootstrap.jsx';
 
 export default class TreeView extends React.Component {
 
-  getInitialState() {
-    return {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
       collapsedNodes: JSON.parse(localStorage["collapsedNodes"] || null)
-    }
-  }
+    };
+  };
 
   toggleCollapse(nodeId){
     let collapsedNodes = this.state.collapsedNodes
@@ -74,8 +76,8 @@ export default class TreeView extends React.Component {
   // iterative funtion to generate lists and its children
   renderNodeTree(parentNodeId){
 
-    var nodes = this.pops.nodes
-    if ( nodes.length > 0 ) {
+    var nodes = this.props.nodes;
+    if ( !!nodes && nodes.length > 0 ) {
 
       nodes = _.where(nodes, {parent: parentNodeId});
       if ( nodes.length > 0 ) {
@@ -138,6 +140,7 @@ export default class TreeView extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
     <GridRow className={this.props.className}>
       <GridColumn className="col-md-12">

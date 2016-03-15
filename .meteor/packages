@@ -23,3 +23,4 @@ audit-argument-checks
 check
 random
 twbs:bootstrap
+aldeed:simple-schema
