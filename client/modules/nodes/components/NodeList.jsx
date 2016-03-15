@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { TreeView } from './Nodes.jsx';
-import { Alert, Button } from '../../bootstrap/components/Bootstrap.jsx';
+import { TreeView } from './index.jsx';
+import { Alert, Button } from '../../bootstrap/components/index.jsx';
 
 const NodeList = ({nodes}) => (
   <div>

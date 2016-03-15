@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Alert, GridRow, GridColumn, PageHeader } from '../../bootstrap/components/Bootstrap.jsx';
+import { Alert, GridRow, GridColumn, PageHeader } from '../../bootstrap/components/index.jsx';
 
 const App = ({content}) => (
   <GridRow className="container">
