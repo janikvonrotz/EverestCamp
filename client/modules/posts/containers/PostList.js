@@ -1,15 +1,15 @@
-import NodeList from '../components/NodeList.jsx';
+import PostList from '../components/PostList.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context}, onData) => {
   const {Meteor, Collections} = context();
-  if (Meteor.subscribe('nodes.list').ready()) {
-    const nodes = Collections.Nodes.find().fetch();
-    onData(null, {nodes});
+  if (Meteor.subscribe('posts.list').ready()) {
+    const posts = Collections.Posts.find().fetch();
+    onData(null, {posts});
   }
 };
 
 export default composeAll(
   composeWithTracker(composer),
   useDeps()
-)(NodeList);
+)(PostList);
