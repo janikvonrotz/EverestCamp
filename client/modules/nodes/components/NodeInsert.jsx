@@ -5,7 +5,6 @@ import { Button, Notificate } from '../../bootstrap/components/index.jsx';
 class NodeInsert extends React.Component {
 
   insertNode(){
-    console.log(this.props);
     var node = {
       parent: this.props.nodeId
     }
@@ -13,6 +12,7 @@ class NodeInsert extends React.Component {
   }
 
   render(){
+    console.log({"NodeInsert": this.props});
     return (
       <div>
         {this.props.error ? <Notificate>{this.props.error}</Notificate> : null}

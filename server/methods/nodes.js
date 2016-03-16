@@ -6,12 +6,12 @@ export default function () {
   Meteor.methods({
     'nodes.insert'(node) {
       check( node, Object );
-      var nodeId = Nodes.insert(node);
-      // Nodes.insert(node);
+      // var nodeId = Nodes.insert(node);
+      Nodes.insert(node);
 
-      node.path = Nodes.getPath(Nodes.findOne(nodeId));
-      Nodes.upsert( nodeId, {$set: node})
-      return nodeId;
+      // node.path = Nodes.getPath(Nodes.findOne(nodeId));
+      // Nodes.upsert( nodeId, {$set: node})
+      // return nodeId;
     }
   });
 }

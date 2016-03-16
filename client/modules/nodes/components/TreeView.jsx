@@ -140,7 +140,7 @@ export default class TreeView extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log({"TreeView": this.props});
     return (
     <GridRow className={this.props.className}>
       <GridColumn className="col-md-12">
