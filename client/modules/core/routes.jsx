@@ -19,7 +19,7 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'nodes.single',
     action({nodeId}) {
       mount(MainLayoutCtx, {
-        content: () => (<NodeEdit nodeId={nodeId}/>)
+        content: () => (<NodeList nodeId={nodeId}/>)
       });
     }
   });

@@ -1,5 +1,5 @@
-// import publications from './publications';
-// import methods from './methods';
+import publications from './publications';
+import methods from './methods';
 
-// publications();
-// methods();
+publications();
+methods();

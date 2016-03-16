@@ -1,12 +1,23 @@
 import React from 'react';
 
-import { TreeView } from './index.jsx';
-import { Alert, Button } from '../../bootstrap/components/index.jsx';
+import { TreeView, NodeInsert } from './index.jsx';
+import { Alert, Button, Notificate, FormGroup, FormControl } from '../../bootstrap/components/index.jsx';
 
-const NodeList = ({nodes}) => (
+const NodeList = ({nodes, nodeId}) => (
   <div>
     <p>This is where the items will be.</p>
-    <Button style="default">Add Node</Button>
+    <NodeInsert nodeId={nodeId} />
+    <FormGroup>
+      <FormControl
+      showLabel={ true }
+      style="input"
+      type="text"
+      className=""
+      name="search"
+      label="Search"
+      onChange={ this.filterList }
+      defaultValue="" />
+    </FormGroup>
     <TreeView nodes={nodes} />
   </div>
 );
