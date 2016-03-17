@@ -93,7 +93,7 @@ export default class TreeView extends React.Component {
           var containerClassName = classNames({
             'tree-view_node': true,
             'tree-view_node-collapsed': _.contains(this.state.collapsedNodes, node._id),
-            'tree-view_node-hasChildren': _.where(this.data.nodes, {parent: node._id}).length > 0
+            'tree-view_node-hasChildren': _.where(this.props.nodes, {parent: node._id}).length > 0
           });
 
           var linkClassName = classNames({
@@ -127,7 +127,7 @@ export default class TreeView extends React.Component {
             onDrop={this.handleDrop}
             onDragEnd={this.handleDragEnd}
             className={iconClassName}></i> <a className={linkClassName} href={node.href}>{node.label}</a>
-            {this.renderNodesList(node._id)}
+            {this.renderNodeTree(node._id)}
           </li>;
 
         })}

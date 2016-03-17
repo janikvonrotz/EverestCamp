@@ -8,7 +8,7 @@ class NodeInsert extends React.Component {
     var node = {
       parent: this.props.nodeId
     }
-    // this.props.insert(node);
+    this.props.insert(node);
   }
 
   render(){
