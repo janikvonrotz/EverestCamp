@@ -1,13 +1,14 @@
 export default {
 
   insert({Meteor, LocalState, FlowRouter}, data) {
-    const _id = Meteor.uuid();
-    Meteor.call('nodes.insert', data, _id, (err) => {
+    Meteor.call('nodes.insert', data, (err, res) => {
       if (err) {
         return LocalState.set('nodes.ERROR', err.message);
       }
+      console.log(res)
+      FlowRouter.go(`/nodes/${res}/edit`);
     });
-    FlowRouter.go(`/nodes/${_id}/edit`);
+
   },
 
   update({Meteor, LocalState, FlowRouter}, data, _id) {

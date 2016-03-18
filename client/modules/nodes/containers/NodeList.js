@@ -2,8 +2,10 @@ import NodeList from '../components/NodeList.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context, nodeId}, onData) => {
-  const {Meteor, Collections} = context();
-  if (Meteor.subscribe('nodes.list').ready()) {
+  const {Meteor, Collections, LocalState} = context();
+  const filterText = LocalState.get('filterText') || '';
+  console.log(filterText);
+  if (Meteor.subscribe('nodes.search', filterText).ready()) {
     const nodes = Collections.Nodes.find().fetch().map( ( node ) => {
       var href=`/nodes/${ node._id }/edit`;
       if(node.type === 'post'){

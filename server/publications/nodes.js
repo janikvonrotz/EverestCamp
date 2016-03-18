@@ -13,16 +13,16 @@ export default function () {
     return Nodes.find(selector, options);
   });
 
-  Meteor.publish( 'nodes.search', function(filter){
-    check(query, String);
+  Meteor.publish( 'nodes.search', function(filterText){
+    check(filterText, String);
     var selector = {};
     const options = {
       sort: {label: 1}
     };
 
-    if(filter != undefined && filter != ''){
+    if(filterText != undefined && filterText != ''){
       var filteredNodes = [];
-      selector = {label: {$regex: filter}};
+      selector = {label: {$regex: filterText}};
       Nodes.find(selector).fetch().map((node) => {
         filteredNodes = filteredNodes.concat(node.path)
       });

@@ -28,7 +28,7 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/nodes/:nodeId/edit', {
     name: 'nodes.single',
     action({nodeId}) {
-      mount(MainLayoutCtx, {
+      mount(AppLayout, {
         content: () => (<NodeList nodeId={nodeId}/>)
       });
     }
