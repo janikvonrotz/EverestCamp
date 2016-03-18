@@ -1,0 +1,9 @@
+.content-editable, .content-editable:focus{
+  outline: 0px solid transparent;
+}
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+  color: lightgrey;
+}

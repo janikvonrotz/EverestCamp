@@ -1,0 +1,9 @@
+{
+  "public": {
+    "key": "value",
+    "uploadFolderPath": "~/uploads"
+  },
+  "private": {
+    "MAIL_URL": ""
+  }
+}

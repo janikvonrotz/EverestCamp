@@ -1,0 +1,15 @@
+/* images must be responsive */
+.container img{
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* fix form inline spacing */
+.form-inline {
+    padding:10px;
+}
+.form-inline > * {
+    margin:15px 3px !important;
+}

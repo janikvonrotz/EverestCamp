@@ -1,0 +1,9 @@
+{
+  "public": {
+    "key": "value",
+    "uploadFolderPath": "C:/OneDrive/Shared/GitLab/everestcamp/.uploads"
+  },
+  "private": {
+    "MAIL_URL": "smtp://localhost:1025"
+  }
+}
