@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 
-export default class FormGroup extends React.Component {
+export default class FormControl extends React.Component {
 
   renderLabel() {
     if ( !this.props.labelLink ) {
@@ -50,6 +50,7 @@ export default class FormGroup extends React.Component {
         ref={ this.props.ref }
         type={ this.props.type }
         className="form-control"
+        required={ this.props.required }
         name={ this.props.name }
         placeholder={ this.props.label }
         disabled={ this.props.disabled }
@@ -60,6 +61,7 @@ export default class FormGroup extends React.Component {
         ref={ this.props.ref }
         name={ this.props.name }
         className="form-control"
+        required={ this.props.required }
         placeholder={ this.props.label }
         disabled={ this.props.disabled }
         onChange={ this.props.onChange }
@@ -72,7 +74,7 @@ export default class FormGroup extends React.Component {
 
     return fields[ this.props.style ];
   }
-  
+
   render() {
     return (
       <div className={classNames('inline',this.props.className)}>

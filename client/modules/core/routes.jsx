@@ -2,8 +2,8 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import App from './components/App.jsx';
+import Register from '../users/containers/Register';
 import PostList from '../posts/containers/PostList';
-import NodeInsert from '../nodes/containers/NodeInsert';
 import NodeList from '../nodes/containers/NodeList';
 
 export default function (injectDeps, {FlowRouter}) {
@@ -13,6 +13,14 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'posts.list', action() {
       mount(AppLayout, {
         content: () => (<PostList />)
+      });
+    }
+  });
+
+  FlowRouter.route('/register', {
+    name: 'users.register', action() {
+      mount(AppLayout, {
+        content: () => (<Register />)
       });
     }
   });
