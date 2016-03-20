@@ -3,6 +3,7 @@ import {mount} from 'react-mounter';
 
 import App from './components/App.jsx';
 import Register from '../users/containers/Register';
+import Login from '../users/containers/Login';
 import PostList from '../posts/containers/PostList';
 import NodeList from '../nodes/containers/NodeList';
 
@@ -20,7 +21,7 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/login', {
     name: 'users.login', action() {
       mount(AppLayout, {
-        content: () => (<Register />)
+        content: () => (<Login />)
       });
     }
   });
