@@ -40,6 +40,7 @@ export default class Login extends React.Component {
             name="password"
             type="password"
             required={ true } />
+            <small><a href="/recover-password">Forgot Password?</a></small>
           </FormGroup>
           <FormGroup>
             <Button style="success" type="submit">Login</Button>

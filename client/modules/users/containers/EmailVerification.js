@@ -7,7 +7,8 @@ export const composer = ({context, token}, onData) => {
 };
 
 export const depsMapper = (context, actions) => ({
-  register: actions.users.verificate,
+  verify: actions.users.verify_email,
+  send: actions.users.send_verification_email,
   context: () => context
 });
 
