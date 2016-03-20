@@ -30,31 +30,31 @@ export default class TreeView extends React.Component {
     localStorage.setItem("collapsedNodes", JSON.stringify(collapsedNodes));
   }
 
-  handleDragStart(nodeId, e) {
-    this.dragged = e.target.parentNode;
+  handleDragStart(nodeId, event) {
+    this.dragged = event.target.parentNode;
     this.sourceId = nodeId;
-    e.target.parentNode.style.opacity = '0.4';  // this / e.target is the source node.
+    event.target.parentNode.style.opacity = '0.4';  // this / e.target is the source node.
   }
 
-  handleDragEnter(nodeId, e){
-    e.target.parentNode.style.backgroundColor = 'lightgrey';
-    this.over = e.target.parentNode;
+  handleDragEnter(nodeId, event){
+    event.target.parentNode.style.backgroundColor = 'lightgrey';
+    this.over = event.target.parentNode;
     this.targetId = nodeId;
   }
 
-  handleDragOver(e) {
-    if (e.preventDefault) {
-      e.preventDefault(); // Necessary. Allows us to drop.
+  handleDragOver(event) {
+    if (event.preventDefault) {
+      event.preventDefault(); // Necessary. Allows us to drop.
     }
-    e.dataTransfer.dropEffect = 'move';
+    event.dataTransfer.dropEffect = 'move';
   }
 
-  handleDragLeave(e){
-    e.target.parentNode.style.backgroundColor = '';
+  handleDragLeave(event){
+    event.target.parentNode.style.backgroundColor = '';
     this.targetId = undefined;
   }
 
-  handleDrop(e) {
+  handleDrop(event) {
     if(typeof this.targetId != 'undefined'){
       let node = Nodes.findOne(this.sourceId);
       node.parent = this.targetId;
@@ -66,7 +66,7 @@ export default class TreeView extends React.Component {
     }
   }
 
-  handleDragEnd(e) {
+  handleDragEnd(event) {
     this.dragged.style.opacity = '';
     if(typeof this.over != 'undefined'){
       this.over.style.backgroundColor = '';
@@ -112,7 +112,7 @@ export default class TreeView extends React.Component {
           if(containerClassName.indexOf('tree-view_node-hasChildren') > -1){
             var arrow = <div key={node._id}
               className={arrowClassName}
-              onClick={this.toggleCollapse.bind(null, node._id)}/>;
+              onClick={this.toggleCollapse.bind(this, node._id)}/>;
           }
 
           return <li
@@ -123,9 +123,9 @@ export default class TreeView extends React.Component {
             onDragStart={this.handleDragStart.bind(this, node._id)}
             onDragEnter={this.handleDragEnter.bind(this, node._id)}
             onDragOver={node.type === 'node' ? this.handleDragOver : null}
-            onDragLeave={this.handleDragLeave}
-            onDrop={this.handleDrop}
-            onDragEnd={this.handleDragEnd}
+            onDragLeave={this.handleDragLeave.bind(this)}
+            onDrop={this.handleDrop.bind(this)}
+            onDragEnd={this.handleDragEnd.bind(this)}
             className={iconClassName}></i> <a className={linkClassName} href={node.href}>{node.label}</a>
             {this.renderNodeTree(node._id)}
           </li>;
@@ -148,9 +148,9 @@ export default class TreeView extends React.Component {
           <li className="tree-view_node">
 
             <i onDragEnter={this.handleDragEnter.bind(this, "")}
-            onDragOver={this.handleDragOver}
-            onDragLeave={this.handleDragLeave}
-            onDrop={this.handleDrop}
+            onDragOver={this.handleDragOver.bind(this)}
+            onDragLeave={this.handleDragLeave.bind(this)}
+            onDrop={this.handleDrop.bind(this)}
             className="glyphicon glyphicon-globe">
             </i> <a className="tree-view_label" href="/nodes/">root</a>
 
