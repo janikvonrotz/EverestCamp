@@ -1,14 +1,14 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import {
   Button,
   GridRow,
   GridColumn,
   Form,
-  FormControl,
+  Input,
   FormGroup,
-  EmailInput,
-  PasswordInput,
+  Label,
   PageHeader
 } from '../../bootstrap/components/index.jsx';
 
@@ -18,29 +18,27 @@ export default class Register extends React.Component {
       <GridRow>
       <GridColumn className="col-md-6 col-md-offset-3">
         <PageHeader tag="h1">Register</PageHeader>
-        <Form>
+        <Form onSubmit={this.register.bind(this)}>
           <FormGroup>
-            <FormControl
+            <Label>Email Address</Label>
+            <Input
             ref="email"
-            showLabel={ true }
             style="input"
             name="email"
             type="email"
-            required={ false }
-            label="Email Address" />
+            required={ true } />
           </FormGroup>
           <FormGroup>
-            <FormControl
+            <Label>Password</Label>
+            <Input
             ref="password"
-            showLabel={ true }
             style="input"
             name="password"
             type="password"
-            required={ false }
-            label="Password" />
+            required={ true } />
           </FormGroup>
           <FormGroup>
-            <Button style="success" onClick={this.register}>Register</Button>
+            <Button style="success" type="submit">Register</Button>
           </FormGroup>
         </Form>
         <p>Already have an account? <a href="/login">Login</a>.</p>
@@ -50,9 +48,6 @@ export default class Register extends React.Component {
   }
 
   register(event){
-    console.log(this.refs);
-    event.preventDefault();
-    const {email, password} = this.refs;
-    this.props.register(email.getValue(), password.getValue());
+    this.props.register(ReactDOM.findDOMNode(this.refs.email).value, ReactDOM.findDOMNode(this.refs.password).value);
   }
 }

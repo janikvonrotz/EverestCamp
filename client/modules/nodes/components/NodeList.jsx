@@ -1,6 +1,11 @@
 import React from 'react';
 
-import { GridColumn, FormControl, FormGroup } from '../../bootstrap/components/index.jsx';
+import {
+  GridColumn,
+  Input,
+  // FormControl,
+  FormGroup
+} from '../../bootstrap/components/index.jsx';
 import { TreeView } from './index.jsx'
 import { NodeInsert } from '../containers/index.js'
 
@@ -12,13 +17,11 @@ class NodeList extends React.Component {
         <p>This is where the items will be.</p>
         <NodeInsert nodeId={this.props.nodeId} />
         <FormGroup>
-          <FormControl
-          showLabel={ true }
+          <Input
           style="input"
           type="text"
-          className=""
           name="search"
-          label="Search"
+          placeholder="Search"
           onChange={ this.filterList.bind(this) }
           defaultValue="" />
         </FormGroup>

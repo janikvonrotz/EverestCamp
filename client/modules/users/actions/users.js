@@ -1,15 +1,11 @@
 export default {
   register({Meteor, LocalState}, email, password) {
-
-    if (!email) {
-      alert('Email is required.');
-    }
-    if (!password) {
-      alert('Password is required.');
-    }
-
-    LocalState.set('ERROR', null);
-
-    Accounts.createUser({email, password});
-    FlowRouter.go('/email-verification');
-} };
+    Accounts.createUser({email, password}, (err, res) => {
+      if(err){
+        alert('Register.jsx: ' + err);
+      }else{
+        FlowRouter.go('/email-verification');
+      }
+    });
+  }
+};

@@ -48,10 +48,10 @@ export default class FormControl extends React.Component {
     let fields = {
       input: <input
         ref={ this.props.ref }
+        name={ this.props.name }
         type={ this.props.type }
         className="form-control"
         required={ this.props.required }
-        name={ this.props.name }
         placeholder={ this.props.label }
         disabled={ this.props.disabled }
         onChange={ this.props.onChange }

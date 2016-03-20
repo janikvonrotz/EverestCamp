@@ -4,6 +4,7 @@ export default class Form extends React.Component {
 
   handleSubmit( event ) {
     event.preventDefault();
+    this.props.onSubmit();
   }
 
   render() {
@@ -12,7 +13,7 @@ export default class Form extends React.Component {
         ref="form"
         id={ this.props.id }
         className={ this.props.className }
-        onSubmit={ this.handleSubmit }>
+        onSubmit={ this.handleSubmit.bind(this) }>
         { this.props.children }
       </form>
     );

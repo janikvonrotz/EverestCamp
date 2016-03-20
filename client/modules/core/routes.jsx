@@ -17,8 +17,24 @@ export default function (injectDeps, {FlowRouter}) {
     }
   });
 
+  FlowRouter.route('/login', {
+    name: 'users.login', action() {
+      mount(AppLayout, {
+        content: () => (<Register />)
+      });
+    }
+  });
+
   FlowRouter.route('/register', {
     name: 'users.register', action() {
+      mount(AppLayout, {
+        content: () => (<Register />)
+      });
+    }
+  });
+
+  FlowRouter.route('/email-verification', {
+    name: 'users.email-verification', action() {
       mount(AppLayout, {
         content: () => (<Register />)
       });
