@@ -4,6 +4,17 @@ import {check} from 'meteor/check';
 
 export default function () {
 
+  const getPath = function(node){
+    if(!!node.parent){
+      var parentNode = Nodes.findOne(node.parent);
+    }
+    var paths = [node._id];
+    if(!!parentNode){
+      paths = paths.concat(getPath(parentNode));
+    }
+    return paths;
+  };
+
   Meteor.publish('nodes.list', function () {
     const selector = {};
     const options = {
@@ -24,9 +35,9 @@ export default function () {
       var filteredNodes = [];
       selector = {label: {$regex: filterText}};
       Nodes.find(selector).fetch().map((node) => {
-        filteredNodes = filteredNodes.concat(node.path)
+        filteredNodes = filteredNodes.concat(getPath(node))
       });
-      selector= {_id: {$in: filteredNodes}};
+      selector = {_id: {$in: filteredNodes}};
       return Nodes.find(selector, options);
     }else{
       return Nodes.find(selector, options);

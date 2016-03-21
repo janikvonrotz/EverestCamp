@@ -6,10 +6,15 @@ import {
   // FormControl,
   FormGroup
 } from '../../bootstrap/components/index.jsx';
-import { TreeView } from './index.jsx'
-import { NodeInsert } from '../containers/index.js'
+// import { TreeView } from '../containers/index.js'
+import { NodeInsert, TreeView } from '../containers/index.js'
 
 class NodeList extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {filterText: ''};
+  }
 
   render(){
     return(
@@ -25,7 +30,7 @@ class NodeList extends React.Component {
           onChange={ this.filterList.bind(this) }
           defaultValue="" />
         </FormGroup>
-        <TreeView nodes={this.props.nodes} activeNodeId={this.props.nodeId} />
+        <TreeView activeNodeId={this.props.nodeId} filterText={this.state.filterText} />
       </GridColumn>
     );
   }
