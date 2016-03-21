@@ -20,7 +20,7 @@ export const depsMapper = (context) => ({
         dropdownItems: [
           { uid: 'logout', href: '#', label: 'Logout', action: () => {
             return Meteor.logout( () => {
-              FlowRouter.go( '/' );
+              FlowRouter.go( '/login' );
             });
           }}
         ]

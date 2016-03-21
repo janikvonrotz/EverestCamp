@@ -5,9 +5,7 @@ import { PublicNavigation, AuthenticatedNavigation } from '../containers/index.j
 
 const App = ({content}) => (
   <div className="app-root">
-    <Navbar id="app-header" brandLink="/" brand="EverestCamp">
-      <PublicNavigation />
-    </Navbar>
+    { Meteor.userId() ? <AuthenticatedNavigation /> : <PublicNavigation /> }
     <div className="row-fluid container">
       <GridColumn className="col-md-12">
         {content()}
