@@ -56,13 +56,7 @@ export default class TreeView extends React.Component {
 
   handleDrop(event) {
     if(typeof this.targetId != 'undefined'){
-      let node = Nodes.findOne(this.sourceId);
-      node.parent = this.targetId;
-      Meteor.call( 'saveNode', node, ( error, response ) => {
-        if (error) {
-          Bert.alert( error.reason, 'danger' );
-        }
-      });
+      this.props.update_parent(this.sourceId, this.targetId);
     }
   }
 
@@ -115,7 +109,8 @@ export default class TreeView extends React.Component {
               onClick={this.toggleCollapse.bind(this, node._id)}/>;
           }
 
-          return <li
+          return (
+            <li
             className={containerClassName}
             key={node._id}>
             {arrow}
@@ -128,8 +123,8 @@ export default class TreeView extends React.Component {
             onDragEnd={this.handleDragEnd.bind(this)}
             className={iconClassName}></i> <a className={linkClassName} href={node.href}>{node.label}</a>
             {this.renderNodeTree(node._id)}
-          </li>;
-
+            </li>
+          );
         })}
         </ul>
         );
@@ -140,7 +135,7 @@ export default class TreeView extends React.Component {
   }
 
   render() {
-    console.log({"TreeView": this.props});
+    // console.log({"TreeView": this.props});
     return (
     <GridRow className={this.props.className}>
       <GridColumn className="col-md-12">

@@ -2,18 +2,9 @@ import {Nodes} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
 
-export default function () {
+import {path} from '../libs/nodes';
 
-  const getPath = function(node){
-    if(!!node.parent){
-      var parentNode = Nodes.findOne(node.parent);
-    }
-    var paths = [node._id];
-    if(!!parentNode){
-      paths = paths.concat(getPath(parentNode));
-    }
-    return paths;
-  };
+export default function () {
 
   Meteor.publish('nodes.list', function () {
     const selector = {};
@@ -35,7 +26,7 @@ export default function () {
       var filteredNodes = [];
       selector = {label: {$regex: filterText}};
       Nodes.find(selector).fetch().map((node) => {
-        filteredNodes = filteredNodes.concat(getPath(node))
+        filteredNodes = filteredNodes.concat(path(node))
       });
       selector = {_id: {$in: filteredNodes}};
       return Nodes.find(selector, options);

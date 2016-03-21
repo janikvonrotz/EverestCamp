@@ -8,18 +8,22 @@ import Button from './Button.jsx';
 import Form from './Form.jsx';
 import Input from './Input.jsx';
 import Label from './Label.jsx';
+import Modal from './Modal.jsx';
 import Navbar from './Navbar.jsx';
 import NavbarNav from './NavbarNav.jsx';
 import FormGroup from './FormGroup.jsx';
 import FormControl from './FormControl.jsx';
+import ContentEditable from './ContentEditable.jsx';
 
 export {
   Alert,
   Button,
   DropdownMenu,
+  ContentEditable,
   Form,
   Label,
   Input,
+  Modal,
   FormGroup,
   Navbar,
   NavbarNav,

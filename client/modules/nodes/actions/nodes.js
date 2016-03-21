@@ -1,38 +1,36 @@
 export default {
 
-  insert({Meteor, LocalState, FlowRouter}, data) {
-    Meteor.call('nodes.insert', data, (err, res) => {
+  insert({Meteor, FlowRouter}, node) {
+    Meteor.call('nodes.insert', node, (err, res) => {
       if (err) {
-        return LocalState.set('nodes.ERROR', err.message);
+        alert(err);
       }
-      console.log(res)
       FlowRouter.go(`/nodes/${res}/edit`);
     });
-
   },
 
-  update({Meteor, LocalState, FlowRouter}, data, _id) {
-
-    Meteor.call('nodes.update', data, _id, (err) => {
+  update({Meteor, FlowRouter}, node) {
+    Meteor.call('nodes.update', node, (err) => {
       if (err) {
-        return LocalState.set('nodes.ERROR', err.message);
+        alert(err);
       }
     });
   },
 
-  remove({Meteor, LocalState, FlowRouter}, _id) {
+  update_parent({Meteor, FlowRouter}, nodeId, parentId) {
+    Meteor.call('nodes.update_parent', nodeId, parentId, (err) => {
+      if (err) {
+        alert(err);
+      }
+    });
+  },
 
+  remove({Meteor, FlowRouter}, _id) {
     Meteor.call('nodes.remove', _id, (err) => {
       if (err) {
-        return LocalState.set('nodes.ERROR', err.message);
+        alert(err);
       }
       FlowRouter.go(`/nodes/`);
-
     });
-  },
-
-  clearErrors({LocalState}) {
-    return LocalState.set('nodes.ERROR', null);
   }
-
 };

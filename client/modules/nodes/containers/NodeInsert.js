@@ -1,11 +1,8 @@
 import NodeInsert from '../components/NodeInsert.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
-export const composer = ({context, clearErrors}, onData) => {
-  const {LocalState} = context();
-  const error = LocalState.get('ERROR');
-  onData(null, {error});
-  return clearErrors;
+export const composer = ({context}, onData) => {
+  onData(null, {});
 };
 
 export const depsMapper = (context, actions) => ({

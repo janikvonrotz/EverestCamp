@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DropdownMenu from './DropdownMenu.jsx';
+import { DropdownMenu } from './index.jsx';
 
 export default class NavbarNav extends React.Component {
 

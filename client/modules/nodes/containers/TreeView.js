@@ -3,7 +3,7 @@ import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context, activeNodeId, filterText}, onData) => {
   const {Meteor, Collections, LocalState} = context();
-  console.log(filterText);
+  // console.log(filterText);
   if (Meteor.subscribe('nodes.search', filterText).ready()) {
     const nodes = Collections.Nodes.find().fetch().map( ( node ) => {
       var href=`/nodes/${ node._id }/edit`;
@@ -16,7 +16,12 @@ export const composer = ({context, activeNodeId, filterText}, onData) => {
   }
 };
 
+export const depsMapper = (context, actions) => ({
+  update_parent: actions.nodes.update_parent,
+  context: () => context
+});
+
 export default composeAll(
   composeWithTracker(composer),
-  useDeps()
+  useDeps(depsMapper)
 )(TreeView);

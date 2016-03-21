@@ -1,0 +1,8 @@
+.show-modal{
+    display: block;
+}
+
+.modal-body{
+  max-height: 600px;
+  overflow: auto;
+}
