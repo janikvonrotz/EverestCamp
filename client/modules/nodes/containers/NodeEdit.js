@@ -8,7 +8,8 @@ export const composer = ({context, nodeId}, onData) => {
     {_id: nodeId},
     {parent: nodeId}
   ]};
-  if (Meteor.subscribe('nodes.list', selector).ready()) {
+  // adding the selector causes second compose
+  if (Meteor.subscribe('nodes.list').ready()) {
     const node = nodes_single( nodeId );
     const nodes = nodes_list( { parent: nodeId } ).fetch().map( ( node ) => {
       var href=`/nodes/${ node._id }/edit`;

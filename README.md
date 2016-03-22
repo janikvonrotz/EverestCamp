@@ -14,6 +14,7 @@ EverestCamp is a minimal-effort, user-friendly and future-proof knowledge base.
 
 ## Bugs
 
+* NodeList selector causes sub twice
 * Register return value is not processed
 * TreeView without subsciber
 * Fix undefined in className
