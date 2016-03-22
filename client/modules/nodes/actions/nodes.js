@@ -25,8 +25,8 @@ export default {
     });
   },
 
-  remove({Meteor, FlowRouter}, _id) {
-    Meteor.call('nodes.remove', _id, (err) => {
+  remove({Meteor, FlowRouter}, node) {
+    Meteor.call('nodes.remove', node, (err) => {
       if (err) {
         alert(err);
       }

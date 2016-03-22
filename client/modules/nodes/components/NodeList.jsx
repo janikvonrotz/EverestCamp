@@ -7,7 +7,7 @@ import {
   FormGroup
 } from '../../bootstrap/components/index.jsx';
 // import { TreeView } from '../containers/index.js'
-import { NodeInsert, TreeView } from '../containers/index.js'
+import { NodeInsert, NodeEdit, TreeView } from '../containers/index.js'
 
 class NodeList extends React.Component {
 
@@ -31,6 +31,7 @@ class NodeList extends React.Component {
           defaultValue="" />
         </FormGroup>
         <TreeView activeNodeId={this.props.nodeId} filterText={this.state.filterText} />
+        <NodeEdit nodeId={this.props.nodeId} />
       </GridColumn>
     );
   }

@@ -6,11 +6,13 @@ import {path} from '../libs/nodes';
 
 export default function () {
 
-  Meteor.publish('nodes.list', function () {
-    const selector = {};
-    const options = {
-      sort: {label: 1}
-    };
+  Meteor.publish('nodes.list', function (selector, options) {
+    if(!selector){
+      const selector = {};
+    }
+    if(!options){
+      const options = {sort: {label: 1}};
+    }
 
     return Nodes.find(selector, options);
   });

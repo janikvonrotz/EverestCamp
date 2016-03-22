@@ -30,6 +30,14 @@ export default function () {
       validate( node );
       delete node._id
       Nodes.upsert( nodeId, { $set: node } );
+    },
+
+    'nodes.remove'(node){
+      check( node, Object );
+      if(Nodes.findOne({parent: node._id})){
+        throw new Meteor.Error("has-children", "This node has children.");
+      };
+      Nodes.remove(node._id);
     }
   });
 }
