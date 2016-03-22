@@ -112,6 +112,12 @@ http://www.2ality.com/2014/09/es6-modules-final.html
 ES6 check
 http://www.2ality.com/2013/04/check-undefined.html
 
+Basics of Subscriptions
+https://stackoverflow.com/questions/19826804/understanding-meteor-publish-subscribe/21853298#21853298
+
+Multiple Subscriptions
+http://stackoverflow.com/questions/12632452/publishing-subscribing-multiple-subsets-of-the-same-server-collection
+
 # Doku
 
 ## Run

@@ -1,45 +1,17 @@
-import {Nodes} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
-import {check} from 'meteor/check';
-
-import {path} from '../libs/nodes';
+import { nodes_list, nodes_search, nodes_single } from '/lib/nodes_publications';
 
 export default function () {
 
   Meteor.publish('nodes.list', function (selector, options) {
-    if(!selector){
-      const selector = {};
-    }
-    if(!options){
-      const options = {sort: {label: 1}};
-    }
-
-    return Nodes.find(selector, options);
+    return nodes_list (selector, options);
   });
 
   Meteor.publish( 'nodes.search', function(filterText){
-    check(filterText, String);
-    var selector = {};
-    const options = {
-      sort: {label: 1}
-    };
-
-    if(filterText != undefined && filterText != ''){
-      var filteredNodes = [];
-      selector = {label: {$regex: filterText}};
-      Nodes.find(selector).fetch().map((node) => {
-        filteredNodes = filteredNodes.concat(path(node))
-      });
-      selector = {_id: {$in: filteredNodes}};
-      return Nodes.find(selector, options);
-    }else{
-      return Nodes.find(selector, options);
-    }
+    return nodes_search(filterText);
   });
 
   Meteor.publish('nodes.single', function (nodeId) {
-    check(nodeId, String);
-    const selector = {_id: nodeId};
-    return Nodes.find(selector);
+    return nodes_single(nodeId);
   });
 }

@@ -2,7 +2,7 @@ import {Nodes} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
 
-import {path, validate} from '../libs/nodes';
+import {path, validate} from '/lib/nodes_publications';
 
 export default function () {
   Meteor.methods({

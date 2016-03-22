@@ -7,7 +7,7 @@ import {
   FormGroup
 } from '../../bootstrap/components/index.jsx';
 // import { TreeView } from '../containers/index.js'
-import { NodeInsert, NodeEdit, TreeView } from '../containers/index.js'
+import { TreeView, NodeInsert, NodeEdit } from '../containers/index.js'
 
 class NodeList extends React.Component {
 
