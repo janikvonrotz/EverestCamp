@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Navbar, NavbarNav } from '../../bootstrap/components/index.jsx';
+import { NavbarNav, Navbar } from '../../bootstrap/components/index.jsx';
 
 export default class PublicNavigation extends React.Component {
   render() {

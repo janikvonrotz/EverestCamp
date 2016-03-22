@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DropdownMenu } from './index.jsx';
+import DropdownMenu from './DropdownMenu.jsx';
 
 export default class NavbarNav extends React.Component {
 
@@ -36,5 +36,4 @@ export default class NavbarNav extends React.Component {
       </li>
     );
   }
-
-}
+};

@@ -9,6 +9,7 @@ import Form from './Form.jsx';
 import Input from './Input.jsx';
 import Label from './Label.jsx';
 import Modal from './Modal.jsx';
+import ListGroup from './ListGroup.jsx';
 import Navbar from './Navbar.jsx';
 import NavbarNav from './NavbarNav.jsx';
 import FormGroup from './FormGroup.jsx';
@@ -16,17 +17,18 @@ import FormControl from './FormControl.jsx';
 import ContentEditable from './ContentEditable.jsx';
 
 export {
+  NavbarNav,
   Alert,
   Button,
   DropdownMenu,
   ContentEditable,
+  ListGroup,
   Form,
   Label,
   Input,
   Modal,
   FormGroup,
   Navbar,
-  NavbarNav,
   FormControl,
   GridColumn,
   GridRow,

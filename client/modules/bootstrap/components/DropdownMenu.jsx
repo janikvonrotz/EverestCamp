@@ -19,7 +19,7 @@ export default class DropdownMenu extends React.Component {
 
   render() {
     return (
-        <ul className="dropdown-menu">
+      <ul className="dropdown-menu">
         {this.props.items.map( ( item, index ) => {
           return item.divider ? this.renderDivider( item, index ) : this.renderItem( item, index );
         })}

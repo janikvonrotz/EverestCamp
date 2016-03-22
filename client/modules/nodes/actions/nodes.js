@@ -29,8 +29,9 @@ export default {
     Meteor.call('nodes.remove', node, (err) => {
       if (err) {
         alert(err);
+      }else{
+        FlowRouter.go(`/nodes/`);
       }
-      FlowRouter.go(`/nodes/`);
     });
   }
 };

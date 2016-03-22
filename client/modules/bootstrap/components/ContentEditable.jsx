@@ -40,9 +40,9 @@ export default class ContentEditable extends React.Component {
         ref: "contentEditable",
         name: this.props.name,
         className: classNames("content-editable", this.props.className),
-        onPaste: this.props.onPaste,
-        onDrop: this.props.onDrop,
-        onInput: this.handleChange,
+        // onPaste: this.props.onPaste,
+        // onDrop: this.props.onDrop,
+        onInput: this.handleChange.bind(this),
         placeholder: this.props.placeholder,
         contentEditable: !this.props.disabled,
         dangerouslySetInnerHTML: {__html: this.props.text}

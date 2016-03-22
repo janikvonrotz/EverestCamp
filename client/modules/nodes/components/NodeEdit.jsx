@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GridColumn, Button, Modal } from '../../bootstrap/components/index.jsx';
+import { GridRow, ContentEditable, GridColumn, Button, Modal, ListGroup } from '../../bootstrap/components/index.jsx';
 
 export default class NodeEdit extends React.Component {
 
@@ -15,12 +15,13 @@ export default class NodeEdit extends React.Component {
 
   update(event){
     var node = this.props.node
-    node[e.target.name] = e.target.value;
+    node[event.target.name] = event.target.value;
     this.props.update(node);
   }
 
   remove(event){
     this.props.remove(this.props.node);
+    this.toggleModal();
   }
 
   toggleModal(event){
@@ -30,7 +31,7 @@ export default class NodeEdit extends React.Component {
   componentWillReceiveProps(nextProps){
     // when parent has received new props also update child component
     this.setState({
-      shouldChildComponentUpdate: nextProps.node._id != this.props.node._id
+      shouldChildComponentUpdate: nextProps.nodeId != this.props.nodeId
     });
   }
 
@@ -38,19 +39,38 @@ export default class NodeEdit extends React.Component {
     console.log(this.props);
     if ( !this.props.node ) { return <GridColumn />; }
     return(
-      <GridColumn className="col-sm-12">
-        <p><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></p>
-        <Modal />
-        <Button
-          showModal={this.state.showModal}
-          title="Confirm"
-          onCancel={this.toggleModal.bind(this)}
-          cancelLabel="Cancel"
-          onConfirm={this.remove.bind(this)}
-          confirmLabel="Delete">
-          <p>Please confirm the deletion of node: {this.props.node.label}</p>
-          </Button>
-      </GridColumn>
+      <GridRow>
+        <GridColumn className="col-sm-12">
+          <ContentEditable
+            name="label"
+            focus={true}
+            text={ this.props.node.label }
+            tagName="h4"
+            className="page-header"
+            disabled={false}
+            shouldComponentUpdate={this.state.shouldChildComponentUpdate}
+            onChange={ this.update.bind(this) }
+          />
+        </GridColumn>
+        <GridColumn className="col-sm-12">
+          <ListGroup linked={ true } items={  _.where(this.props.nodes, {type: 'post'}) } iconClassName="glyphicon glyphicon-file" />
+        </GridColumn>
+        <GridColumn className="col-sm-12">
+          <ListGroup linked={ true } items={ _.where(this.props.nodes, {type: 'node'}) } iconClassName="glyphicon glyphicon-folder-close" />
+        </GridColumn>
+        <GridColumn className="col-sm-12">
+          <p><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></p>
+          <Modal
+            showModal={this.state.showModal}
+            title="Confirm"
+            onCancel={this.toggleModal.bind(this)}
+            cancelLabel="Cancel"
+            onConfirm={this.remove.bind(this)}
+            confirmLabel="Delete">
+            <p>Please confirm the deletion of node: {this.props.node.label}</p>
+            </Modal>
+        </GridColumn>
+      </GridRow>
     );
   }
 
