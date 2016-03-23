@@ -4,20 +4,8 @@ import classNames from 'classnames/bind';
 
 export default class ContentEditable extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {shouldComponentUpdate: false};
-  }
-
-  componentWillReceiveProps(nextProps){
-    // set state for component update
-    this.state.shouldComponentUpdate = nextProps.shouldComponentUpdate
-  }
-
   shouldComponentUpdate(nextProps){
-    // return true
-    // only update if text is altered and update is not disabled
-    return (nextProps.text !== ReactDOM.findDOMNode(this).innerText) && this.state.shouldComponentUpdate;
+    return (nextProps.text !== ReactDOM.findDOMNode(this).innerText) && nextProps.shouldComponentUpdate;
   }
 
   handleChange(){
@@ -40,8 +28,6 @@ export default class ContentEditable extends React.Component {
         ref: "contentEditable",
         name: this.props.name,
         className: classNames("content-editable", this.props.className),
-        // onPaste: this.props.onPaste,
-        // onDrop: this.props.onDrop,
         onInput: this.handleChange.bind(this),
         placeholder: this.props.placeholder,
         contentEditable: !this.props.disabled,
@@ -58,5 +44,6 @@ export default class ContentEditable extends React.Component {
 };
 
 ContentEditable.defaultProps =  {
-  focus: false
+  focus: false,
+  shouldComponentUpdate: false
 };

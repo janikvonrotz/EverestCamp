@@ -18,7 +18,6 @@ export const composer = ({context, nodeId}, onData) => {
       }
       return { _id: node._id, href: href, label: node.label, type: node.type };
     });
-    console.log(node);
     onData(null, {node, nodes});
   }
 };

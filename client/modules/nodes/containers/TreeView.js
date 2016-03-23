@@ -4,7 +4,6 @@ import { nodes_search } from '/lib/nodes_publications';
 
 export const composer = ({context, activeNodeId, filterText}, onData) => {
   const {Meteor, Collections, LocalState} = context();
-  console.log(filterText);
   if (Meteor.subscribe('nodes.search', filterText).ready()) {
     const nodes = nodes_search(filterText).fetch().map( ( node ) => {
       var href=`/nodes/${ node._id }/edit`;
@@ -13,7 +12,6 @@ export const composer = ({context, activeNodeId, filterText}, onData) => {
       }
       return { _id: node._id, type: node.type, href: href, label: node.label, parent: node.parent };
     });
-    console.log(nodes);
     onData(null, {nodes, activeNodeId});
   }
 };

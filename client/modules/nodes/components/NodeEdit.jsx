@@ -29,14 +29,12 @@ export default class NodeEdit extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-    // when parent has received new props also update child component
     this.setState({
       shouldChildComponentUpdate: nextProps.nodeId != this.props.nodeId
     });
   }
 
   render(){
-    console.log(this.props);
     if ( !this.props.node ) { return <GridColumn />; }
     return(
       <GridRow>
@@ -75,7 +73,6 @@ export default class NodeEdit extends React.Component {
   }
 
   componentDidUpdate(){
-    // once parent is updated do not update child component
     this.state.shouldChildComponentUpdate = false
   }
 }

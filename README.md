@@ -135,6 +135,30 @@ Author: CRUD posts
 
 ## ContentEditable
 
-onChange will hold key and value in the target property.
+in Parent Component add:
 
-shouldComponentUpdate important for real time edits
+```
+constructor(props, context) {
+  super(props, context);
+
+  this.state = {
+    shouldChildComponentUpdate: false,
+    showModal: false
+  };
+};
+
+componentWillReceiveProps(nextProps){
+  // when parent has received new props also update child component
+  this.setState({
+    shouldChildComponentUpdate: nextProps.nodeId != this.props.nodeId
+  });
+}
+
+componentDidUpdate(){
+  // once parent is updated do not update child component
+  this.state.shouldChildComponentUpdate = false
+}
+```
+
+Then pass the shouldChildComponentUpdate state to the ContentEditable component.
+This will make sure, that the component only updates when the data context changes.
