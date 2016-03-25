@@ -6,19 +6,19 @@ import {App, MainPage} from '../core/components/index.jsx';
 export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);
 
-  FlowRouter.route('/nodes', {
-    name: 'nodes.list', action() {
+  FlowRouter.route('/posts', {
+    name: 'posts.list', action() {
       mount(AppLayout, {
         content: () => (<MainPage />)
       });
     }
   });
 
-  FlowRouter.route('/nodes/:nodeId/edit', {
-    name: 'nodes.single',
-    action({nodeId}) {
+  FlowRouter.route('/posts/:postId/edit', {
+    name: 'posts.single',
+    action({postId}) {
       mount(AppLayout, {
-        content: () => (<MainPage nodeId={nodeId}/>)
+        content: () => (<MainPage postId={postId}/>)
       });
     }
   });

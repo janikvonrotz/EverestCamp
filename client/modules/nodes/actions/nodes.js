@@ -6,8 +6,9 @@ export default {
     Meteor.call('nodes.insert', node, (err, res) => {
       if (err) {
         notify.show(err.message, 'error');
+      } else {
+        FlowRouter.go('/nodes/' + res + '/edit');
       }
-      FlowRouter.go(`/nodes/${res}/edit`);
     });
   },
 
@@ -32,7 +33,7 @@ export default {
       if (err) {
         notify.show(err.message, 'error');
       }else{
-        FlowRouter.go(`/nodes/`);
+        FlowRouter.go('/nodes/');
       }
     });
   }

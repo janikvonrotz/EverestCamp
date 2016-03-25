@@ -1,8 +1,8 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import App from './components/App.jsx';
-import PostList from '../posts/containers/PostList';
+import {App} from './components/index.jsx';
+import {PostList} from '../posts/containers';
 
 export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);

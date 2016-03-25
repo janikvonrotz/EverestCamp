@@ -3,13 +3,12 @@ import React from 'react';
 import {
   GridColumn,
   Input,
-  // FormControl,
   FormGroup
 } from '../../bootstrap/components/index.jsx';
-// import { TreeView } from '../containers/index.js'
-import { TreeView, NodeInsert, NodeEdit } from '../containers/index.js'
+import { TreeView, NodeInsert, NodeEdit } from '../../nodes/containers';
+import { PostInsert } from '../../posts/containers';
 
-class NodeList extends React.Component {
+export default class MainPage extends React.Component {
 
   constructor(props) {
     super(props);
@@ -21,6 +20,7 @@ class NodeList extends React.Component {
       <GridColumn>
         <p>This is where the items will be.</p>
         <NodeInsert nodeId={this.props.nodeId} />
+        <PostInsert nodeId={this.props.nodeId} />
         <FormGroup>
           <Input
           style="input"
@@ -42,5 +42,3 @@ class NodeList extends React.Component {
     });
   }
 }
-
-export default NodeList;
