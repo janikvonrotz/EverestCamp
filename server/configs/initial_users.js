@@ -4,7 +4,10 @@ export default () => {
   if (Meteor.users.find().count() === 0 ) {
     Accounts.createUser({
       email: 'admin@admin.com',
-      password: 'password'
+      password: 'password',
+      profile: {
+        name:  { first: 'Admin', last: 'McAdmin' }
+      }
     });
   }
 };

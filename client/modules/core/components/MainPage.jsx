@@ -3,6 +3,7 @@ import React from 'react';
 import {
   GridColumn,
   Input,
+  ButtonGroup,
   FormGroup
 } from '../../bootstrap/components/index.jsx';
 import { TreeView, NodeInsert, NodeEdit } from '../../nodes/containers';
@@ -18,9 +19,11 @@ export default class MainPage extends React.Component {
   render(){
     return(
       <GridColumn>
-        <p>This is where the items will be.</p>
-        <NodeInsert nodeId={this.props.nodeId} />
-        <PostInsert nodeId={this.props.nodeId} />
+        <ButtonGroup>
+          <NodeInsert nodeId={this.props.nodeId} />
+          <PostInsert nodeId={this.props.nodeId} />
+        </ButtonGroup>
+        <p></p>
         <FormGroup>
           <Input
           style="input"

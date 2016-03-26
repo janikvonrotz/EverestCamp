@@ -1,7 +1,8 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 
-import {App, MainPage} from '../core/components/index.jsx';
+import App from '../core/components/App.jsx';
+import {MainPage} from '../core/containers/index.js';
 
 export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);

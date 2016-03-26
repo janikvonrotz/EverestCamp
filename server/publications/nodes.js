@@ -7,9 +7,13 @@ export default function () {
     return nodes_list(selector, options);
   });
 
-  Meteor.publish( 'nodes.search', function(filterText){
+  Meteor.publish( 'nodes.search', function (filterText){
     return nodes_search(filterText);
   });
+
+  // Meteor.publish('nodes.item', function (selector, options) {
+  //   return nodes_item(selector, options);
+  // });
 
   Meteor.publish('nodes.single', function (nodeId) {
     return nodes_single(nodeId);

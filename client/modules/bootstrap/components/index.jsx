@@ -15,6 +15,7 @@ import NavbarNav from './NavbarNav.jsx';
 import FormGroup from './FormGroup.jsx';
 import FormControl from './FormControl.jsx';
 import ContentEditable from './ContentEditable.jsx';
+import ButtonGroup from './ButtonGroup.jsx';
 
 export {
   NavbarNav,
@@ -22,6 +23,7 @@ export {
   Button,
   DropdownMenu,
   ContentEditable,
+  ButtonGroup,
   ListGroup,
   Form,
   Label,

@@ -1,16 +1,21 @@
-import {Posts} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
-import {check} from 'meteor/check';
+import { posts_list, posts_search, posts_single } from '/lib/posts_publications';
 
 export default function () {
-  Meteor.publish('posts.list', function () {
-    const selector = {};
-    const options = {
-      fields: {_id: 1, title: 1},
-      sort: {createdAt: -1},
-      limit: 10
-    };
 
-    return Posts.find(selector, options);
+  Meteor.publish('posts.list', function (selector, options) {
+    return posts_list(selector, options);
+  });
+
+  Meteor.publish( 'posts.search', function (filterText){
+    return posts_search(filterText);
+  });
+
+  // Meteor.publish('posts.item', function (selector, options) {
+  //   return posts_item(selector, options);
+  // });
+
+  Meteor.publish('posts.single', function (nodeId) {
+    return posts_single(nodeId);
   });
 }

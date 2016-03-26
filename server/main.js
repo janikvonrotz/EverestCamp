@@ -1,11 +1,11 @@
 import publications from './publications';
 import methods from './methods';
-import addInitialData from './configs/initial_adds.js';
+// import addInitialData from './configs/initial_adds.js';
 import addInitialUsers from './configs/initial_users.js';
 import loadConfigUsers from './configs/config_users.js';
 
 publications();
 methods();
-addInitialData();
+// addInitialData();
 addInitialUsers();
 loadConfigUsers();
