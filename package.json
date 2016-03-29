@@ -25,9 +25,11 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "domready": "^1.0.8",
+    "draft-js": "^0.3.0",
     "mantra-core": "^1.2.0",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
+    "marked": "^0.3.5",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
     "react-mounter": "^1.0.0",
     "react-notify-toast": "^0.1.1"
   },

@@ -7,13 +7,26 @@ import {
   FormGroup
 } from '../../bootstrap/components/index.jsx';
 import { TreeView, NodeInsert, NodeEdit } from '../../nodes/containers';
-import { PostInsert } from '../../posts/containers';
+import { PostInsert, PostEdit } from '../../posts/containers';
 
 export default class MainPage extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {filterText: ''};
+  }
+
+  renderItemView(){
+    console.log(this.props);
+    if(!this.props.postId){
+      return (
+        <NodeEdit nodeId={this.props.nodeId} />
+      );
+    } else {
+      return (
+        <PostEdit postId={this.props.postId} />
+      );
+    }
   }
 
   render(){
@@ -34,7 +47,7 @@ export default class MainPage extends React.Component {
           defaultValue="" />
         </FormGroup>
         <TreeView activeNodeId={this.props.nodeId} filterText={this.state.filterText} />
-        <NodeEdit nodeId={this.props.nodeId} />
+        { this.renderItemView() }
       </GridColumn>
     );
   }

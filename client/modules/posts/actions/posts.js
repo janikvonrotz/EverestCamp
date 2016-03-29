@@ -4,30 +4,11 @@ export default {
 
   insert({Meteor, FlowRouter}, nodeId) {
     post = {};
-    Meteor.call( 'posts.insert', post, ( err, res ) => {
+    Meteor.call( 'posts.insert', post, nodeId, ( err, res ) => {
       if ( err ) {
         notify.show(err.message, 'error');
       } else {
-        var postId = res;
-        var node = {
-          label: "Untitled Post",
-          parent: nodeId,
-          ref_id: res,
-          type: "post"
-        }
-        console.log(node);
-        Meteor.call('nodes.insert', node, (err, res) => {
-          if (err) {
-            notify.show(err.message, 'error');
-            Meteor.call('posts.remove', {_id: postId}, (err, res) => {
-              if (err) {
-                notify.show(err.message, 'error');
-              }
-            });
-          } else {
-            FlowRouter.go('/posts/' + postId + '/edit');
-          }
-        });
+        FlowRouter.go('/posts/' + res + '/edit');
       }
     });
   },
@@ -40,12 +21,12 @@ export default {
     });
   },
 
-  remove({Meteor, FlowRouter}, node) {
-    Meteor.call('posts.remove', node, (err) => {
+  remove({Meteor, FlowRouter}, post) {
+    Meteor.call('posts.remove', post, (err) => {
       if (err) {
         notify.show(err.message, 'error');
       }else{
-        FlowRouter.go(`/posts/`);
+        FlowRouter.go('/posts/');
       }
     });
   }

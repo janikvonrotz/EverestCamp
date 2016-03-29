@@ -6,6 +6,7 @@ import Alert from './Alert.jsx';
 import DropdownMenu from './DropdownMenu.jsx';
 import Button from './Button.jsx';
 import Form from './Form.jsx';
+import FullscreenViewer from './FullscreenViewer.jsx';
 import Input from './Input.jsx';
 import Label from './Label.jsx';
 import Modal from './Modal.jsx';
@@ -22,6 +23,7 @@ export {
   Alert,
   Button,
   DropdownMenu,
+  FullscreenViewer,
   ContentEditable,
   ButtonGroup,
   ListGroup,

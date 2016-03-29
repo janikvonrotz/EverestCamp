@@ -1,0 +1,9 @@
+.markdown-editor .markdown {
+  min-height: 400px;
+  padding: 20px;
+
+  background-color: black;
+  color: lightgrey;
+  font-size: 14px;
+  font-family: 'Monaco', courier, monospace;
+}

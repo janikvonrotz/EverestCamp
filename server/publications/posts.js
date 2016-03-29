@@ -11,10 +11,6 @@ export default function () {
     return posts_search(filterText);
   });
 
-  // Meteor.publish('posts.item', function (selector, options) {
-  //   return posts_item(selector, options);
-  // });
-
   Meteor.publish('posts.single', function (nodeId) {
     return posts_single(nodeId);
   });
