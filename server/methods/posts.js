@@ -41,7 +41,7 @@ export default function () {
     'posts.remove'( post ){
       check( post, Object );
 
-      var node = Nodes.find({ref_id: post._id});
+      var node = Nodes.findOne({ref_id: post._id});
       if(node){
         Meteor.call('nodes.remove', node);
       }

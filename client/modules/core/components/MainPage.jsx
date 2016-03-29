@@ -17,7 +17,6 @@ export default class MainPage extends React.Component {
   }
 
   renderItemView(){
-    console.log(this.props);
     if(!this.props.postId){
       return (
         <NodeEdit nodeId={this.props.nodeId} />

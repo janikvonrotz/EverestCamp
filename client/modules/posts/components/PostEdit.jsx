@@ -36,7 +36,6 @@ export default class NodeEdit extends React.Component {
   }
 
   render(){
-    console.log(this.props);
     if ( !this.props.post ) { return <GridColumn />; }
     return(
       <GridRow>
