@@ -52,7 +52,13 @@ export default class NodeEdit extends React.Component {
           />
         </GridColumn>
         <GridColumn className="col-sm-12">
-          <FullscreenViewer><MarkdownEditor /></FullscreenViewer>
+          <FullscreenViewer>
+            <MarkdownEditor
+              name="content"
+              text={this.props.post.content}
+              onChange={this.update.bind(this)}
+              />
+           </FullscreenViewer>
         </GridColumn>
         <GridColumn className="col-sm-12">
           <p><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></p>
