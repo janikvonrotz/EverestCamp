@@ -7,27 +7,10 @@ import {validate} from '/lib/posts_publications';
 export default function () {
   Meteor.methods({
 
-    'posts.insert'( post, nodeId ) {
+    'posts.insert'( post ) {
       check( post, Object );
-      check( nodeId, String);
       validate( post );
-
-      var postId = Posts.insert( post );
-      var node = {
-        label: "Untitled Post",
-        parent: nodeId,
-        ref_id: postId,
-        type: "post"
-      }
-
-      Meteor.call('nodes.insert', node, (err) => {
-        if (err) {
-          Meteor.call('posts.remove', {_id: postId});
-          throw new Meteor.Error(err.reason, err.message);
-        }
-      });
-
-      return postId;
+      return Posts.insert( post );
     },
 
     'posts.update'( post ) {

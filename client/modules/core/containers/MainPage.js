@@ -8,7 +8,7 @@ export const composer = ({context, nodeId, postId}, onData) => {
     var selector = {ref_id: postId};
     if(Meteor.subscribe('nodes.list', selector).ready()){
       var node = nodes_list(selector).fetch();
-      if(node){
+      if(node[0]){
         nodeId = node[0]._id;
         onData(null, {nodeId});
       }else{

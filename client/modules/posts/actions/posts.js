@@ -3,12 +3,33 @@ import {notify} from 'react-notify-toast';
 export default {
 
   insert({Meteor, FlowRouter}, nodeId) {
-    post = {};
-    Meteor.call( 'posts.insert', post, nodeId, ( err, res ) => {
+
+    Meteor.call( 'posts.insert', {}, ( err, res ) => {
       if ( err ) {
         notify.show(err.message, 'error');
       } else {
-        FlowRouter.go('/posts/' + res + '/edit');
+
+        var postId = res;
+        var node = {
+          label: "Untitled Post",
+          parent: nodeId,
+          ref_id: postId,
+          type: "post"
+        }
+
+        Meteor.call('nodes.insert', node, (err) => {
+          if (err) {
+            notify.show(err.message, 'error');
+
+            Meteor.call('posts.remove', {_id: postId}, (err) => {
+              if (err) {
+                notify.show(err.message, 'error');
+              }
+            });
+          }else{
+            FlowRouter.go('/posts/' + postId + '/edit');
+          }
+        });
       }
     });
   },
