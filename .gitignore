@@ -1,4 +1,4 @@
 .meteor/local
 .meteor/meteorite
 node_modules
-.uploads
+settings-dev.json
