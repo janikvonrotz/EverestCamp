@@ -22,7 +22,6 @@ export default function () {
     },
 
     'nodes.update_parent'(nodeId, parentId) {
-      // console.log(nodeId + " -> " + parentId);
       check( nodeId, String );
       check( parentId, String);
       var node = Nodes.findOne(nodeId)

@@ -19,6 +19,12 @@ export default function () {
       var postId = post._id
       delete post._id
       Posts.upsert( postId, { $set: post } );
+
+      var node = Nodes.findOne({ref_id: postId});
+      node.label = post.title;
+      var nodeId = node._id;
+      delete node._id;
+      Nodes.upsert( nodeId, { $set: node } );
     },
 
     'posts.remove'( post ){

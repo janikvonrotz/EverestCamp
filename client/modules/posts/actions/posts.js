@@ -34,8 +34,8 @@ export default {
     });
   },
 
-  update({Meteor, FlowRouter}, node) {
-    Meteor.call('posts.update', node, (err) => {
+  update({Meteor, FlowRouter}, post) {
+    Meteor.call('posts.update', post, (err) => {
       if (err) {
         notify.show(err.message, 'error');
       }
