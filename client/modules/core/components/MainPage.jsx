@@ -28,6 +28,12 @@ export default class MainPage extends React.Component {
     }
   }
 
+  filterList(event){
+    this.setState({
+      filterText: event.target.value
+    });
+  }
+
   render(){
     return(
       <GridColumn>
@@ -49,11 +55,5 @@ export default class MainPage extends React.Component {
         { this.renderItemView() }
       </GridColumn>
     );
-  }
-
-  filterList(event){
-    this.setState({
-      filterText: event.target.value
-    });
   }
 }

@@ -6,6 +6,7 @@ import coreModule from './modules/core';
 import nodesModule from './modules/nodes';
 import postsModule from './modules/posts';
 import usersModule from './modules/users';
+import filesModule from './modules/files';
 
 // init context
 const context = initContext();
@@ -16,4 +17,5 @@ app.loadModule(coreModule);
 app.loadModule(nodesModule);
 app.loadModule(postsModule);
 app.loadModule(usersModule);
+app.loadModule(filesModule);
 app.init();

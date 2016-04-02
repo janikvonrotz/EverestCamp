@@ -2,7 +2,7 @@ import React from 'react';
 import {mount} from 'react-mounter';
 
 import App from '../core/components/App.jsx';
-import {FileList, FileEdit} from './containers/index.js';
+import {FilePage, FileEdit} from './containers/index.js';
 
 export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);
@@ -10,7 +10,7 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/files', {
     name: 'files.list', action() {
       mount(AppLayout, {
-        content: () => (<FileList />)
+        content: () => (<FilePage />)
       });
     }
   });

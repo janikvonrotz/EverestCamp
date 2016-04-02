@@ -11,6 +11,7 @@ import Input from './Input.jsx';
 import Label from './Label.jsx';
 import Modal from './Modal.jsx';
 import ListGroup from './ListGroup.jsx';
+import FileUpload from './FileUpload.jsx';
 import Navbar from './Navbar.jsx';
 import NavbarNav from './NavbarNav.jsx';
 import FormGroup from './FormGroup.jsx';
@@ -23,6 +24,7 @@ export {
   Alert,
   Button,
   DropdownMenu,
+  FileUpload,
   FullscreenViewer,
   ContentEditable,
   ButtonGroup,

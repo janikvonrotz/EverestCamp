@@ -1,0 +1,8 @@
+{
+  "public": {
+    "uploadFolderPath": "C:/OneDrive/Shared/GitHub/EverestCamp/.uploads"
+  },
+  "private": {
+    "MAIL_URL": "smtp://localhost:1025"
+  }
+}
