@@ -1,11 +1,21 @@
 import PostList from '../components/PostList.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
-export const composer = ({context}, onData) => {
+import { posts_search, posts_list } from '/lib/posts_publications.js';
+
+export const composer = ({context, filterText}, onData) => {
   const {Meteor, Collections} = context();
-  if (Meteor.subscribe('posts.list').ready()) {
-    const posts = Collections.Posts.find().fetch();
-    onData(null, {posts});
+
+  if(filterText){
+    if(Meteor.subscribe('posts.search', filterText).ready()) {
+      const posts = posts_search(filterText).fetch();
+      onData(null, {posts});
+    }
+  }else{
+    if(Meteor.subscribe('posts.list').ready()) {
+      const posts = posts_list().fetch();
+      onData(null, {posts});
+    }
   }
 };
 

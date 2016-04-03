@@ -5,6 +5,7 @@ import { posts_single } from '/lib/posts_publications.js';
 
 export const composer = ({context, postId}, onData) => {
   const {Meteor, Collections} = context();
+  console.log("compose post-edit");
   if (Meteor.subscribe('posts.single', postId).ready()) {
     const post = posts_single(postId).fetch()[0];
     onData(null, {post});

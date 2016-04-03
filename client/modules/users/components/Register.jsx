@@ -15,7 +15,7 @@ import {
 export default class Register extends React.Component {
   render() {
     return(
-      <GridRow>
+      <GridRow className="recover">
       <GridColumn className="col-md-6 col-md-offset-3">
         <PageHeader tag="h1">Register</PageHeader>
         <Form onSubmit={this.register.bind(this)}>

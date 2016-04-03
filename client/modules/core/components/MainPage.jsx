@@ -1,13 +1,14 @@
 import React from 'react';
 
 import {
+  GridRow,
   GridColumn,
   Input,
   ButtonGroup,
   FormGroup
 } from '../../bootstrap/components/index.jsx';
 import { TreeView, NodeInsert, NodeEdit } from '../../nodes/containers';
-import { PostInsert, PostEdit } from '../../posts/containers';
+import { PostInsert, PostEdit, PostSearch } from '../../posts/containers';
 
 export default class MainPage extends React.Component {
 
@@ -17,13 +18,17 @@ export default class MainPage extends React.Component {
   }
 
   renderItemView(){
-    if(!this.props.postId){
+    if(this.props.nodeId && !this.props.postId){
       return (
         <NodeEdit nodeId={this.props.nodeId} />
       );
-    } else {
+    } else if(this.props.postId) {
       return (
         <PostEdit postId={this.props.postId} />
+      );
+    } else {
+      return (
+        <PostSearch />
       );
     }
   }
@@ -36,7 +41,8 @@ export default class MainPage extends React.Component {
 
   render(){
     return(
-      <GridColumn>
+      <GridRow className="main-page">
+      <GridColumn className="col-md-4">
         <ButtonGroup>
           <NodeInsert nodeId={this.props.nodeId} />
           <PostInsert nodeId={this.props.nodeId} />
@@ -52,8 +58,11 @@ export default class MainPage extends React.Component {
           defaultValue="" />
         </FormGroup>
         <TreeView activeNodeId={this.props.nodeId} filterText={this.state.filterText} />
+        </GridColumn>
+        <GridColumn className="col-md-8">
         { this.renderItemView() }
-      </GridColumn>
+        </GridColumn>
+      </GridRow>
     );
   }
 }

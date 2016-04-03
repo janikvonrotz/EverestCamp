@@ -16,7 +16,7 @@ import {
 export default class Login extends React.Component {
   render() {
     return(
-      <GridRow>
+      <GridRow className="login">
       <GridColumn className="col-md-6 col-md-offset-3">
         <PageHeader tag="h1">Login</PageHeader>
         <Alert style="info">

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Editor, EditorState, ContentState} from 'draft-js';
+import {Editor, EditorState, ContentState, Modifier} from 'draft-js';
 import marked from '../configs/marked';
 
 import { GridRow, GridColumn } from '../../bootstrap/components/index.jsx';
@@ -36,7 +36,9 @@ export default class MarkdownEditor extends React.Component {
   }
 
   handlePastedFiles(files){
-    console.log(files);
+    _.each(files, (file) => {
+      console.log(file);
+    });
   }
 
   handleDroppedFiles(selection, files){

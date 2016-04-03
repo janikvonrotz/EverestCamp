@@ -37,7 +37,7 @@ export default class NodeEdit extends React.Component {
   render(){
     if ( !this.props.node ) { return <GridColumn />; }
     return(
-      <GridRow>
+      <GridRow className="node-edit">
         <GridColumn className="col-sm-12">
           <ContentEditable
             name="label"

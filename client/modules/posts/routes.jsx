@@ -16,7 +16,7 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/posts/:postId/edit', {
-    name: 'posts.single',
+    name: 'posts.edit',
     action({postId}) {
       mount(AppLayout, {
         content: () => (<MainPage postId={postId}/>)

@@ -16,7 +16,7 @@ import {
 export default class ResetPassword extends React.Component {
   render() {
     return(
-      <GridRow>
+      <GridRow className="reset-password">
       <GridColumn className="col-md-6 col-md-offset-3">
         <PageHeader tag="h1">Reset Password</PageHeader>
         <Alert style="info">

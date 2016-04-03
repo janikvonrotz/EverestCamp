@@ -5,8 +5,8 @@ import { MarkdownEditor } from '../../files/components/index.jsx';
 
 export default class NodeEdit extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       shouldChildComponentUpdate: false,
@@ -37,8 +37,9 @@ export default class NodeEdit extends React.Component {
 
   render(){
     if ( !this.props.post ) { return <GridColumn />; }
+    console.log(this.state.shouldChildComponentUpdate);
     return(
-      <GridRow>
+      <GridRow className="post-edit">
         <GridColumn className="col-sm-12">
           <ContentEditable
             name="title"

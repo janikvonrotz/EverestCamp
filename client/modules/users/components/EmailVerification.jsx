@@ -16,7 +16,7 @@ export default class EmailVerification extends React.Component {
 
   render() {
     return(
-      <GridRow>
+      <GridRow className="email-verification">
       <GridColumn className="col-md-6 col-md-offset-3">
         <PageHeader tag="h1">Email Verification</PageHeader>
         {this.renderVerification()}

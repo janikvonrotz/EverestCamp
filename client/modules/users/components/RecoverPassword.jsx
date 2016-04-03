@@ -16,7 +16,7 @@ import {
 export default class RecoverPassword extends React.Component {
   render() {
     return(
-      <GridRow>
+      <GridRow className="recover-password">
       <GridColumn className="col-md-6 col-md-offset-3">
         <PageHeader tag="h1">Recover Password</PageHeader>
         <Alert style="info">
