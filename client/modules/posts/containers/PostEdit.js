@@ -7,11 +7,7 @@ export const composer = ({context, postId}, onData) => {
   const {Meteor, Collections} = context();
   if (Meteor.subscribe('posts.single', postId).ready()) {
     const post = posts_single(postId).fetch()[0];
-    if (post) {
-      onData(null, {post});
-    } else {
-      onData();
-    }
+    onData(null, {post});
   }
 };
 

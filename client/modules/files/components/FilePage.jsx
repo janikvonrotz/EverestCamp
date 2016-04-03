@@ -46,12 +46,14 @@ export default class FilePage extends React.Component {
                 type="text"
                 name="search"
                 label="Search"
-                onChange={this.updateQuery} />
+                onChange={this.filterList.bind(this)} />
             </FormGroup>
           </Form>
         </GridColumn>
-        <FileList selectable={this.props.selectable} filterText={this.state.filterText} />
-        <Button style="default" onClick={this.loadMore.bind(this)}>Load more</Button>
+        <FileList selectable={this.props.selectable} filterText={this.state.filterText} limit={this.state.limit} />
+        <GridColumn className="col-md-12">
+          <Button style="default" onClick={this.loadMore.bind(this)}>Load more</Button>
+        </GridColumn>
       </GridRow>
     );
   }

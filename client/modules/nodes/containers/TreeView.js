@@ -12,7 +12,7 @@ export const composer = ({context, activeNodeId, filterText}, onData) => {
       }
       return { _id: node._id, type: node.type, href: href, label: node.label, parent: node.parent };
     });
-    onData(null, {nodes, activeNodeId});
+    onData(null, {nodes});
   }
 };
 

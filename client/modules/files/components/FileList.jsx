@@ -9,7 +9,7 @@ export default class FileList extends React.Component {
       // add class to selected image
       var el = document.getElementsByClassName("img-thumbnail");
       if(el.length > 0){el[0].classList.remove("img-thumbnail")}
-      e.target.classList.add("img-thumbnail");
+      event.target.classList.add("img-thumbnail");
     }
   }
 
@@ -28,7 +28,7 @@ export default class FileList extends React.Component {
       return (
         <GridColumn className="col-md-12">
           {this.props.files.map((file) => {
-            return this.renderThumbnail.bind(this, file);
+            return this.renderThumbnail(file);
           })}
         </GridColumn>
       );
@@ -44,7 +44,7 @@ export default class FileList extends React.Component {
   render() {
     return (
       <GridRow className="file-list">
-        {this.renderGallery.bind(this)}
+        {this.renderGallery()}
       </GridRow>
     );
   }
