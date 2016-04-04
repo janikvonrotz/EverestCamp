@@ -17,7 +17,17 @@ export default class MarkdownEditor extends React.Component {
   }
 
   upload(file, selection){
-    handlePastedFiles
+    console.log(file);
+    console.log(selection);
+
+    var contentState = this.state.editorState.getCurrentContent();
+    var selectionState = this.state.editorState.getSelection();
+
+    Modifier.insertText({
+      contentState: contentState,
+      targetRange: selection || selectionState,
+      text: "test"
+    });
   }
 
   update(editorState) {
@@ -37,13 +47,13 @@ export default class MarkdownEditor extends React.Component {
 
   handlePastedFiles(files){
     _.each(files, (file) => {
-      console.log(file);
+      this.upload(file);
     });
   }
 
   handleDroppedFiles(selection, files){
     _.each(files, (file) => {
-      console.log(file);
+      this.upload(file, selection);
     });
   }
 

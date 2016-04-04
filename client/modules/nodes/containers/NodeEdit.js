@@ -10,7 +10,7 @@ export const composer = ({context, nodeId}, onData) => {
   ]};
 
   if (Meteor.subscribe('nodes.list', selector).ready()) {
-    const node = nodes_single( nodeId );
+    const node = nodes_single( nodeId ).fetch()[0];
     const nodes = nodes_list( { parent: nodeId } ).fetch().map( ( node ) => {
       var href=`/nodes/${ node._id }/edit`;
       if(node.type === 'post'){
