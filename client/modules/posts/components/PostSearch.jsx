@@ -31,8 +31,10 @@ export default class PostSearch extends React.Component {
             className="page-header"
             shouldComponentUpdate={ true }
             onChange={ this.filterList.bind(this) } />
-          </GridColumn>
-        <PostList style="search" filterText={this.state.filterText} />
+        </GridColumn>
+        <GridColumn className="col-md-12">
+          <PostList style="search" filterText={this.state.filterText} />
+        </GridColumn>
       </GridRow>
     );
   };

@@ -3,6 +3,7 @@ EverestCamp is a minimal-effort, user-friendly and future-proof knowledge base.
 
 # Todo
 
+* Multiple File paste
 * Insert image dialog
 * replace div with grid row
 * Focus Title field when open post or node -> only if id of post changed
@@ -14,6 +15,7 @@ EverestCamp is a minimal-effort, user-friendly and future-proof knowledge base.
 
 ## Bugs
 
+* find Notification tool that works
 * NodeList selector causes sub twice
 * Register return value is not processed
 * TreeView without subsciber
@@ -129,9 +131,10 @@ More about some custom components.
 
 ## Roles and permissions
 
-Admin: Full Access
-Manager: CRUD nodes and posts
-Author: CRUD posts
+Admin: Full Access on files, nodes, posts, users
+Builder: CRUD nodes, posts, files
+Author: CRUD posts, files
+Public: R public posts
 
 ## ContentEditable
 
