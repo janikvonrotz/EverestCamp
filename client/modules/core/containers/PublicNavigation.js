@@ -9,7 +9,7 @@ export const composer = ({context}, onData) => {
 export const depsMapper = (context) => ({
   items: {
     right: [
-      { uid: 'login', href: '/login', label: 'Log In' }
+      { uid: 'users.login', href: '/login', label: 'Log In' }
     ]
   },
   context: () => context

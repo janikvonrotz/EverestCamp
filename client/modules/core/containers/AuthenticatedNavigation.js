@@ -9,7 +9,8 @@ export const composer = ({context}, onData) => {
 export const depsMapper = (context) => ({
   items: {
     left: [
-      { uid: 'files', href: '/files', label: 'Files' }
+      { uid: 'files.list', href: '/files', label: 'Files' },
+      { uid: 'index', href: '/', label: 'Posts' }
     ],
     right: [
       {

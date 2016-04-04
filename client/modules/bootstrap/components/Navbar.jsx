@@ -14,7 +14,7 @@ export default class Navbar extends React.Component {
             </button>
             <a className="navbar-brand" href={ this.props.brandLink }>{ this.props.brand }</a>
           </div>
-          <div className="collapse navbar-collapse" id={ `navbar-${ this.props.id }` }>
+          <div className="collapse navbar-collapse" id={ 'navbar-' + this.props.id }>
             { this.props.children }
           </div>
         </div>

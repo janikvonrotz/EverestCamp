@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { GridRow, ContentEditable, GridColumn, Button, FormGroup, Modal, FullscreenViewer } from '../../bootstrap/components/index.jsx';
-import { MarkdownEditor } from '../../files/components/index.jsx';
+import { MarkdownEditor } from '../../files/containers';
 
 export default class NodeEdit extends React.Component {
 

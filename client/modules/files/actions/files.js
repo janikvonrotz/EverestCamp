@@ -1,18 +1,34 @@
 import {notify} from 'react-notify-toast';
-import {Files} from '/lib/collections'
+import {Files} from '/lib/collections';
+import slugify from '/lib/slugify';
 
 export default {
 
   upload({Meteor, FlowRouter}, file) {
 
-    var newFile = new FS.File(file);
-    newFile.metadata = {name: newFile.name()};
+    if(!("name" in file)){
+      var extension = file.type.split("/")[1];
+      file = new FS.File(file);
+      file.extension(extension);
+      file.name("clipboard." + extension);
+    }else{
+      file = new FS.File(file);
+    }
+    file.metadata = {name: file.name()};
 
-    Files.insert(newFile, (err, res) => {
+    var response = "empty";
+    file = Files.insert(file, (err, res) => {
         if (err) {
-            notify.show(err.message, 'error');
+          notify.show(err.message, 'error');
         }
     });
+
+    var response = "![Upload failed.](/UploadFailed.png)"
+    if(file){
+      response = '![' + file._id + '](/cfs/files/files/' + file._id + ')'
+    }
+
+    return response;
   },
 
   remove({Meteor, FlowRouter}, file) {
