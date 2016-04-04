@@ -37,7 +37,6 @@ export default class NodeEdit extends React.Component {
 
   render(){
     if ( !this.props.post ) { return <GridColumn />; }
-    console.log(this.state.shouldChildComponentUpdate);
     return(
       <GridRow className="post-edit">
         <GridColumn className="col-sm-12">

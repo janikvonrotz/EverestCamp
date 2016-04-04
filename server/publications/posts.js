@@ -11,7 +11,7 @@ export default function () {
     return posts_search(filterText);
   });
 
-  Meteor.publish('posts.single', function (nodeId) {
-    return posts_single(nodeId);
+  Meteor.publish('posts.single', function (postId) {
+    return posts_single(postId);
   });
 }

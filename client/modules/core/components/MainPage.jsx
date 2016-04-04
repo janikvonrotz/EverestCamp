@@ -22,7 +22,7 @@ export default class MainPage extends React.Component {
       return (
         <NodeEdit nodeId={this.props.nodeId} />
       );
-    } else if(this.props.postId) {
+    } else if(this.props.postId && this.props.nodeId) {
       return (
         <PostEdit postId={this.props.postId} />
       );
