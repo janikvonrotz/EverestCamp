@@ -1,5 +1,6 @@
 import React from 'react';
 import marked from '../configs/marked';
+import slugify from '/lib/slugify';
 
 import { Alert, GridColumn, GridRow, Modal } from '../../bootstrap/components/index.jsx';
 
@@ -20,8 +21,8 @@ export default class PostList extends React.Component {
     return this.props.posts.map((post) => {
       return (
         <GridColumn key={post._id} className="col-md-12">
-          <h2><a href={'/posts/' + post._id + '/edit'}>{post.title}</a></h2>
-          { marked(post.content) }
+          <h2><a href={'/posts/' + post._id + "/" + slugify(post.title)}>{post.title}</a></h2>
+          <div className="post-content" dangerouslySetInnerHTML={ {__html: marked( post.content )} } />
         </GridColumn>
       );
     });
@@ -36,13 +37,16 @@ export default class PostList extends React.Component {
   }
 
   render() {
-    if(!this.props.posts){ return (<Alert style="warning">No posts found.</Alert>);}
-    return (
-      <GridRow class="post-list">
-        <GridColumn className="col-md-12">
-        { this.renderStyle() }
-        </GridColumn>
-      </GridRow>
-    );
+    if(this.props.posts.length > 0 ){
+      return (
+        <GridRow class="post-list">
+          <GridColumn className="col-md-12">
+          { this.renderStyle() }
+          </GridColumn>
+        </GridRow>
+      );
+    }else{
+      return (<Alert style="warning">No posts found.</Alert>);
+    }
   }
 }

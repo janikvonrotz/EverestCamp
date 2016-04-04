@@ -6,17 +6,18 @@ import { posts_search, posts_list } from '/lib/posts_publications.js';
 export const composer = ({context, filterText}, onData) => {
   const {Meteor, Collections} = context();
 
-  if(filterText){
-    if(Meteor.subscribe('posts.search', filterText).ready()) {
-      const posts = posts_search(filterText).fetch();
-      onData(null, {posts});
-    }
-  }else{
+  // if(filterText){
     if(Meteor.subscribe('posts.list').ready()) {
       const posts = posts_list().fetch();
+      // console.log(posts);
       onData(null, {posts});
     }
-  }
+  // }else{
+  //   if(Meteor.subscribe('posts.list').ready()) {
+  //     const posts = posts_list().fetch();
+  //     onData(null, {posts});
+  //   }
+  // }
 };
 
 export default composeAll(
