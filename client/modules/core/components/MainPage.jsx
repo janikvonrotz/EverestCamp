@@ -43,11 +43,12 @@ export default class MainPage extends React.Component {
     return(
       <GridRow className="main-page">
       <GridColumn className="col-md-4">
+        <FormGroup>
         <ButtonGroup>
           <NodeInsert nodeId={this.props.nodeId} />
           <PostInsert nodeId={this.props.nodeId} />
         </ButtonGroup>
-        <p></p>
+        </FormGroup>
         <FormGroup>
           <Input
           style="input"

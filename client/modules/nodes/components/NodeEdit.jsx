@@ -34,6 +34,17 @@ export default class NodeEdit extends React.Component {
     });
   }
 
+  renderChildLists(){
+    if(this.props.nodes.length > 0){
+      return(
+        <GridColumn className="col-sm-12">
+          <ListGroup linked={ true } items={  _.where(this.props.nodes, {type: 'post'}) } iconClassName="glyphicon glyphicon-file" />
+          <ListGroup linked={ true } items={ _.where(this.props.nodes, {type: 'node'}) } iconClassName="glyphicon glyphicon-folder-close" />
+        </GridColumn>
+      );
+    }
+  }
+
   render(){
     if ( !this.props.node ) { return <GridColumn />; }
     return(
@@ -50,12 +61,7 @@ export default class NodeEdit extends React.Component {
             onChange={ this.update.bind(this) }
           />
         </GridColumn>
-        <GridColumn className="col-sm-12">
-          <ListGroup linked={ true } items={  _.where(this.props.nodes, {type: 'post'}) } iconClassName="glyphicon glyphicon-file" />
-        </GridColumn>
-        <GridColumn className="col-sm-12">
-          <ListGroup linked={ true } items={ _.where(this.props.nodes, {type: 'node'}) } iconClassName="glyphicon glyphicon-folder-close" />
-        </GridColumn>
+        { this.renderChildLists() }
         <GridColumn className="col-sm-12">
           <p><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></p>
           <Modal

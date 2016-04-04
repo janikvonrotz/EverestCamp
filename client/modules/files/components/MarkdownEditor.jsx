@@ -61,7 +61,8 @@ export default class MarkdownEditor extends React.Component {
     const {editorState} = this.state;
     return (
       <GridRow className="markdown-editor">
-        <GridColumn className="markdown col-md-6" onClick={this.focus}>
+        <GridColumn className="col-md-6" onClick={this.focus}>
+          <GridColumn className="markdown">
           <Editor
             editorState={editorState}
             onChange={this.update.bind(this)}
@@ -69,8 +70,11 @@ export default class MarkdownEditor extends React.Component {
             handleDroppedFiles={this.handleDroppedFiles.bind(this)}
             ref="editor" />
           </GridColumn>
-        <GridColumn className="preview col-md-6">
+        </GridColumn>
+        <GridColumn className="col-md-6">
+          <GridColumn className="preview">
           <div dangerouslySetInnerHTML={{__html: this.state.htmlRendered}} />
+          </GridColumn>
         </GridColumn>
       </GridRow>
     );

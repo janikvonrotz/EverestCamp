@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GridRow, ContentEditable, GridColumn, Button, Modal, FullscreenViewer } from '../../bootstrap/components/index.jsx';
+import { GridRow, ContentEditable, GridColumn, Button, FormGroup, Modal, FullscreenViewer } from '../../bootstrap/components/index.jsx';
 import { MarkdownEditor } from '../../files/components/index.jsx';
 
 export default class NodeEdit extends React.Component {
@@ -52,16 +52,19 @@ export default class NodeEdit extends React.Component {
           />
         </GridColumn>
         <GridColumn className="col-sm-12">
+          <FormGroup>
           <FullscreenViewer>
             <MarkdownEditor
               name="content"
               text={this.props.post.content}
-              onChange={this.update.bind(this)}
-              />
+              onChange={this.update.bind(this)} />
            </FullscreenViewer>
+           </FormGroup>
         </GridColumn>
         <GridColumn className="col-sm-12">
-          <p><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></p>
+          <FormGroup>
+          <Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button>
+          </FormGroup>
           <Modal
             showModal={this.state.showModal}
             title="Confirm"

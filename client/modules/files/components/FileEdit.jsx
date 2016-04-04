@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ContentEditable, Button, GridColumn, GridRow, Modal } from '../../bootstrap/components/index.jsx';
+import { ContentEditable, Button, GridColumn, GridRow, FormGroup, Modal } from '../../bootstrap/components/index.jsx';
 
 export default class FileList extends React.Component {
 
@@ -45,8 +45,8 @@ export default class FileList extends React.Component {
             disabled={false}
             shouldComponentUpdate={this.state.shouldChildComponentUpdate}
             onChange={this.update.bind(this)} />
-          <img className="img-responsive" src={this.props.file.url()} />
-          <Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button>
+          <FormGroup><img className="img-responsive" src={this.props.file.url()} /></FormGroup>
+          <FormGroup><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></FormGroup>
           <Modal
             showModal={this.state.showModal}
             title="Confirm"

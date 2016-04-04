@@ -35,7 +35,8 @@ export default class FilePage extends React.Component {
     return (
       <GridRow className="file-page">
         <GridColumn className="col-md-12 clearfix">
-            <Form className="form-inline">
+          <FormGroup>
+          <Form className="form-inline">
             <FormGroup>
               <FileUpload onChange={this.upload.bind(this)}/>
             </FormGroup>
@@ -49,10 +50,11 @@ export default class FilePage extends React.Component {
                 onChange={this.filterList.bind(this)} />
             </FormGroup>
           </Form>
+          </FormGroup>
         </GridColumn>
         <FileList selectable={this.props.selectable} filterText={this.state.filterText} limit={this.state.limit} />
         <GridColumn className="col-md-12">
-          <Button style="default" onClick={this.loadMore.bind(this)}>Load more</Button>
+          <FormGroup><Button style="default" onClick={this.loadMore.bind(this)}>Load more</Button></FormGroup>
         </GridColumn>
       </GridRow>
     );
