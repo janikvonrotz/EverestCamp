@@ -1,44 +1,47 @@
-EverestCamp is a minimal-effort, user-friendly and future-proof knowledge base.
-
+EverestCamp is the most simple knoweldge base tool.
 
 # Todo
 
 * Multiple File paste
 * Insert image dialog
-* replace div with grid row
-* Focus Title field when open post or node -> only if id of post changed
 * Protect Overwriting in Edit mode
-* Replace manual className adding with classnames
 * Add link by drag n drop
-* remove jquery validation (jquery and form validations)
-* Previous and next Button for file-edit
+* Routing Access Control
+* Public checkbox
+* Guest user Fronted
 
 ## Bugs
 
 * find Notification tool that works
-* NodeList selector causes sub twice
 * Register return value is not processed
-* TreeView without subsciber
-* Fix undefined in className
-* Mark active Post in tree
 * Inject image css into markdown parser
-* Copy paste in editor adds div
-* TreeView node list is also filtered
 
 ## Longterm Task
 
-* Rework subsription management > see files modal in post-edit
-* Save cursor position in Editor - http://jsfiddle.net/WeWy7/3/  http://stackoverflow.com/questions/13949059/persisting-the-changes-of-range-objects-after-selection-in-html/13950376#13950376
-* Add Draft.js as Editor - https://facebook.github.io/draft-js/docs/overview.html#content
-* Replace the other bootstrap components
+* Add user management site
+* Support LDAP authentication
+* Support LDAP group membership check
 * Mark Node search results
 * Add Like Button
 * Add Elastic Search
-* Make components dual -> either load data from props or subscription
 * Add REST API - http://meteor-rest.readthedocs.org/en/rtd/rest/
 
 ## Done
 
+* Make components dual -> either load data from props or subscription
+* Add Draft.js as Editor - https://facebook.github.io/draft-js/docs/overview.html#content
+* Replace the other bootstrap components
+* Rework subsription management > see files modal in post-edit
+* Copy paste in editor adds div
+* TreeView node list is also filtered
+* TreeView without subsciber
+* Fix undefined in className
+* Mark active Post in tree
+* NodeList selector causes sub twice
+* remove jquery validation (jquery and form validations)
+* Replace manual className adding with classnames
+* replace div with grid row
+* Focus Title field when open post or node -> only if id of post changed
 * Drag n drop is triggered two times
 * Draggable TreeView - http://webcloud.se/sortable-list-component-react-js/
 * Multi file upload in gallery
@@ -73,6 +76,8 @@ EverestCamp is a minimal-effort, user-friendly and future-proof knowledge base.
 ## Rejected
 
 * Add split view - https://atmospherejs.com/cosmos/browserify#use-in-a-meteor-app  https://github.com/nathancahill/Split.js
+* Save cursor position in Editor - http://jsfiddle.net/WeWy7/3/  http://stackoverflow.com/questions/13949059/persisting-the-changes-of-range-objects-after-selection-in-html/13950376#13950376
+* Previous and next Button for file-edit
 
 # Sources
 
@@ -165,3 +170,17 @@ componentDidUpdate(){
 
 Then pass the shouldChildComponentUpdate state to the ContentEditable component.
 This will make sure, that the component only updates when the data context changes.
+
+# Crazy Bugs
+
+When using subscriptions with parameters make sure to add an else statement.
+
+```
+if(Meteor.subscribe('posts.single', postId).ready()) {
+  console.log("onData post-edit")
+  const post = posts_single(postId).fetch()[0];
+  onData(null, {post});
+}else{
+  onData(null, {});
+}
+```
