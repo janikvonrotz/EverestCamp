@@ -16,6 +16,20 @@ export default class MarkdownEditor extends React.Component {
     this.focus = () => this.refs.editor.focus();
   }
 
+  update(editorState) {
+    var text = editorState.getCurrentContent().getPlainText();
+    this.setState({
+      editorState: editorState,
+      htmlRendered: marked(text)
+    });
+    this.props.onChange({
+      target: {
+          value: text,
+          name: this.props.name
+      }
+    });
+  }
+
   upload(file, selection){
 
     // upload and get markdown formatted url
@@ -29,20 +43,6 @@ export default class MarkdownEditor extends React.Component {
     const cs = Modifier.insertText(contentState, selection, mdUrl)
     const es = EditorState.push(editorState, cs, 'insert-fragment');
     this.setState({editorState: es});
-  }
-
-  update(editorState) {
-    var text = editorState.getCurrentContent().getPlainText();
-    this.setState({
-      editorState: editorState,
-      htmlRendered: marked(text)
-    });
-    this.props.onChange({
-      target: {
-          value: text,
-          name: this.props.name
-      }
-    })
   }
 
   handlePastedFiles(files){
