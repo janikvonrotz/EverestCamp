@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, EditorState, ContentState, Modifier} from 'draft-js';
-import marked from '../configs/marked';
+import {marked, fileRender} from '../configs/marked';
 
 import { GridRow, GridColumn } from '../../bootstrap/components/index.jsx';
 
@@ -10,7 +10,7 @@ export default class MarkdownEditor extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      htmlRendered: marked(this.props.text),
+      htmlRendered: marked(this.props.text, {renderer: fileRender}),
       editorState: EditorState.createWithContent(ContentState.createFromText(this.props.text))
     };
     this.focus = () => this.refs.editor.focus();
@@ -20,7 +20,7 @@ export default class MarkdownEditor extends React.Component {
     var text = editorState.getCurrentContent().getPlainText();
     this.setState({
       editorState: editorState,
-      htmlRendered: marked(text)
+      htmlRendered: marked(text, {renderer: fileRender})
     });
     this.props.onChange({
       target: {
@@ -42,7 +42,7 @@ export default class MarkdownEditor extends React.Component {
     if(!selection){selection = selectionState;}
     const cs = Modifier.insertText(contentState, selection, mdUrl)
     const es = EditorState.push(editorState, cs, 'insert-fragment');
-    this.setState({editorState: es});
+    this.update(es);
   }
 
   handlePastedFiles(files){

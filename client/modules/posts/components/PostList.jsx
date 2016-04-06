@@ -1,5 +1,5 @@
 import React from 'react';
-import marked from '../configs/marked';
+import {marked, postRender} from '../configs/marked';
 import slugify from '/lib/slugify';
 
 import { Alert, GridColumn, GridRow, Modal } from '../../bootstrap/components/index.jsx';
@@ -22,7 +22,7 @@ export default class PostList extends React.Component {
       return (
         <GridColumn key={post._id} className="col-md-12">
           <h2><a href={'/posts/' + post._id + "/" + slugify(post.title)}>{post.title}</a></h2>
-          <div className="post-content" dangerouslySetInnerHTML={ {__html: marked( post.content )} } />
+          <div className="post-content" dangerouslySetInnerHTML={ {__html: marked(post.content, {renderer: postRender})} } />
         </GridColumn>
       );
     });
@@ -37,7 +37,7 @@ export default class PostList extends React.Component {
   }
 
   render() {
-    if(this.props.posts.length > 0 ){
+    if(this.props.posts && this.props.posts.length > 0 ){
       return (
         <GridRow class="post-list">
           <GridColumn className="col-md-12">

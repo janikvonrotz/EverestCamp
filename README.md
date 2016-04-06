@@ -14,7 +14,6 @@ EverestCamp is the most simple knoweldge base tool.
 
 * find Notification tool that works
 * Register return value is not processed
-* Inject image css into markdown parser
 
 ## Longterm Task
 
@@ -28,6 +27,7 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Done
 
+* Inject image css into markdown parser
 * Make components dual -> either load data from props or subscription
 * Add Draft.js as Editor - https://facebook.github.io/draft-js/docs/overview.html#content
 * Replace the other bootstrap components
