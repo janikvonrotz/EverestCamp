@@ -52,8 +52,8 @@ export default {
     });
   },
 
-  read({Meteor, FlowRouter}, routename, redirect) {
-    if(!can_access(routename)){
+  read(routename, redirect) {
+    if(!can_access(routename) && (routename === 'post.edit')){
       redirect('/posts');
     }
   }
