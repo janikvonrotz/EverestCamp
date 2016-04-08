@@ -7,8 +7,9 @@ EverestCamp is the most simple knoweldge base tool.
 * Protect Overwriting in Edit mode
 * Add link by drag n drop
 * Routing Access Control
-* Public checkbox
 * Guest user Fronted
+* Data Acess Control
+* User profile
 
 ## Bugs
 
@@ -27,6 +28,7 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Done
 
+* Public checkbox for post and file
 * Inject image css into markdown parser
 * Make components dual -> either load data from props or subscription
 * Add Draft.js as Editor - https://facebook.github.io/draft-js/docs/overview.html#content

@@ -14,7 +14,10 @@ export default {
     }else{
       file = new FS.File(file);
     }
-    file.metadata = {name: file.name()};
+    file.metadata = {
+      name: file.name(),
+      public: true
+    };
 
     var response = "empty";
     file = Files.insert(file, (err, res) => {

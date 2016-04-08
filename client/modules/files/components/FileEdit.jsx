@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ContentEditable, Button, GridColumn, GridRow, FormGroup, Modal } from '../../bootstrap/components/index.jsx';
+import { ContentEditable, Button, GridColumn, FormControl, GridRow, FormGroup, Modal } from '../../bootstrap/components/index.jsx';
 
 export default class FileList extends React.Component {
 
@@ -14,7 +14,15 @@ export default class FileList extends React.Component {
   };
 
   update(event){
-    this.props.update(this.props.fileId, {'metadata.name': event.target.value});
+    var fields = {};
+
+    if(event.target.type && event.target.type == 'checkbox'){
+      fields[event.target.name] = Boolean(event.target.checked);
+    }else{
+      fields[event.target.name] = event.target.value;
+    }
+
+    this.props.update(this.props.fileId, fields);
   }
 
   remove(){
@@ -37,7 +45,7 @@ export default class FileList extends React.Component {
       <GridRow>
         <GridColumn className="col-md-8 col-md-offset-2">
           <ContentEditable
-            name="name"
+            name="metadata.name"
             focus={true}
             text={ this.props.file.metadata.name }
             tagName="h4"
@@ -45,6 +53,16 @@ export default class FileList extends React.Component {
             disabled={false}
             shouldComponentUpdate={this.state.shouldChildComponentUpdate}
             onChange={this.update.bind(this)} />
+        </GridColumn>
+        <GridColumn className="col-md-8 col-md-offset-2">
+          <FormControl
+            style="checkbox"
+            name="metadata.public"
+            label="Public"
+            defaultValue={this.props.file.metadata.public}
+            onChange={ this.update.bind(this) } />
+        </GridColumn>
+        <GridColumn className="col-md-8 col-md-offset-2">
           <FormGroup><img className="img-responsive" src={this.props.file.url()} /></FormGroup>
           <FormGroup><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></FormGroup>
           <Modal

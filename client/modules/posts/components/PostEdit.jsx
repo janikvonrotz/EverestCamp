@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GridRow, ContentEditable, GridColumn, Button, FormGroup, Modal, FullscreenViewer } from '../../bootstrap/components/index.jsx';
+import { GridRow, ContentEditable, GridColumn, Button, FormControl, FormGroup, Modal, FullscreenViewer } from '../../bootstrap/components/index.jsx';
 import { MarkdownEditor } from '../../files/containers';
 
 export default class NodeEdit extends React.Component {
@@ -16,7 +16,13 @@ export default class NodeEdit extends React.Component {
 
   update(event){
     var post = this.props.post
-    post[event.target.name] = event.target.value;
+
+    if(event.target.type && event.target.type == 'checkbox'){
+      post[event.target.name] = Boolean(event.target.checked);
+    }else{
+      post[event.target.name] = event.target.value;
+    }
+
     this.props.update(post);
   }
 
@@ -48,8 +54,15 @@ export default class NodeEdit extends React.Component {
             className="page-header"
             disabled={false}
             shouldComponentUpdate={this.state.shouldChildComponentUpdate}
-            onChange={ this.update.bind(this) }
-          />
+            onChange={ this.update.bind(this) } />
+        </GridColumn>
+        <GridColumn className="col-sm-12">
+          <FormControl
+            style="checkbox"
+            name="public"
+            label="Public"
+            defaultValue={this.props.post.public}
+            onChange={ this.update.bind(this) } />
         </GridColumn>
         <GridColumn className="col-sm-12">
           <FormGroup>

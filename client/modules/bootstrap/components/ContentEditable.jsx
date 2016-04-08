@@ -30,7 +30,7 @@ export default class ContentEditable extends React.Component {
         className: classNames("content-editable", this.props.className),
         onInput: this.handleChange.bind(this),
         placeholder: this.props.placeholder,
-        contentEditable: !this.props.disabled,
+        contentEditable: "plaintext-only", // !this.props.disabled,
         dangerouslySetInnerHTML: {__html: this.props.text}
       }
     ));
