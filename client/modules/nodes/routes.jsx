@@ -8,7 +8,8 @@ export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);
 
   FlowRouter.route('/nodes', {
-    name: 'nodes.list', action() {
+    name: 'nodes.list',
+    action() {
       mount(AppLayout, {
         content: () => (<MainPage />)
       });

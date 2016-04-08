@@ -93,6 +93,7 @@ export default class NodeEdit extends React.Component {
   }
 
   componentDidUpdate(){
-    this.state.shouldChildComponentUpdate = false
+    this.state.shouldChildComponentUpdate = false;
+    FlowRouter.go('/login');
   }
 }

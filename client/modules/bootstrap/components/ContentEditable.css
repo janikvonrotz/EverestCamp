@@ -2,7 +2,7 @@
   outline: 0px solid transparent;
 }
 
-[contenteditable=true]:empty:before {
+[contenteditable]:empty:before {
   content: attr(placeholder);
   display: block; /* For Firefox */
   color: lightgrey;

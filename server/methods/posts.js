@@ -1,20 +1,22 @@
 import {Posts, Nodes} from '/lib/collections';
 import {Meteor} from 'meteor/meteor';
 import {check} from 'meteor/check';
-
+import {is_allowed} from '/lib/access_control';
 import {validate} from '/lib/posts_publications';
 
 export default function () {
   Meteor.methods({
 
-    'posts.insert'( post ) {
+    'post.insert'( post ) {
       check( post, Object );
+      is_allowed('post.insert');
       validate( post );
       return Posts.insert( post );
     },
 
-    'posts.update'( post ) {
+    'post.update'( post ) {
       check( post, Object );
+      is_allowed('post.update');
       validate( post );
       var postId = post._id
       delete post._id
@@ -27,9 +29,9 @@ export default function () {
       Nodes.upsert( nodeId, { $set: node } );
     },
 
-    'posts.remove'( post ){
+    'post.remove'( post ){
       check( post, Object );
-
+      is_allowed('post.remove');
       var node = Nodes.findOne({ref_id: post._id});
       if(node){
         Meteor.call('nodes.remove', node);

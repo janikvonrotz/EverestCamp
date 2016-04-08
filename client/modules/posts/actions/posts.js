@@ -1,10 +1,10 @@
 import {notify} from 'react-notify-toast';
+import {can_access} from '/lib/access_control';
 
 export default {
 
   insert({Meteor, FlowRouter}, nodeId) {
-
-    Meteor.call( 'posts.insert', {}, ( err, res ) => {
+    Meteor.call( 'post.insert', {}, ( err, res ) => {
       if ( err ) {
         notify.show(err.message, 'error');
       } else {
@@ -21,7 +21,7 @@ export default {
           if (err) {
             notify.show(err.message, 'error');
 
-            Meteor.call('posts.remove', {_id: postId}, (err) => {
+            Meteor.call('post.remove', {_id: postId}, (err) => {
               if (err) {
                 notify.show(err.message, 'error');
               }
@@ -35,7 +35,7 @@ export default {
   },
 
   update({Meteor, FlowRouter}, post) {
-    Meteor.call('posts.update', post, (err) => {
+    Meteor.call('post.update', post, (err) => {
       if (err) {
         notify.show(err.message, 'error');
       }
@@ -43,12 +43,18 @@ export default {
   },
 
   remove({Meteor, FlowRouter}, post) {
-    Meteor.call('posts.remove', post, (err) => {
+    Meteor.call('post.remove', post, (err) => {
       if (err) {
         notify.show(err.message, 'error');
       }else{
         FlowRouter.go('/posts/');
       }
     });
+  },
+
+  read({Meteor, FlowRouter}, routename, redirect) {
+    if(can_access(routename)){
+      redirect('/posts');
+    }
   }
 };

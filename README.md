@@ -2,10 +2,12 @@ EverestCamp is the most simple knoweldge base tool.
 
 # Todo
 
+* Replace form-group with p tag
 * Multiple File paste
 * Insert image dialog
 * Protect Overwriting in Edit mode
 * Add link by drag n drop
+* User role setup
 * Routing Access Control
 * Guest user Fronted
 * Data Acess Control
@@ -143,6 +145,17 @@ Builder: CRUD nodes, posts, files
 Author: CRUD posts, files
 Public: R public posts
 
+## Naming
+
+**Files**
+
+React components: CamelCase
+Everything else: underscore_case
+
+**Functions**
+
+underscore_case
+
 ## ContentEditable
 
 in Parent Component add:
@@ -173,7 +186,7 @@ componentDidUpdate(){
 Then pass the shouldChildComponentUpdate state to the ContentEditable component.
 This will make sure, that the component only updates when the data context changes.
 
-# Crazy Bugs
+## Crazy Bugs
 
 When using subscriptions with parameters make sure to add an else statement.
 
