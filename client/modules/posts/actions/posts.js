@@ -53,7 +53,7 @@ export default {
   },
 
   read({Meteor, FlowRouter}, routename, redirect) {
-    if(can_access(routename)){
+    if(!can_access(routename)){
       redirect('/posts');
     }
   }
