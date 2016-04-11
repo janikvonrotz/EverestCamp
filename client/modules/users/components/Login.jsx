@@ -20,7 +20,7 @@ export default class Login extends React.Component {
       <GridColumn className="col-md-6 col-md-offset-3">
         <PageHeader tag="h1">Login</PageHeader>
         <Alert style="info">
-          To access the demo, you can use the email address <strong>admin@admin.com</strong> and the password <strong>password</strong>.
+          To access the demo, you can use the email address <strong>admin@ec.com</strong> and the password <strong>password</strong>.
         </Alert>
         <Form onSubmit={this.login.bind(this)}>
           <FormGroup>

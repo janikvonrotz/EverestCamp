@@ -9,17 +9,17 @@ export default function () {
 
     'post.insert'( post ) {
       check( post, Object );
-      is_allowed('post.insert');
+      is_allowed('post.insert', Meteor.userId());
       validate( post );
       return Posts.insert( post );
     },
 
     'post.update'( post ) {
       check( post, Object );
-      is_allowed('post.update');
+      is_allowed('post.update', Meteor.userId());
       validate( post );
-      var postId = post._id
-      delete post._id
+      var postId = post._id;
+      delete post._id;
       Posts.upsert( postId, { $set: post } );
 
       var node = Nodes.findOne({ref_id: postId});
@@ -31,7 +31,7 @@ export default function () {
 
     'post.remove'( post ){
       check( post, Object );
-      is_allowed('post.remove');
+      is_allowed('post.remove', Meteor.userId());
       var node = Nodes.findOne({ref_id: post._id});
       if(node){
         Meteor.call('nodes.remove', node);

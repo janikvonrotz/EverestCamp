@@ -1,5 +1,5 @@
 import {notify} from 'react-notify-toast';
-import {can_access} from '/lib/access_control';
+import {cannot_access, redirect_login} from '/lib/access_control';
 
 export default {
 
@@ -53,8 +53,10 @@ export default {
   },
 
   read(routename, redirect) {
-    if(!can_access(routename) && (routename === 'post.edit')){
-      redirect('/posts');
+    if(redirect_login(routename)){
+      redirect('/login');
+    } else if(cannot_access(routename)){
+      redirect('/');
     }
   }
 };

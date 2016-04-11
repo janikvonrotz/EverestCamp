@@ -12,6 +12,8 @@ EverestCamp is the most simple knoweldge base tool.
 * Guest user Fronted
 * Data Acess Control
 * User profile
+* Email Verification redirect
+* Add username
 
 ## Bugs
 
@@ -27,6 +29,7 @@ EverestCamp is the most simple knoweldge base tool.
 * Add Like Button
 * Add Elastic Search
 * Add REST API - http://meteor-rest.readthedocs.org/en/rtd/rest/
+* Create mobile app with Meteor Cordova
 
 ## Done
 
