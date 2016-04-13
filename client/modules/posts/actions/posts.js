@@ -1,5 +1,5 @@
 import {notify} from 'react-notify-toast';
-import {cannot_access, redirect_login} from '/lib/access_control';
+import {cannot_access, redirect_login, redirect_verify} from '/lib/access_control';
 
 export default {
 
@@ -55,6 +55,8 @@ export default {
   read(routename, redirect) {
     if(redirect_login(routename)){
       redirect('/login');
+    } else if(redirect_verify()){
+      redirect('/email-verification');
     } else if(cannot_access(routename)){
       redirect('/');
     }

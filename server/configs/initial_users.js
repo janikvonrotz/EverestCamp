@@ -6,6 +6,8 @@ export default () => {
     var users = [
       {
         email: 'admin@ec.com',
+        username: 'admin',
+        verified: true,
         password: 'password',
         profile: {
           name:  { first: 'Admin', last: 'McAdmin' }
@@ -14,6 +16,8 @@ export default () => {
       },
       {
         email: 'manager@ec.com',
+        username: 'manager',
+        verified: true,
         password: 'password',
         profile: {
           name:  { first: 'Manager', last: 'McManager' }
@@ -22,6 +26,8 @@ export default () => {
       },
       {
         email: 'author@ec.com',
+        username: 'author',
+        verified: true,
         password: 'password',
         profile: {
           name:  { first: 'Author', last: 'McAuthor' }
@@ -32,13 +38,14 @@ export default () => {
 
     _.each(users, (user) => {
 
-      var id = Accounts.createUser({
+      var userId = Accounts.createUser({
         email: user.email,
         password: user.password,
         profile: { name: {first: user.profile.name.first, last: user.profile.name.last }}
       });
 
-      Roles.addUsersToRoles(id, user.role);
+      Roles.addUsersToRoles(userId, user.role);
+      Meteor.users.update(userId, {$set: {"emails.0.verified": true}});
     });
   }
 };

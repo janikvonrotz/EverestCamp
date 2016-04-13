@@ -61,8 +61,7 @@ export default {
   },
 
   send_verification_email({Meteor, LocalState}) {
-    let userId = Meteor.userId;
-    Meteor.call("send_verification_email", userId, ( err ) => {
+    Meteor.call("send_verification_email", ( err ) => {
       if(err){
         notify.show(err.message, 'error');
       }else{

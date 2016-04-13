@@ -4,20 +4,20 @@ import { GridColumn, Button, GridRow, Form, FormGroup, FormControl, FileUpload }
 
 import FileList from '../containers/FileList.js';
 
-export default class FilePage extends React.Component {
+export default class FileSearch extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
       filterText: '',
-      limit: 10
+      limit: 12
     };
   };
 
   loadMore(event){
     this.setState({
-      limit: this.state.limit + 10
+      limit: this.state.limit + 12
     })
   }
 

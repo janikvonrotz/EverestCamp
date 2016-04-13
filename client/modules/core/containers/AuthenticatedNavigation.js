@@ -10,7 +10,8 @@ export const depsMapper = (context) => ({
   items: {
     left: [
       { uid: 'files.list', href: '/files', label: 'Files' },
-      { uid: 'index', href: '/', label: 'Posts' }
+      { uid: 'index', href: '/', label: 'Posts' },
+      { uid: 'user', href: '/users', label: 'Users' }
     ],
     right: [
       {

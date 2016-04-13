@@ -1,7 +1,8 @@
 import {Meteor} from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 
 export default () => {
-  
+
   Accounts.urls.resetPassword = (token) => {
     return Meteor.absoluteUrl('reset-password/' + token);
   };
@@ -14,6 +15,8 @@ export default () => {
 
     // add user profile
     user.profile = {};
+    // add default role
+    user.roles = ["Author"];
 
     // send verification mail
     Meteor.setTimeout(function() {

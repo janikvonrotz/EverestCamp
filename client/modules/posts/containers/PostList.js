@@ -14,8 +14,6 @@ export const composer = ({context, filterText}, onData) => {
     if(Meteor.subscribe('posts.list').ready()) {
       const posts = posts_list().fetch();
       onData(null, {posts});
-    }else{
-      onData(null, {});
     }
   }
 };

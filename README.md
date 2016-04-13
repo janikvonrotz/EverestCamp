@@ -9,11 +9,9 @@ EverestCamp is the most simple knoweldge base tool.
 * Add link by drag n drop
 * User role setup
 * Routing Access Control
-* Guest user Fronted
+* Guest user Fronted - PostPage with
 * Data Acess Control
-* User profile
-* Email Verification redirect
-* Add username
+* Add username and lastname, firstname to form
 
 ## Bugs
 
@@ -22,7 +20,9 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Longterm Task
 
+* User profile - change username, last and firstname, password
 * Add user management site
+
 * Support LDAP authentication
 * Support LDAP group membership check
 * Mark Node search results
@@ -33,6 +33,7 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Done
 
+* Email Verification redirect
 * Public checkbox for post and file
 * Inject image css into markdown parser
 * Make components dual -> either load data from props or subscription
@@ -149,6 +150,8 @@ Author: CRUD posts, files
 Public: R public posts
 
 ## Naming
+
+CamelCase is for visibility and unserscore_case is for readability.
 
 **Files**
 
