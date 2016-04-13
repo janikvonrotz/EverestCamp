@@ -15,9 +15,22 @@ export default function () {
     },
 
     'post.update'( post ) {
+
       check( post, Object );
       is_allowed('post.update', Meteor.userId());
       validate( post );
+
+      // add history if parameter is set
+      if(post.commit_history){
+        post.history.push({
+          date: new Date(),
+          content: post.content,
+          author: Meteor.user().username,
+          userId: Meteor.userId()
+        });
+        delete post.commit_history
+      }
+
       var postId = post._id;
       delete post._id;
       Posts.upsert( postId, { $set: post } );

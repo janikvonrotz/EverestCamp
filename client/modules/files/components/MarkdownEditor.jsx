@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Editor, EditorState, ContentState, Modifier} from 'draft-js';
 import {marked, fileRender} from '../configs/marked';
 
-import { GridRow, GridColumn } from '../../bootstrap/components/index.jsx';
+import { GridRow, GridColumn, Modal } from '../../bootstrap/components/index.jsx';
 
 export default class MarkdownEditor extends React.Component {
 
@@ -11,7 +11,8 @@ export default class MarkdownEditor extends React.Component {
     super(props);
     this.state = {
       htmlRendered: marked(this.props.text, {renderer: fileRender}),
-      editorState: EditorState.createWithContent(ContentState.createFromText(this.props.text))
+      editorState: EditorState.createWithContent(ContentState.createFromText(this.props.text)),
+      showFileModal: false
     };
     this.focus = () => this.refs.editor.focus();
   }
@@ -57,6 +58,10 @@ export default class MarkdownEditor extends React.Component {
     });
   }
 
+  toggleFileModal(event){
+    this.setState({showFileModal: !this.state.showFileModal});
+  }
+
   render() {
     const {editorState} = this.state;
     return (
@@ -76,6 +81,15 @@ export default class MarkdownEditor extends React.Component {
           <div dangerouslySetInnerHTML={{__html: this.state.htmlRendered}} />
           </GridColumn>
         </GridColumn>
+        <Modal
+          showModal={this.state.showFileModal}
+          title="Files"
+          onCancel={this.toggleFileModal.bind(this)}
+          cancelLabel="Cancel"
+          onConfirm={this.update.bind(this)}
+          confirmLabel="Insert">
+          <p>Please choose a file:</p>
+        </Modal>
       </GridRow>
     );
   }

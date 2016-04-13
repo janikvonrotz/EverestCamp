@@ -9,7 +9,7 @@ EverestCamp is the most simple knoweldge base tool.
 * Add link by drag n drop
 * User role setup
 * Routing Access Control
-* Guest user Fronted - PostPage with
+* Guest user Fronted - PostSearch with SingleView with content and last author.
 * Data Acess Control
 * Add username and lastname, firstname to form
 
@@ -20,9 +20,9 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Longterm Task
 
+* History view with textdiff comparison and restore function - http://kpdecker.github.io/jsdiff/
 * User profile - change username, last and firstname, password
 * Add user management site
-
 * Support LDAP authentication
 * Support LDAP group membership check
 * Mark Node search results
@@ -33,6 +33,7 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Done
 
+* Add save button for new version by user - https://github.com/aldeed/meteor-collection2
 * Email Verification redirect
 * Public checkbox for post and file
 * Inject image css into markdown parser

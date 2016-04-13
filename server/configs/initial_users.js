@@ -41,6 +41,7 @@ export default () => {
       var userId = Accounts.createUser({
         email: user.email,
         password: user.password,
+        username: user.username,
         profile: { name: {first: user.profile.name.first, last: user.profile.name.last }}
       });
 

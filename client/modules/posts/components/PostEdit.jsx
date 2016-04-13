@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GridRow, ContentEditable, GridColumn, Button, FormControl, FormGroup, Modal, FullscreenViewer } from '../../bootstrap/components/index.jsx';
+import { GridRow, ContentEditable, GridColumn, Button, FormControl, Modal, FullscreenViewer } from '../../bootstrap/components/index.jsx';
 import { MarkdownEditor } from '../../files/containers';
 
 export default class NodeEdit extends React.Component {
@@ -10,19 +10,20 @@ export default class NodeEdit extends React.Component {
 
     this.state = {
       shouldChildComponentUpdate: false,
-      showModal: false
+      showDeleteModal: false
     };
   };
 
-  update(event){
-    var post = this.props.post
-
-    if(event.target.type && event.target.type == 'checkbox'){
+  update(event, commit_history){
+    var post = this.props.post;
+    if(commit_history){
+      post.commit_history = commit_history;
+    }
+    if(event.target && event.target.type && event.target.type == 'checkbox'){
       post[event.target.name] = Boolean(event.target.checked);
-    }else{
+    }else if(event.target){
       post[event.target.name] = event.target.value;
     }
-
     this.props.update(post);
   }
 
@@ -31,8 +32,8 @@ export default class NodeEdit extends React.Component {
     this.toggleModal();
   }
 
-  toggleModal(event){
-    this.setState({showModal: !this.state.showModal});
+  toggleDeleteModal(event){
+    this.setState({showDeleteModal: !this.state.showDeleteModal});
   }
 
   componentWillReceiveProps(nextProps){
@@ -42,6 +43,7 @@ export default class NodeEdit extends React.Component {
   }
 
   render(){
+    console.log(this.props.post);
     if ( !this.props.post ) { return <GridColumn />; }
     return(
       <GridRow className="post-edit">
@@ -55,38 +57,36 @@ export default class NodeEdit extends React.Component {
             disabled={false}
             shouldComponentUpdate={this.state.shouldChildComponentUpdate}
             onChange={ this.update.bind(this) } />
-        </GridColumn>
-        <GridColumn className="col-sm-12">
+          <p></p>
           <FormControl
             style="checkbox"
             name="public"
             label="Public"
             defaultValue={this.props.post.public}
             onChange={ this.update.bind(this) } />
-        </GridColumn>
-        <GridColumn className="col-sm-12">
-          <FormGroup>
+          <p></p>
           <FullscreenViewer>
             <MarkdownEditor
               name="content"
               text={this.props.post.content}
               onChange={this.update.bind(this)} />
            </FullscreenViewer>
-           </FormGroup>
-        </GridColumn>
-        <GridColumn className="col-sm-12">
-          <FormGroup>
-          <Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button>
-          </FormGroup>
+           <p></p>
+          <p>
+            <Button onClick={this.update.bind(this, true)} style="success">Commit</Button>
+          </p>
+          <p>
+            <Button onClick={this.toggleDeleteModal.bind(this)} style="danger">Delete</Button>
+          </p>
           <Modal
-            showModal={this.state.showModal}
+            showModal={this.state.showDeleteModal}
             title="Confirm"
-            onCancel={this.toggleModal.bind(this)}
+            onCancel={this.toggleDeleteModal.bind(this)}
             cancelLabel="Cancel"
             onConfirm={this.remove.bind(this)}
             confirmLabel="Delete">
             <p>Please confirm the deletion of post: {this.props.post.title}</p>
-            </Modal>
+          </Modal>
         </GridColumn>
       </GridRow>
     );
