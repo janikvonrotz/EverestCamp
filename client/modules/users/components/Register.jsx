@@ -1,16 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import {
-  Button,
-  GridRow,
-  GridColumn,
-  Form,
-  Input,
-  FormGroup,
-  Label,
-  PageHeader
-} from '../../bootstrap/components/index.jsx';
+import {Button, GridRow, GridColumn, Form, Input, FormGroup, Label, PageHeader} from '../../bootstrap/components/index.jsx';
 
 export default class Register extends React.Component {
   render() {

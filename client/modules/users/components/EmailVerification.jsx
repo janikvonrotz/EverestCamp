@@ -1,16 +1,5 @@
 import React from 'react';
-
-import {
-  Alert,
-  GridRow,
-  GridColumn,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  PageHeader
-} from '../../bootstrap/components/index.jsx';
+import {Alert, GridRow, GridColumn, Button, Form, FormGroup, Label, Input, PageHeader} from '../../bootstrap/components/index.jsx';
 
 export default class EmailVerification extends React.Component {
 

@@ -1,4 +1,4 @@
-import PostEdit from '../components/PostEdit.jsx';
+import PostView from '../components/PostView.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context, postId}, onData) => {
@@ -18,4 +18,4 @@ export const depsMapper = (context, actions) => ({
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(PostEdit);
+)(PostView);

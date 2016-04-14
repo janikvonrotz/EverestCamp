@@ -1,7 +1,5 @@
 import React from 'react';
 import {marked, postRender} from '../configs/marked';
-import slugify from '/lib/slugify';
-
 import { Alert, GridColumn, GridRow, Modal } from '../../bootstrap/components/index.jsx';
 
 export default class PostList extends React.Component {
@@ -20,8 +18,8 @@ export default class PostList extends React.Component {
   renderList(){
     return this.props.posts.map((post) => {
       return (
-        <GridColumn key={post._id} className="col-md-12">
-          <h2><a href={'/posts/' + post._id + "/" + slugify(post.title)}>{post.title}</a></h2>
+        <GridColumn key={post._id} className="col-md-8 col-md-offset-2">
+          <h2><a href={'/posts/' + post._id + "/" + post.slug}>{post.title}</a></h2>
           <div className="post-content" dangerouslySetInnerHTML={ {__html: marked(post.content, {renderer: postRender})} } />
         </GridColumn>
       );

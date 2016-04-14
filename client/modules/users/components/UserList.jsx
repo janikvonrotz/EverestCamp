@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Alert, GridColumn, GridRow, Modal } from '../../bootstrap/components/index.jsx';
+import {Alert, GridColumn, GridRow, Modal} from '../../bootstrap/components/index.jsx';
 
 export default class UserList extends React.Component {
 

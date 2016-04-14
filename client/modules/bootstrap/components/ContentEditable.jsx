@@ -9,16 +9,16 @@ export default class ContentEditable extends React.Component {
   }
 
   handleChange(){
-      var text = ReactDOM.findDOMNode(this).innerText ;
-      if (this.props.onChange && text !== this.props.innerText) {
-          this.props.onChange({
-              target: {
-                  value: text,
-                  name: this.props.name
-              }
-          });
-      }
-      this.props.text = text;
+    var text = ReactDOM.findDOMNode(this).innerText ;
+    if (this.props.onChange && text !== this.props.innerText) {
+        this.props.onChange({
+            target: {
+                value: text,
+                name: this.props.name
+            }
+        });
+    }
+    this.props.text = text;
   }
 
   render() {

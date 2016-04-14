@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { ContentEditable, Button, GridColumn, GridRow, Modal } from '../../bootstrap/components/index.jsx';
-
 import { PostList } from '../containers';
 
 export default class PostSearch extends React.Component {

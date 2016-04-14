@@ -1,12 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
-
 import App from '../core/components/App.jsx';
-import Register from './containers/Register';
-import Login from './containers/Login';
-import RecoverPassword from './containers/RecoverPassword';
-import ResetPassword from './containers/ResetPassword';
-import EmailVerification from './containers/EmailVerification';
+import {Register, Login, RecoverPassword, ResetPassword, EmailVerification} from './containers';
 
 export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);

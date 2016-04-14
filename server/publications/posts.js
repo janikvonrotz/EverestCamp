@@ -2,6 +2,8 @@ import {Meteor} from 'meteor/meteor';
 import { posts_list, posts_search, posts_single } from '/lib/posts_publications';
 import {is_allowed} from '/lib/access_control';
 
+import {Posts} from '/lib/collections';
+
 export default function () {
 
   Meteor.publish('posts.list', function (selector, options) {
@@ -24,7 +26,9 @@ export default function () {
     }
   });
 
-  Meteor.publish('posts.single', function (postId) {
-    return posts_single(postId);
+  Meteor.publish('posts.item', function (postId) {
+    check(postId, String);
+    var post = Posts.find({_id: postId});
+    return post;
   });
 }

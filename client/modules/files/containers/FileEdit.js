@@ -1,6 +1,5 @@
 import FileEdit from '../components/FileEdit.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
-
 import {files_single} from '/lib/files_publications';
 
 export const composer = ({context, fileId}, onData) => {

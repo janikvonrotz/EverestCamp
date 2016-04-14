@@ -1,12 +1,5 @@
 import React from 'react';
-
-import {
-  GridRow,
-  GridColumn,
-  Input,
-  ButtonGroup,
-  FormGroup
-} from '../../bootstrap/components/index.jsx';
+import {GridRow, GridColumn, Input, ButtonGroup, FormGroup} from '../../bootstrap/components/index.jsx';
 import { TreeView, NodeInsert, NodeEdit } from '../../nodes/containers';
 import { PostInsert, PostEdit, PostSearch } from '../../posts/containers';
 

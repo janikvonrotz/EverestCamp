@@ -5,7 +5,7 @@ export default class Alert extends React.Component {
   render() {
     return(
       <p className={classNames('alert', 'alert-' + this.props.style, this.props.className)}>
-      { this.props.children }
+        { this.props.children }
       </p>
     );
   }

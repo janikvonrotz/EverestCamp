@@ -1,6 +1,5 @@
 import React from 'react';
 import {mount} from 'react-mounter';
-
 import App from '../core/components/App.jsx';
 import {MainPage} from '../core/containers/index.js';
 

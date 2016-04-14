@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { ContentEditable, Button, GridColumn, FormControl, GridRow, FormGroup, Modal } from '../../bootstrap/components/index.jsx';
 
 export default class FileList extends React.Component {

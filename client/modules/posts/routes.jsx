@@ -1,8 +1,8 @@
 import React from 'react';
 import {mount} from 'react-mounter';
-
 import App from '../core/components/App.jsx';
 import {MainPage} from '../core/containers/index.js';
+import {PostView} from './containers';
 import actions from './actions';
 
 export default function (injectDeps, {FlowRouter}) {
@@ -28,6 +28,18 @@ export default function (injectDeps, {FlowRouter}) {
     action({postId}) {
       mount(AppLayout, {
         content: () => (<MainPage postId={postId}/>)
+      });
+    }
+  });
+
+  FlowRouter.route('/posts/:postId/:slug', {
+    name: 'post.view',
+    triggersEnter: [function(context, redirect) {
+      actions.posts.read('post.view', redirect);
+    }],
+    action({postId, slug}) {
+      mount(AppLayout, {
+        content: () => (<PostView postId={postId} slug={slug} />)
       });
     }
   });

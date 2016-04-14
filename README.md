@@ -2,25 +2,28 @@ EverestCamp is the most simple knoweldge base tool.
 
 # Todo
 
-* Replace form-group with p tag
+* Guest user Fronted - PostSearch with SingleView with content and last author.
 * Multiple File paste
 * Insert image dialog
-* Protect Overwriting in Edit mode
-* Add link by drag n drop
-* User role setup
 * Routing Access Control
-* Guest user Fronted - PostSearch with SingleView with content and last author.
 * Data Acess Control
 * Add username and lastname, firstname to form
+* FlowRouter not found konfigurieren
 
 ## Bugs
 
+* fix slug from post
+* fix author update in post
 * find Notification tool that works
 * Register return value is not processed
+* post single does not work -> fuck
 
 ## Longterm Task
 
-* History view with textdiff comparison and restore function - http://kpdecker.github.io/jsdiff/
+* Protect Overwriting in Edit mode
+* Bootstrap 4 - Replace form-group with p tag
+* Add link by drag n drop
+* History view with textdiff comparison and restore function - http://kpdecker.github.io/jsdiff/ /:id/compare/:date
 * User profile - change username, last and firstname, password
 * Add user management site
 * Support LDAP authentication
@@ -33,6 +36,7 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Done
 
+* User role setup
 * Add save button for new version by user - https://github.com/aldeed/meteor-collection2
 * Email Verification redirect
 * Public checkbox for post and file

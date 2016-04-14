@@ -26,7 +26,8 @@ export default function () {
           date: new Date(),
           content: post.content,
           author: Meteor.user().username,
-          userId: Meteor.userId()
+          userId: Meteor.userId(),
+          title: post.title
         });
         delete post.commit_history
       }

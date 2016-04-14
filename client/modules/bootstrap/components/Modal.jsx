@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-
 import Button from './Button.jsx';
 
 export default class Dialog extends React.Component {

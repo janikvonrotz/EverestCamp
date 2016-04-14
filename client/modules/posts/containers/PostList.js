@@ -1,6 +1,5 @@
 import PostList from '../components/PostList.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
-
 import { posts_search, posts_list } from '/lib/posts_publications.js';
 
 export const composer = ({context, filterText}, onData) => {

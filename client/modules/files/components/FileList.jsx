@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Alert, GridColumn, GridRow } from '../../bootstrap/components/index.jsx';
 
 export default class FileList extends React.Component {

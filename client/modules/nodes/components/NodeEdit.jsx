@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { GridRow, ContentEditable, GridColumn, Button, Modal, ListGroup } from '../../bootstrap/components/index.jsx';
 
 export default class NodeEdit extends React.Component {

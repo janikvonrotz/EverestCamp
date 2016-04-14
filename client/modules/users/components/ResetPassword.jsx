@@ -1,17 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {
-  Alert,
-  Button,
-  GridRow,
-  GridColumn,
-  Form,
-  Input,
-  FormGroup,
-  Label,
-  PageHeader
-} from '../../bootstrap/components/index.jsx';
+import {Alert, Button, GridRow, GridColumn, Form, Input, FormGroup, Label, PageHeader} from '../../bootstrap/components/index.jsx';
 
 export default class ResetPassword extends React.Component {
   render() {

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Button } from '../../bootstrap/components/index.jsx';
 
 export default class PostInsert extends React.Component {

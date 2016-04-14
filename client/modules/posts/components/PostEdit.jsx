@@ -1,6 +1,6 @@
 import React from 'react';
-
-import { GridRow, ContentEditable, GridColumn, Button, FormControl, Modal, FullscreenViewer } from '../../bootstrap/components/index.jsx';
+import moment from 'moment';
+import { Alert, GridRow, ContentEditable, GridColumn, Button, FormControl, Modal, FullscreenViewer, ListGroup } from '../../bootstrap/components/index.jsx';
 import { MarkdownEditor } from '../../files/containers';
 
 export default class NodeEdit extends React.Component {
@@ -42,16 +42,23 @@ export default class NodeEdit extends React.Component {
     });
   }
 
+  renderHistoryList(){
+    var posts = this.props.post.history.map((post) => {
+      return {_id: post.date, label: post.title + " by " + post.author + " on " + moment(post.date).format('MMMM Do YYYY, h:mm:ss a')};
+    });
+    return (<ListGroup items={posts} />);
+  }
+
   render(){
-    console.log(this.props.post);
-    if ( !this.props.post ) { return <GridColumn />; }
+    const post = this.props.post;
+    if(!post){return (<Alert style="warning">Post not found.</Alert>);}
     return(
       <GridRow className="post-edit">
         <GridColumn className="col-sm-12">
           <ContentEditable
             name="title"
             focus={true}
-            text={ this.props.post.title }
+            text={ post.title }
             tagName="h4"
             className="page-header"
             disabled={false}
@@ -62,13 +69,13 @@ export default class NodeEdit extends React.Component {
             style="checkbox"
             name="public"
             label="Public"
-            defaultValue={this.props.post.public}
+            defaultValue={post.public}
             onChange={ this.update.bind(this) } />
           <p></p>
           <FullscreenViewer>
             <MarkdownEditor
               name="content"
-              text={this.props.post.content}
+              text={post.content}
               onChange={this.update.bind(this)} />
            </FullscreenViewer>
            <p></p>
@@ -85,8 +92,10 @@ export default class NodeEdit extends React.Component {
             cancelLabel="Cancel"
             onConfirm={this.remove.bind(this)}
             confirmLabel="Delete">
-            <p>Please confirm the deletion of post: {this.props.post.title}</p>
+            <p>Please confirm the deletion of post: {post.title}</p>
           </Modal>
+          <h4>History</h4>
+          {this.renderHistoryList()}
         </GridColumn>
       </GridRow>
     );

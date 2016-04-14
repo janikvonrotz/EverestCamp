@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, EditorState, ContentState, Modifier} from 'draft-js';
 import {marked, fileRender} from '../configs/marked';
-
 import { GridRow, GridColumn, Modal } from '../../bootstrap/components/index.jsx';
 
 export default class MarkdownEditor extends React.Component {

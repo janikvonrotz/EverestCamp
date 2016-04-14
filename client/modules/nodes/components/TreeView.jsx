@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-
 import { Alert, GridRow, GridColumn } from '../../bootstrap/components/index.jsx';
 
 export default class TreeView extends React.Component {
