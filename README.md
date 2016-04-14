@@ -4,14 +4,19 @@ EverestCamp is the most simple knoweldge base tool.
 
 * Guest user Fronted - PostSearch with SingleView with content and last author.
 * Multiple File paste
-* Insert image dialog
+* Insert image dialog https://facebook.github.io/draft-js/docs/advanced-topics-block-components.html#content
 * Routing Access Control
 * Data Acess Control
 * Add username and lastname, firstname to form
 * FlowRouter not found konfigurieren
+* View visiblity Access - make nav el for unauthorized user in, add edit button on post view
+* Create AutoSave for every 3 seconds in editor.
+* slug title redirect
+* Content optional?maybe
 
 ## Bugs
 
+* Limit is ignored by PostList
 * fix slug from post
 * fix author update in post
 * find Notification tool that works

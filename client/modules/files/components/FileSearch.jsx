@@ -1,6 +1,6 @@
 import React from 'react';
 import { GridColumn, Button, GridRow, Form, FormGroup, FormControl, FileUpload } from '../../bootstrap/components/index.jsx';
-import FileList from '../containers/index.js';
+import {FileList} from '../containers';
 
 export default class FileSearch extends React.Component {
 
