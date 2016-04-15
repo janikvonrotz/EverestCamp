@@ -10,4 +10,13 @@ marked.setOptions({
   tables: true
 });
 
-export {marked, fileRender};
+var marked_file_url = (file) => {
+  console.log(file);
+  var response = "![Upload failed.](/UploadFailed.png)";
+  if(file){
+    response = '![' + file._id + '](/cfs/files/files/' + file._id + ')'
+  }
+  return response;
+};
+
+export {marked, fileRender, marked_file_url};

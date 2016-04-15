@@ -7,8 +7,11 @@
   z-index:1000;
   background-color: white;
   overflow: auto;
+  overflow-x: hidden;
+  padding: 10px;
 }
 
+/* icon position */
 .screen-icon{
   float: right;
   background: white;
@@ -18,6 +21,7 @@
   padding: 5px;
 }
 
-.display-fullscreen .row{
-  margin-right: 0px;
+/* prevent background scroll */
+body.fullscreen-viewer-open {
+    overflow: hidden;
 }

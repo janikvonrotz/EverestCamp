@@ -11,6 +11,7 @@ export default class FullscreenContainer extends React.Component {
   };
 
   toggleFullscreen(){
+    document.getElementsByTagName('body')[0].classList.toggle('fullscreen-viewer-open');
     if(this.state.screenClass != 'display-fullscreen'){
       this.setState({screenClass: 'display-fullscreen'});
     }else{

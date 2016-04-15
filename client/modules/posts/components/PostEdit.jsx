@@ -43,8 +43,9 @@ export default class NodeEdit extends React.Component {
   }
 
   renderHistoryList(){
-    var posts = this.props.post.history.map((post) => {
-      return {_id: post.date, label: post.title + " by " + post.author + " on " + moment(post.date).format('MMMM Do YYYY, h:mm:ss a')};
+    var history = this.props.post.history;
+    var posts = history.map((post) => {
+      return {_id: history.indexOf(post), label: post.title + " by " + post.author + " on " + moment(post.date).format('MMMM Do YYYY, h:mm:ss a')};
     });
     return (<ListGroup items={posts} />);
   }

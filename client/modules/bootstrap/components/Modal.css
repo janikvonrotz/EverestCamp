@@ -2,7 +2,19 @@
     display: block;
 }
 
+/* best scroll experience*/
 .modal-body{
   max-height: 600px;
   overflow: auto;
+  overflow-x: hidden;
+}
+
+/* no background scroll */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* row elements inside modal body */
+.modal-body .row{
+  margin: 0;
 }

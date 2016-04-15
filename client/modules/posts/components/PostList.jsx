@@ -8,7 +8,7 @@ export default class PostList extends React.Component {
     return this.props.posts.map((post) => {
       return (
         <GridColumn key={post._id} className="col-md-12">
-          <h2><a href={'/posts/' + post._id + '/edit'}>{post.title}</a></h2>
+          <h1><a href={'/posts/' + post._id + '/edit'}>{post.title}</a></h1>
           <p>{post.content.substring(0, 300)}</p>
         </GridColumn>
       );
@@ -19,7 +19,7 @@ export default class PostList extends React.Component {
     return this.props.posts.map((post) => {
       return (
         <GridColumn key={post._id} className="col-md-8 col-md-offset-2">
-          <h2><a href={'/posts/' + post._id + "/" + post.slug}>{post.title}</a></h2>
+          <h1><a href={'/posts/' + post._id + "/" + post.slug}>{post.title}</a></h1>
           <div className="post-content" dangerouslySetInnerHTML={ {__html: marked(post.content, {renderer: postRender})} } />
         </GridColumn>
       );

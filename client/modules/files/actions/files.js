@@ -19,19 +19,11 @@ export default {
       public: true
     };
 
-    var response = "empty";
-    file = Files.insert(file, (err, res) => {
+    return Files.insert(file, (err, res) => {
         if (err) {
           notify.show(err.message, 'error');
         }
     });
-
-    var response = "![Upload failed.](/UploadFailed.png)"
-    if(file){
-      response = '![' + file._id + '](/cfs/files/files/' + file._id + ')'
-    }
-
-    return response;
   },
 
   remove({Meteor, FlowRouter}, file) {

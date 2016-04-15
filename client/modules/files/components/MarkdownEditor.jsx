@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Editor, EditorState, ContentState, Modifier} from 'draft-js';
-import {marked, fileRender} from '../configs/marked';
-import { GridRow, GridColumn, Modal } from '../../bootstrap/components/index.jsx';
+import {FileSearch} from '../../files/containers';
+import {marked, fileRender, marked_file_url} from '../configs/marked';
+import { GridRow, GridColumn, Modal, Button } from '../../bootstrap/components/index.jsx';
 
 export default class MarkdownEditor extends React.Component {
 
@@ -20,7 +21,8 @@ export default class MarkdownEditor extends React.Component {
     var text = editorState.getCurrentContent().getPlainText();
     this.setState({
       editorState: editorState,
-      htmlRendered: marked(text, {renderer: fileRender})
+      htmlRendered: marked(text, {renderer: fileRender}),
+      selectedFile: null
     });
     this.props.onChange({
       target: {
@@ -31,16 +33,31 @@ export default class MarkdownEditor extends React.Component {
   }
 
   upload(file, selection){
-
     // upload and get markdown formatted url
-    var mdUrl = this.props.upload(file);
-
+    var mdUrl = marked_file_url(this.props.upload(file));
     // insert url at current position
+    this.insertText(mdUrl, selection);
+  }
+
+  selectedFile(file){
+    console.log(file);
+    this.setState({
+      selectedFile: file
+    });
+  }
+
+  insertFile(event){
+    var mdUrl = marked_file_url(this.state.selectedFile);
+    this.toggleFileModal();
+    this.insertText(mdUrl);
+  }
+
+  insertText(text, selection){
     const editorState = this.state.editorState;
     const contentState = editorState.getCurrentContent();
     const selectionState = editorState.getSelection();
     if(!selection){selection = selectionState;}
-    const cs = Modifier.insertText(contentState, selection, mdUrl)
+    const cs = Modifier.insertText(contentState, selection, text)
     const es = EditorState.push(editorState, cs, 'insert-fragment');
     this.update(es);
   }
@@ -58,6 +75,7 @@ export default class MarkdownEditor extends React.Component {
   }
 
   toggleFileModal(event){
+    document.getElementsByTagName('body')[0].classList.toggle('modal-open');
     this.setState({showFileModal: !this.state.showFileModal});
   }
 
@@ -65,6 +83,9 @@ export default class MarkdownEditor extends React.Component {
     const {editorState} = this.state;
     return (
       <GridRow className="markdown-editor">
+        <GridColumn className="col-md-12">
+          <p><Button onClick={this.toggleFileModal.bind(this)} style="default">Insert File</Button></p>
+        </GridColumn>
         <GridColumn className="col-md-6" onClick={this.focus}>
           <GridColumn className="markdown">
           <Editor
@@ -85,9 +106,9 @@ export default class MarkdownEditor extends React.Component {
           title="Files"
           onCancel={this.toggleFileModal.bind(this)}
           cancelLabel="Cancel"
-          onConfirm={this.update.bind(this)}
+          onConfirm={this.insertFile.bind(this)}
           confirmLabel="Insert">
-          <p>Please choose a file:</p>
+          <FileSearch selectable="true" onSelected={this.selectedFile.bind(this)}/>
         </Modal>
       </GridRow>
     );

@@ -1,4 +1,5 @@
 .file-list .thumb{
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
+  padding: 0;
   min-height: 200px;
 }

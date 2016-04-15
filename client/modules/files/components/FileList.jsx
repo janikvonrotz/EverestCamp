@@ -9,6 +9,8 @@ export default class FileList extends React.Component {
       var el = document.getElementsByClassName("img-thumbnail");
       if(el.length > 0){el[0].classList.remove("img-thumbnail")}
       event.target.classList.add("img-thumbnail");
+
+      this.props.onSelected(file);
     }
   }
 

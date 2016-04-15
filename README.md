@@ -4,7 +4,6 @@ EverestCamp is the most simple knoweldge base tool.
 
 * Guest user Fronted - PostSearch with SingleView with content and last author.
 * Multiple File paste
-* Insert image dialog https://facebook.github.io/draft-js/docs/advanced-topics-block-components.html#content
 * Routing Access Control
 * Data Acess Control
 * Add username and lastname, firstname to form
@@ -12,13 +11,10 @@ EverestCamp is the most simple knoweldge base tool.
 * View visiblity Access - make nav el for unauthorized user in, add edit button on post view
 * Create AutoSave for every 3 seconds in editor.
 * slug title redirect
-* Content optional?maybe
+* Content optional?maybe?
 
 ## Bugs
 
-* Limit is ignored by PostList
-* fix slug from post
-* fix author update in post
 * find Notification tool that works
 * Register return value is not processed
 * post single does not work -> fuck
@@ -41,6 +37,10 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Done
 
+* Limit is ignored by PostList
+* Insert image dialog https://facebook.github.io/draft-js/docs/quickstart-rich-styling.html#content
+* fix slug from post
+* fix author update in post
 * User role setup
 * Add save button for new version by user - https://github.com/aldeed/meteor-collection2
 * Email Verification redirect
