@@ -38,7 +38,9 @@ export default class NodeEdit extends React.Component {
       return(
         <GridColumn className="col-sm-12">
           <ListGroup linked={ true } items={  _.where(this.props.nodes, {type: 'post'}) } iconClassName="glyphicon glyphicon-file" />
+          <p></p>
           <ListGroup linked={ true } items={ _.where(this.props.nodes, {type: 'node'}) } iconClassName="glyphicon glyphicon-folder-close" />
+          <p></p>
         </GridColumn>
       );
     }
@@ -50,28 +52,28 @@ export default class NodeEdit extends React.Component {
       <GridRow className="node-edit">
         <GridColumn className="col-sm-12">
           <ContentEditable
-            name="label"
-            focus={true}
-            text={ this.props.node.label }
-            tagName="h4"
-            className="page-header"
-            disabled={false}
-            shouldComponentUpdate={this.state.shouldChildComponentUpdate}
-            onChange={ this.update.bind(this) }
-          />
+          name="label"
+          focus={true}
+          text={ this.props.node.label }
+          tagName="h4"
+          className="page-header"
+          disabled={false}
+          shouldComponentUpdate={this.state.shouldChildComponentUpdate}
+          onChange={ this.update.bind(this) } />
+          <p></p>
         </GridColumn>
         { this.renderChildLists() }
         <GridColumn className="col-sm-12">
           <p><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></p>
           <Modal
-            showModal={this.state.showModal}
-            title="Confirm"
-            onCancel={this.toggleModal.bind(this)}
-            cancelLabel="Cancel"
-            onConfirm={this.remove.bind(this)}
-            confirmLabel="Delete">
+          showModal={this.state.showModal}
+          title="Confirm"
+          onCancel={this.toggleModal.bind(this)}
+          cancelLabel="Cancel"
+          onConfirm={this.remove.bind(this)}
+          confirmLabel="Delete">
             <p>Please confirm the deletion of node: {this.props.node.label}</p>
-            </Modal>
+          </Modal>
         </GridColumn>
       </GridRow>
     );

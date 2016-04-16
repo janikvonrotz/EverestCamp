@@ -5,7 +5,7 @@ export default class NodeInsert extends React.Component {
 
   render(){
     return (
-      <Button style="default" onClick={this.insert.bind(this)}>New Node</Button>
+      <Button style="primary" onClick={this.insert.bind(this)}>New Node</Button>
     );
   }
 

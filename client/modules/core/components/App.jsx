@@ -4,14 +4,10 @@ import { PublicNavigation, AuthenticatedNavigation } from '../containers/index.j
 import Notifications from 'react-notify-toast';
 
 const App = ({content}) => (
-  <div className="app-root">
+  <div className="app-root container">
     <Notifications />
     { Meteor.userId() ? <AuthenticatedNavigation /> : <PublicNavigation /> }
-    <div className="row-fluid container">
-      <GridColumn className="col-md-12">
-        {content()}
-      </GridColumn>
-    </div>
+    {content()}
   </div>
 );
 

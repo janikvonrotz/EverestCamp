@@ -1,5 +1,5 @@
 import React from 'react';
-import { GridColumn, Button, GridRow, Form, FormGroup, FormControl, FileUpload } from '../../bootstrap/components/index.jsx';
+import { GridColumn, Button, GridRow, Form, FormGroup, Input, FileUpload } from '../../bootstrap/components/index.jsx';
 import {FileList} from '../containers';
 
 export default class FileSearch extends React.Component {
@@ -33,26 +33,21 @@ export default class FileSearch extends React.Component {
     return (
       <GridRow className="file-page">
         <GridColumn className="col-md-12 clearfix">
-          <FormGroup>
           <Form className="form-inline">
-            <FormGroup>
-              <FileUpload onChange={this.upload.bind(this)}/>
-            </FormGroup>
-            <FormGroup className="pull-right">
-              <FormControl
-                showLabel={ false }
-                style="input"
-                type="text"
-                name="search"
-                label="Search"
-                onChange={this.filterList.bind(this)} />
+            <FileUpload onChange={this.upload.bind(this)}/>
+            <FormGroup className="pull-xs-right">
+              <Input
+              name="search"
+              placeholder="Search"
+              onChange={this.filterList.bind(this)} />
             </FormGroup>
           </Form>
-          </FormGroup>
+          <p></p>
         </GridColumn>
-        <FileList selectable={this.props.selectable} onSelected={this.props.onSelected} filterText={this.state.filterText} limit={this.state.limit} />
         <GridColumn className="col-md-12">
-          <FormGroup><Button style="default" onClick={this.loadMore.bind(this)}>Load more</Button></FormGroup>
+          <FileList selectable={this.props.selectable} onSelected={this.props.onSelected} filterText={this.state.filterText} limit={this.state.limit} />
+          <p></p>
+          <Button style="primary" onClick={this.loadMore.bind(this)}>Load more</Button>
         </GridColumn>
       </GridRow>
     );

@@ -5,7 +5,7 @@ export default class PostInsert extends React.Component {
 
   render(){
     return (
-      <Button style="default" onClick={this.insert.bind(this)}>New Post</Button>
+      <Button style="primary" onClick={this.insert.bind(this)}>New Post</Button>
     );
   }
 

@@ -14,19 +14,12 @@ export const depsMapper = (context) => ({
       { uid: 'user', href: '/users', label: 'Users' }
     ],
     right: [
-      {
-        uid: 'currentUser',
-        href: '#',
-        label: Meteor.user().emails[0].address,
-        dropdown: true,
-        dropdownItems: [
-          { uid: 'logout', href: '#', label: 'Logout', action: () => {
-            return Meteor.logout( () => {
-              FlowRouter.go( '/login' );
-            });
-          }}
-        ]
-      }
+      { uid: 'profile', href: '/profile', label: Meteor.user().emails[0].address },
+      { uid: 'logout', href: '#', label: 'Logout', action: () => {
+        return Meteor.logout( () => {
+          FlowRouter.go( '/login' );
+        });
+      }}
     ]
   },
   context: () => context

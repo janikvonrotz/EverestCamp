@@ -5,8 +5,8 @@ export default class AuthenticatedNavigation extends React.Component {
   render() {
     return(
       <Navbar className="authenticated-navigation" id="app-header" brandLink="/nodes" brand="EverestCamp">
-        <NavbarNav position="navbar-left" items={ this.props.items.left } />
-        <NavbarNav position="navbar-right" items={ this.props.items.right } />
+        <NavbarNav items={ this.props.items.left } />
+        <NavbarNav className="pull-xs-right" items={ this.props.items.right } />
       </Navbar>
     );
   }

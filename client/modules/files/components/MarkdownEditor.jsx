@@ -84,7 +84,7 @@ export default class MarkdownEditor extends React.Component {
     return (
       <GridRow className="markdown-editor">
         <GridColumn className="col-md-12">
-          <p><Button onClick={this.toggleFileModal.bind(this)} style="default">Insert File</Button></p>
+          <p><Button onClick={this.toggleFileModal.bind(this)} style="primary">Insert File</Button></p>
         </GridColumn>
         <GridColumn className="col-md-6" onClick={this.focus}>
           <GridColumn className="markdown">

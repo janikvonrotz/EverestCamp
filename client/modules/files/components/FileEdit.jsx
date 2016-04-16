@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentEditable, Button, GridColumn, FormControl, GridRow, FormGroup, Modal } from '../../bootstrap/components/index.jsx';
+import { ContentEditable, Button, GridColumn, FormControl, GridRow, Checkbox, Modal } from '../../bootstrap/components/index.jsx';
 
 export default class FileList extends React.Component {
 
@@ -43,27 +43,26 @@ export default class FileList extends React.Component {
     return (
       <GridRow>
         <GridColumn className="col-md-8 col-md-offset-2">
+
           <ContentEditable
-            name="metadata.name"
-            focus={true}
-            text={ this.props.file.metadata.name }
-            tagName="h4"
-            className="page-header"
-            disabled={false}
-            shouldComponentUpdate={this.state.shouldChildComponentUpdate}
-            onChange={this.update.bind(this)} />
-        </GridColumn>
-        <GridColumn className="col-md-8 col-md-offset-2">
-          <FormControl
-            style="checkbox"
-            name="metadata.public"
-            label="Public"
-            defaultValue={this.props.file.metadata.public}
-            onChange={ this.update.bind(this) } />
-        </GridColumn>
-        <GridColumn className="col-md-8 col-md-offset-2">
-          <FormGroup><img className="img-responsive" src={this.props.file.url()} /></FormGroup>
-          <FormGroup><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></FormGroup>
+          name="metadata.name"
+          focus={true}
+          text={ this.props.file.metadata.name }
+          tagName="h4"
+          className="page-header"
+          disabled={false}
+          shouldComponentUpdate={this.state.shouldChildComponentUpdate}
+          onChange={this.update.bind(this)} />
+
+          <Checkbox
+          name="public"
+          label="Public"
+          defaultValue={this.props.file.metadata.public}
+          onChange={ this.update.bind(this) } />
+
+          <p><img className="img-fluid" src={this.props.file.url()} /></p>
+
+          <p><Button onClick={this.toggleModal.bind(this)} style="danger">Delete</Button></p>
           <Modal
             showModal={this.state.showModal}
             title="Confirm"

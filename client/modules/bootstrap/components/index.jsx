@@ -3,7 +3,7 @@ import GridColumn from './GridColumn.jsx';
 import GridRow from './GridRow.jsx';
 import PageHeader from './PageHeader.jsx';
 import Alert from './Alert.jsx';
-import DropdownMenu from './DropdownMenu.jsx';
+import Checkbox from './Checkbox.jsx';
 import Button from './Button.jsx';
 import Form from './Form.jsx';
 import FullscreenViewer from './FullscreenViewer.jsx';
@@ -15,7 +15,6 @@ import FileUpload from './FileUpload.jsx';
 import Navbar from './Navbar.jsx';
 import NavbarNav from './NavbarNav.jsx';
 import FormGroup from './FormGroup.jsx';
-import FormControl from './FormControl.jsx';
 import ContentEditable from './ContentEditable.jsx';
 import ButtonGroup from './ButtonGroup.jsx';
 
@@ -23,7 +22,6 @@ export {
   NavbarNav,
   Alert,
   Button,
-  DropdownMenu,
   FileUpload,
   FullscreenViewer,
   ContentEditable,
@@ -35,8 +33,8 @@ export {
   Modal,
   FormGroup,
   Navbar,
-  FormControl,
   GridColumn,
+  Checkbox,
   GridRow,
   PageHeader
 };

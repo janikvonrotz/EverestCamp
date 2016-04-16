@@ -9,7 +9,7 @@ export default class Dialog extends React.Component {
       return (
         <div className="modal-footer">
           <Button style="primary" onClick={this.props.onConfirm}>{this.props.confirmLabel}</Button>
-          <Button style="default" onClick={this.props.onCancel}>{this.props.cancelLabel}</Button>
+          <Button style="secondary" onClick={this.props.onCancel}>{this.props.cancelLabel}</Button>
         </div>
       );
     }else{

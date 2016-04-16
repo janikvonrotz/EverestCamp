@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Label extends React.Component {
 
-  renderLabel() {
+  render(){
     if ( !this.props.href ) {
       return (
         <label htmlFor={ this.props.name }>
@@ -19,9 +19,5 @@ export default class Label extends React.Component {
         </label>
       );
     }
-  }
-
-  render(){
-    return this.renderLabel();
   }
 }

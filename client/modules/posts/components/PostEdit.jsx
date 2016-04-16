@@ -1,13 +1,12 @@
 import React from 'react';
 import moment from 'moment';
-import { Alert, GridRow, ContentEditable, GridColumn, Button, FormControl, Modal, FullscreenViewer, ListGroup } from '../../bootstrap/components/index.jsx';
+import { Alert, GridRow, ContentEditable, GridColumn, Button, Label, Modal, FullscreenViewer, Checkbox, ListGroup } from '../../bootstrap/components/index.jsx';
 import { MarkdownEditor } from '../../files/containers';
 
 export default class NodeEdit extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-
     this.state = {
       shouldChildComponentUpdate: false,
       showDeleteModal: false
@@ -57,42 +56,36 @@ export default class NodeEdit extends React.Component {
       <GridRow className="post-edit">
         <GridColumn className="col-sm-12">
           <ContentEditable
-            name="title"
-            focus={true}
-            text={ post.title }
-            tagName="h4"
-            className="page-header"
-            disabled={false}
-            shouldComponentUpdate={this.state.shouldChildComponentUpdate}
-            onChange={ this.update.bind(this) } />
+          name="title"
+          focus={true}
+          text={ post.title }
+          tagName="h4"
+          className="page-header"
+          disabled={false}
+          shouldComponentUpdate={this.state.shouldChildComponentUpdate}
+          onChange={ this.update.bind(this) } />
           <p></p>
-          <FormControl
-            style="checkbox"
-            name="public"
-            label="Public"
-            defaultValue={post.public}
-            onChange={ this.update.bind(this) } />
-          <p></p>
+          <Checkbox
+          name="public"
+          label="Public"
+          defaultValue={post.public}
+          onChange={ this.update.bind(this) } />
           <FullscreenViewer>
             <MarkdownEditor
-              name="content"
-              text={post.content}
-              onChange={this.update.bind(this)} />
+            name="content"
+            text={post.content}
+            onChange={this.update.bind(this)} />
            </FullscreenViewer>
            <p></p>
-          <p>
-            <Button onClick={this.update.bind(this, true)} style="success">Commit</Button>
-          </p>
-          <p>
-            <Button onClick={this.toggleDeleteModal.bind(this)} style="danger">Delete</Button>
-          </p>
+          <p><Button onClick={this.update.bind(this, true)} style="success">Commit</Button></p>
+          <p><Button onClick={this.toggleDeleteModal.bind(this)} style="danger">Delete</Button></p>
           <Modal
-            showModal={this.state.showDeleteModal}
-            title="Confirm"
-            onCancel={this.toggleDeleteModal.bind(this)}
-            cancelLabel="Cancel"
-            onConfirm={this.remove.bind(this)}
-            confirmLabel="Delete">
+          showModal={this.state.showDeleteModal}
+          title="Confirm"
+          onCancel={this.toggleDeleteModal.bind(this)}
+          cancelLabel="Cancel"
+          onConfirm={this.remove.bind(this)}
+          confirmLabel="Delete">
             <p>Please confirm the deletion of post: {post.title}</p>
           </Modal>
           <h4>History</h4>

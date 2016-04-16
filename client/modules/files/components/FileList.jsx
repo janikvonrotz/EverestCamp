@@ -18,7 +18,7 @@ export default class FileList extends React.Component {
     return (
       <GridColumn key={file._id} className="col-lg-3 col-md-4 col-xs-6 thumb">
         <a onClick={this.handleFileClick.bind(this, file)} href={!this.props.selectable ? file.href : ""}>
-          <img className="img-responsive" src={file.src} alt={file.label} />
+          <img className="img-fluid" src={file.src} alt={file.label} />
         </a>
       </GridColumn>
     );

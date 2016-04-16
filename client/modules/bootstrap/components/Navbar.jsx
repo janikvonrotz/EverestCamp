@@ -1,22 +1,16 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 
 export default class Navbar extends React.Component {
   render() {
     return(
-      <nav className="navbar navbar-default" role="navigation">
-        <div className="container">
-          <div className="navbar-header">
-            <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target={ `#navbar-${ this.props.id }` }>
-              <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-              <span className="icon-bar"></span>
-            </button>
-            <a className="navbar-brand" href={ this.props.brandLink }>{ this.props.brand }</a>
-          </div>
-          <div className="collapse navbar-collapse" id={ 'navbar-' + this.props.id }>
-            { this.props.children }
-          </div>
+      <nav className={classNames('navbar navbar-dark bg-inverse', this.props.className)} role="navigation">
+        <button className="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header">
+          ☰
+        </button>
+        <div className="navbar-toggleable-xs collapse" id="navbar-header">
+          <a className="navbar-brand" href={ this.props.brandLink }>{ this.props.brand }</a>
+          { this.props.children }
         </div>
       </nav>
     );

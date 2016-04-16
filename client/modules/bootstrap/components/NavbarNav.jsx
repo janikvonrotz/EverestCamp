@@ -1,38 +1,28 @@
 import React from 'react';
-
-import DropdownMenu from './DropdownMenu.jsx';
+import classNames from 'classnames/bind';
 
 export default class NavbarNav extends React.Component {
 
   render() {
-    let classes = this.props.position ? ('nav navbar-nav ' + this.props.position) : 'nav navbar-nav';
+    let classes = classNames('nav navbar-nav', this.props.className);
     return(
       <ul className={ classes }>
-      {this.props.items.map( ( item, index ) => {
-        item.active = FlowRouter.getRouteName() === item.uid;
-        return item.dropdown ? this.renderDropdown( item, index ) : this.renderItem( item, index );
-      })}
+        {this.props.items.map( ( item, index ) => {
+          item.active = FlowRouter.getRouteName() === item.uid;
+          return this.renderItem( item );
+        })}
       </ul>
     );
   }
 
-  renderItem( item, index ) {
-    let active = item.active ? 'active' : '';
+  renderItem( item ) {
+    let classes = classNames({
+      'nav-item': true,
+      'active': item.active
+    });
     return (
-      <li key={ 'nav-item-' + item.uid } className={ active }>
-        <a href={ item.href }>{ item.label }</a>
-      </li>
-    );
-  }
-
-  renderDropdown( item, index ) {
-    let active = item.active ? 'dropdown active' : '';
-    return (
-      <li key={ 'nav-item-' + item.uid } className={ active }>
-      <a href={ item.href } className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        { item.label } <span className="caret"></span>
-      </a>
-      <DropdownMenu items={ item.dropdownItems } />
+      <li key={ item.uid } className={ classes }>
+        <a className="nav-link" href={ item.href } onClick={ item.action }>{ item.label }</a>
       </li>
     );
   }
