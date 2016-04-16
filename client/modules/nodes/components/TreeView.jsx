@@ -75,7 +75,7 @@ export default class TreeView extends React.Component {
       nodes = _.where(nodes, {parent: parentNodeId});
       if ( nodes.length > 0 ) {
 
-        return (<ul className="tree-view">
+        return (<ul className="tree-view_list">
         {nodes.map((node) => {
 
           var arrowClassName = classNames({
@@ -137,8 +137,8 @@ export default class TreeView extends React.Component {
     // console.log({"TreeView": this.props});
     return (
     <GridRow className={this.props.className}>
-      <GridColumn className="col-md-12">
-        <ul className="tree-view tree-view_root">
+      <GridColumn className="col-md-12 tree-view">
+        <ul className="tree-view_list tree-view_root">
           <li className="tree-view_node">
 
             <i onDragEnter={this.handleDragEnter.bind(this, "")}

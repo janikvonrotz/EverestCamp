@@ -4,11 +4,23 @@ import { Alert, GridColumn, GridRow, Modal } from '../../bootstrap/components/in
 
 export default class PostList extends React.Component {
 
+  renderTitle(post){
+    if ( this.props.linkTo === "post.edit" ) {
+      return(
+        <h1><a href={'/posts/' + post._id + '/edit'}>{post.title}</a></h1>
+      );
+    }else{
+      return(
+        <h1><a href={'/posts/' + post._id + "/" + post.slug}>{post.title}</a></h1>
+      );
+    }
+  }
+
   renderSearch(){
     return this.props.posts.map((post) => {
       return (
         <GridColumn key={post._id} className="col-md-12">
-          <h1><a href={'/posts/' + post._id + '/edit'}>{post.title}</a></h1>
+          { this.renderTitle(post) }
           <p>{post.content.substring(0, 300)}</p>
         </GridColumn>
       );
@@ -19,7 +31,7 @@ export default class PostList extends React.Component {
     return this.props.posts.map((post) => {
       return (
         <GridColumn key={post._id} className="col-md-8 col-md-offset-2">
-          <h1><a href={'/posts/' + post._id + "/" + post.slug}>{post.title}</a></h1>
+          { this.renderTitle(post) }
           <div className="post-content" dangerouslySetInnerHTML={ {__html: marked(post.content, {renderer: postRender})} } />
         </GridColumn>
       );

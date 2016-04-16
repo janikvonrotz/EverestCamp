@@ -26,13 +26,9 @@ export default class FileList extends React.Component {
 
   renderGallery(){
     if ( this.props.files && this.props.files.length > 0 ) {
-      return (
-        <GridColumn className="col-md-12">
-          {this.props.files.map((file) => {
-            return this.renderThumbnail(file);
-          })}
-        </GridColumn>
-      );
+      return this.props.files.map((file) => {
+        return this.renderThumbnail(file);
+      });
     }else{
       return (
         <GridColumn className="col-md-12">

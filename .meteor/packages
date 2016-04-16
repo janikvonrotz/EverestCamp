@@ -28,5 +28,5 @@ accounts-password
 cfs:standard-packages
 cfs:filesystem
 cfs:graphicsmagick
-twbs:bootstrap
+twbs:bootstrap@=4.0.0-alpha.2
 alanning:roles

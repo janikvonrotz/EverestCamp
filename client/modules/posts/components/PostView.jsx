@@ -12,8 +12,8 @@ export default class NodeEdit extends React.Component {
       <GridRow className="post-view">
         <GridColumn className="col-md-8 col-md-offset-2">
           <PageHeader tag="h1">{post.title}</PageHeader>
-          <div dangerouslySetInnerHTML={ {__html: marked(this.props.post.content, {renderer: postRender})} } />
           <p>Last edited by: {post.author} at {moment(post.updated).format('MMMM Do YYYY, h:mm:ss a')}</p>
+          <div dangerouslySetInnerHTML={ {__html: marked(this.props.post.content, {renderer: postRender})} } />
         </GridColumn>
       </GridRow>
     );

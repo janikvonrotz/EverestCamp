@@ -31,7 +31,7 @@ export default class PostSearch extends React.Component {
             onChange={ this.filterList.bind(this) } />
         </GridColumn>
         <GridColumn className="col-md-12">
-          <PostList style="search" filterText={this.state.filterText} />
+          <PostList linkTo="post.edit" style="search" filterText={this.state.filterText} />
         </GridColumn>
       </GridRow>
     );
