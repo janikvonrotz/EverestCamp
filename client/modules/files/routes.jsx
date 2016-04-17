@@ -7,7 +7,7 @@ export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);
 
   FlowRouter.route('/files', {
-    name: 'files.list', action() {
+    name: 'file.list', action() {
       mount(AppLayout, {
         content: () => (<FileSearch />)
       });
@@ -15,7 +15,7 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/files/:fileId/edit', {
-    name: 'files.single',
+    name: 'file.item',
     action({fileId}) {
       mount(AppLayout, {
         content: () => (<FileEdit fileId={fileId}/>)

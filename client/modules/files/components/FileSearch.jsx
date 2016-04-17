@@ -42,9 +42,9 @@ export default class FileSearch extends React.Component {
               onChange={this.filterList.bind(this)} />
             </FormGroup>
           </Form>
-          <p></p>
         </GridColumn>
         <GridColumn className="col-md-12">
+          <p></p>
           <FileList selectable={this.props.selectable} onSelected={this.props.onSelected} filterText={this.state.filterText} limit={this.state.limit} />
           <p></p>
           <Button style="primary" onClick={this.loadMore.bind(this)}>Load more</Button>

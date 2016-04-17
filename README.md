@@ -3,7 +3,6 @@ EverestCamp is the most simple knoweldge base tool.
 # Todo
 
 * Multiple File paste
-* Routing Config into Meteor Settings
 * Routing Access Control
 * Data Acess Control
 * Add username and lastname, firstname to form
@@ -11,6 +10,8 @@ EverestCamp is the most simple knoweldge base tool.
 * Create AutoSave for every 3 seconds in editor.
 * Content optional?maybe?
 * Fix header title
+* Add user management site
+* User profile - change username, last and firstname, password
 
 ## Bugs
 
@@ -19,11 +20,10 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Longterm Task
 
+* Make Posts and Files archiveable
 * Protect Overwriting in Edit mode
 * Add link by drag n drop
 * History view with textdiff comparison and restore function - http://kpdecker.github.io/jsdiff/ /:id/compare/:date
-* User profile - change username, last and firstname, password
-* Add user management site
 * Support LDAP authentication
 * Support LDAP group membership check
 * Mark Node search results
@@ -34,6 +34,7 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Done
 
+* Routing Config into Meteor Settings
 * Guest user Fronted - PostSearch with SingleView with content and last author.
 * FlowRouter not found konfigurieren
 * Bootstrap 4 - Replace form-group with p tag

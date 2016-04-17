@@ -1,13 +1,29 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 import App from '../core/components/App.jsx';
-import {Register, Login, RecoverPassword, ResetPassword, EmailVerification} from './containers';
+import {Register, Login, RecoverPassword, ResetPassword, EmailVerification, UserSearch} from './containers';
 
 export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);
 
+  FlowRouter.route('/users', {
+    name: 'users.list', action() {
+      mount(AppLayout, {
+        content: () => (<UserSearch />)
+      });
+    }
+  });
+
+  FlowRouter.route('/profile', {
+    name: 'users.profile', action() {
+      mount(AppLayout, {
+        content: () => (<UserSearch />)
+      });
+    }
+  });
+
   FlowRouter.route('/login', {
-    name: 'users.login', action() {
+    name: 'user.login', action() {
       mount(AppLayout, {
         content: () => (<Login />)
       });
@@ -15,7 +31,7 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/register', {
-    name: 'users.register', action() {
+    name: 'user.register', action() {
       mount(AppLayout, {
         content: () => (<Register />)
       });
@@ -23,7 +39,7 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/recover-password', {
-    name: 'users.recover_password', action() {
+    name: 'user.recover_password', action() {
       mount(AppLayout, {
         content: () => (<RecoverPassword />)
       });

@@ -1,3 +1,7 @@
 .list-group .glyphicon{
   padding-right: 5px;
 }
+
+.list-group-item{
+  border-radius: 0!important;
+}
