@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 
-export default class FullscreenContainer extends React.Component {
+export default class FullscreenViewer extends React.Component {
 
   constructor(props) {
     super(props);
@@ -24,7 +24,7 @@ export default class FullscreenContainer extends React.Component {
     let classes = classNames({
       'screen-icon fa fa-lg pull-xs-right': true,
       'fa-times': this.state.screenClass === 'display-fullscreen',
-      'fa-arrows-alt': this.state.screenClass === 'display-normal'
+      'fa-expand': this.state.screenClass === 'display-normal'
     });
     return (
       <i onClick={this.toggleFullscreen.bind(this)} className={classes}></i>
@@ -33,8 +33,9 @@ export default class FullscreenContainer extends React.Component {
 
   render() {
     return(
-      <div className={this.state.screenClass}>
+      <div className={classNames('fullscreen-viewer',this.state.screenClass)}>
         {this.renderIcon()}
+        <div className='clearfix'/>
         {this.props.children}
       </div>
     );

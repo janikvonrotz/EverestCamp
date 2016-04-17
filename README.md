@@ -3,6 +3,7 @@ EverestCamp is the most simple knoweldge base tool.
 # Todo
 
 * Multiple File paste
+* Routing Config into Meteor Settings
 * Routing Access Control
 * Data Acess Control
 * Add username and lastname, firstname to form

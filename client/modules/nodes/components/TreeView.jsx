@@ -78,14 +78,11 @@ export default class TreeView extends React.Component {
         return (<ul className="tree-view_list">
         {nodes.map((node) => {
 
-          var arrowClassName = classNames({
-            'tree-view_arrow': true,
-            'tree-view_arrow-collapsed': _.contains(this.state.collapsedNodes, node._id),
-          });
+          let collapsed = _.contains(this.state.collapsedNodes, node._id);
 
           var containerClassName = classNames({
             'tree-view_node': true,
-            'tree-view_node-collapsed': _.contains(this.state.collapsedNodes, node._id),
+            'tree-view_node-collapsed':collapsed,
             'tree-view_node-hasChildren': _.where(this.props.nodes, {parent: node._id}).length > 0
           });
 
@@ -95,33 +92,28 @@ export default class TreeView extends React.Component {
           });
 
           var iconClassName = classNames({
-            'fa': true,
-            'fa-folder-o': node.type === 'node',
+            'fa fa-lg': true,
+            'fa-folder-o': node.type === 'node' && collapsed,
+            'fa-folder-open-o': node.type === 'node' && !collapsed,
             'fa-file-text-o': node.type === 'post'
           });
-
-          // if node has children add arrow
-          var arrow = "";
-          if(containerClassName.indexOf('tree-view_node-hasChildren') > -1){
-            var arrow = <div key={node._id}
-              className={arrowClassName}
-              onClick={this.toggleCollapse.bind(this, node._id)}/>;
-          }
 
           return (
             <li
             className={containerClassName}
             key={node._id}>
-            {arrow}
-            <i draggable="true"
-            onDragStart={this.handleDragStart.bind(this, node._id)}
-            onDragEnter={this.handleDragEnter.bind(this, node._id)}
-            onDragOver={node.type === 'node' ? this.handleDragOver : null}
-            onDragLeave={this.handleDragLeave.bind(this)}
-            onDrop={this.handleDrop.bind(this)}
-            onDragEnd={this.handleDragEnd.bind(this)}
-            className={iconClassName}></i> <a className={linkClassName} href={node.href}>{node.label}</a>
-            {this.renderNodeTree(node._id)}
+              <span className="text-nowrap">
+                <i draggable="true"
+                onClick={this.toggleCollapse.bind(this, node._id)}
+                onDragStart={this.handleDragStart.bind(this, node._id)}
+                onDragEnter={this.handleDragEnter.bind(this, node._id)}
+                onDragOver={node.type === 'node' ? this.handleDragOver : null}
+                onDragLeave={this.handleDragLeave.bind(this)}
+                onDrop={this.handleDrop.bind(this)}
+                onDragEnd={this.handleDragEnd.bind(this)}
+                className={iconClassName}></i> <a className={linkClassName} href={node.href}>{node.label}</a>
+              </span>
+              {this.renderNodeTree(node._id)}
             </li>
           );
         })}

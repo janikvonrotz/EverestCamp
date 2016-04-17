@@ -1,3 +1,8 @@
+.fullscreen-viewer{
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
+
 .display-fullscreen {
   position:fixed;
   top:0;
@@ -13,7 +18,6 @@
 
 /* icon position */
 .screen-icon{
-  background: white;
   z-index:1001;
   padding: 5px;
 }

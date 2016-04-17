@@ -55,7 +55,7 @@ export default class NodeEdit extends React.Component {
           name="label"
           focus={true}
           text={ this.props.node.label }
-          tagName="h4"
+          tagName="h2"
           className="page-header"
           disabled={false}
           shouldComponentUpdate={this.state.shouldChildComponentUpdate}

@@ -1,6 +1,62 @@
 {
   "public": {
-    "uploadFolderPath": "~/uploads"
+    "uploadFolderPath": "~/uploads",
+    "actions": [
+      {
+        "name": "post.insert",
+        "roles": [
+          "Admin",
+          "Author"
+        ]
+      },
+      {
+        "name": "post.update",
+        "roles": [
+          "Admin",
+          "Author"
+        ]
+      },
+      {
+        "name": "post.remove",
+        "roles": [
+          "Admin",
+          "Author"
+        ]
+      },
+      {
+        "name": "post.read",
+        "roles": [
+          "Admin",
+          "Author",
+          "Public"
+        ]
+      }
+    ],
+    "routes": [
+      {
+        "name": "post.list",
+        "roles": [
+          "Admin",
+          "Author",
+          "Manager"
+        ]
+      },
+      {
+        "name": "post.edit",
+        "roles": [
+          "Admin",
+          "Author"
+        ]
+      },
+      {
+        "name": "post.view",
+        "roles": [
+          "Admin",
+          "Author",
+          "Public"
+        ]
+      }
+    ]
   },
   "private": {
     "MAIL_URL": "smtp://localhost:1025"
