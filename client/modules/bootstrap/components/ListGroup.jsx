@@ -2,11 +2,13 @@ import React from 'react';
 
 export default class ListGroup extends React.Component {
 
-  renderIcon(){
+  renderItem(item){
     if(this.props.iconClassName){
       return (
-        <i className={this.props.iconClassName}></i>
+        <span><i className={this.props.iconClassName}></i> {item.label}</span>
       );
+    }else{
+      return item.label
     }
   }
 
@@ -17,8 +19,7 @@ export default class ListGroup extends React.Component {
           {this.props.items.map( ( item ) => {
             return (
               <a key={ item._id } href={ item.href } className={"list-group-item"}>
-              {this.renderIcon()}
-              {item.label }
+              {this.renderItem(item)}
               </a>
             );
           })}
@@ -30,8 +31,7 @@ export default class ListGroup extends React.Component {
           {this.props.items.map( ( item ) => {
             return (
               <li key={ item._id } className={"list-group-item"}>
-              {this.renderIcon()}
-              {item.label }
+              {this.renderItem(item)}
               </li>
             );
           })}

@@ -21,7 +21,7 @@ export default class MainPage extends React.Component {
       );
     } else {
       return (
-        <PostSearch />
+        <PostSearch linkTo="post.edit" />
       );
     }
   }

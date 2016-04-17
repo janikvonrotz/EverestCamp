@@ -2,27 +2,23 @@ EverestCamp is the most simple knoweldge base tool.
 
 # Todo
 
-* Guest user Fronted - PostSearch with SingleView with content and last author.
 * Multiple File paste
 * Routing Access Control
 * Data Acess Control
 * Add username and lastname, firstname to form
-* FlowRouter not found konfigurieren
 * View visiblity Access - make nav el for unauthorized user in, add edit button on post view
 * Create AutoSave for every 3 seconds in editor.
-* slug title redirect
 * Content optional?maybe?
+* Fix header title
 
 ## Bugs
 
 * find Notification tool that works
 * Register return value is not processed
-* post single does not work -> fuck
 
 ## Longterm Task
 
 * Protect Overwriting in Edit mode
-* Bootstrap 4 - Replace form-group with p tag
 * Add link by drag n drop
 * History view with textdiff comparison and restore function - http://kpdecker.github.io/jsdiff/ /:id/compare/:date
 * User profile - change username, last and firstname, password
@@ -37,6 +33,12 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Done
 
+* Guest user Fronted - PostSearch with SingleView with content and last author.
+* FlowRouter not found konfigurieren
+* Bootstrap 4 - Replace form-group with p tag
+* slug title redirect
+* Update navigation / -> forntpage, post -> mainpage
+* post single does not work -> fuck
 * Limit is ignored by PostList
 * Insert image dialog https://facebook.github.io/draft-js/docs/quickstart-rich-styling.html#content
 * fix slug from post

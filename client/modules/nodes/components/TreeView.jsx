@@ -95,9 +95,9 @@ export default class TreeView extends React.Component {
           });
 
           var iconClassName = classNames({
-            'glyphicon': true,
-            'glyphicon-folder-close': node.type === 'node',
-            'glyphicon-file': node.type === 'post'
+            'fa': true,
+            'fa-folder-o': node.type === 'node',
+            'fa-file-text-o': node.type === 'post'
           });
 
           // if node has children add arrow
@@ -145,7 +145,7 @@ export default class TreeView extends React.Component {
             onDragOver={this.handleDragOver.bind(this)}
             onDragLeave={this.handleDragLeave.bind(this)}
             onDrop={this.handleDrop.bind(this)}
-            className="glyphicon glyphicon-globe">
+            className="fa fa-globe">
             </i> <a className="tree-view_label" href="/nodes/">root</a>
 
             { this.renderNodeTree() }

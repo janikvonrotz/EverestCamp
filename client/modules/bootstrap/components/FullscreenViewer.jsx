@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames/bind';
 
 export default class FullscreenContainer extends React.Component {
 
@@ -20,11 +21,14 @@ export default class FullscreenContainer extends React.Component {
   }
 
   renderIcon(){
-    if(this.state.screenClass === 'display-fullscreen'){
-      return <i onClick={this.toggleFullscreen.bind(this)} className="glyphicon screen-icon glyphicon-remove" />
-    }else{
-      return <i onClick={this.toggleFullscreen.bind(this)} className="glyphicon screen-icon glyphicon-fullscreen" />
-    }
+    let classes = classNames({
+      'screen-icon fa fa-lg pull-xs-right': true,
+      'fa-times': this.state.screenClass === 'display-fullscreen',
+      'fa-arrows-alt': this.state.screenClass === 'display-normal'
+    });
+    return (
+      <i onClick={this.toggleFullscreen.bind(this)} className={classes}></i>
+    );
   }
 
   render() {

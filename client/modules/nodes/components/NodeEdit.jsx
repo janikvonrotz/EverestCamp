@@ -37,9 +37,9 @@ export default class NodeEdit extends React.Component {
     if(this.props.nodes.length > 0){
       return(
         <GridColumn className="col-sm-12">
-          <ListGroup linked={ true } items={  _.where(this.props.nodes, {type: 'post'}) } iconClassName="glyphicon glyphicon-file" />
+          <ListGroup linked={ true } items={  _.where(this.props.nodes, {type: 'post'}) } iconClassName="fa fa-file-text-o" />
           <p></p>
-          <ListGroup linked={ true } items={ _.where(this.props.nodes, {type: 'node'}) } iconClassName="glyphicon glyphicon-folder-close" />
+          <ListGroup linked={ true } items={ _.where(this.props.nodes, {type: 'node'}) } iconClassName="fa fa-folder-o" />
           <p></p>
         </GridColumn>
       );

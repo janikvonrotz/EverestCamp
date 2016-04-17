@@ -5,9 +5,9 @@ export default class NotFound extends React.Component {
 
   render() {
     return (
-      <div class="container">
+      <div className="container">
         <PageHeader tag="h1">Page Not Found</PageHeader>
-        <p>Lorem ipsum some text.</p>
+        <p>We couldn't find the page you are looking for. Please use the <a href="/">search</a>.</p>
       </div>
     );
   }

@@ -30,3 +30,4 @@ cfs:filesystem
 cfs:graphicsmagick
 twbs:bootstrap@=4.0.0-alpha.2
 alanning:roles
+fortawesome:fontawesome

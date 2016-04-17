@@ -9,13 +9,13 @@ export const composer = ({context}, onData) => {
 export const depsMapper = (context) => ({
   items: {
     left: [
-      { uid: 'files.list', href: '/files', label: 'Files' },
-      { uid: 'index', href: '/', label: 'Posts' },
-      { uid: 'user', href: '/users', label: 'Users' }
+      { uid: 'post.list', href: '/posts', label: 'Posts' },
+      { uid: 'file.list', href: '/files', label: 'Files' },
+      { uid: 'user.list', href: '/users', label: 'Users' }
     ],
     right: [
-      { uid: 'profile', href: '/profile', label: Meteor.user().emails[0].address },
-      { uid: 'logout', href: '#', label: 'Logout', action: () => {
+      { uid: 'user.profile', href: '/profile', label: Meteor.user().emails[0].address },
+      { uid: 'user.logout', href: '#', label: 'Logout', action: () => {
         return Meteor.logout( () => {
           FlowRouter.go( '/login' );
         });

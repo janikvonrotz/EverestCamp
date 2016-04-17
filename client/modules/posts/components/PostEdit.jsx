@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { Alert, GridRow, ContentEditable, GridColumn, Button, Label, Modal, FullscreenViewer, Checkbox, ListGroup } from '../../bootstrap/components/index.jsx';
+import { Alert, GridRow, ContentEditable, GridColumn, Button, ButtonGroup, Label, Modal, FullscreenViewer, Checkbox, ListGroup } from '../../bootstrap/components/index.jsx';
 import { MarkdownEditor } from '../../files/containers';
 
 export default class NodeEdit extends React.Component {
@@ -49,6 +49,14 @@ export default class NodeEdit extends React.Component {
     return (<ListGroup items={posts} />);
   }
 
+  renderViewLink(post){
+    if(this.props.can_access('post.view')){
+      return (
+        <Button href={'/posts/' + post._id + '/' + post.slug} style="primary">View</Button>
+      );
+    }
+  }
+
   render(){
     const post = this.props.post;
     if(!post){return (<Alert style="warning">Post not found.</Alert>);}
@@ -77,8 +85,12 @@ export default class NodeEdit extends React.Component {
             onChange={this.update.bind(this)} />
            </FullscreenViewer>
            <p></p>
-          <p><Button onClick={this.update.bind(this, true)} style="success">Commit</Button></p>
-          <p><Button onClick={this.toggleDeleteModal.bind(this)} style="danger">Delete</Button></p>
+          <ButtonGroup>
+            <Button onClick={this.update.bind(this, true)} style="success">Commit</Button>
+            { this.renderViewLink(post)}
+            <Button onClick={this.toggleDeleteModal.bind(this)} style="danger">Delete</Button>
+          </ButtonGroup>
+          <p></p>
           <Modal
           showModal={this.state.showDeleteModal}
           title="Confirm"

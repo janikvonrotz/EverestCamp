@@ -4,8 +4,8 @@ import {files_single} from '/lib/files_publications';
 
 export const composer = ({context, fileId}, onData) => {
   const {Meteor, Collections} = context();
-  if (Meteor.subscribe('files.single', fileId).ready()) {
-    const file = files_single(fileId).fetch()[0];;
+  if (Meteor.subscribe('files.item', fileId).ready()) {
+    const file = Collections.Files.findOne(fileId);
     onData(null, {file});
   }
 };

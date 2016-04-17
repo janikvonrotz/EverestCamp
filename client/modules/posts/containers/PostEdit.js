@@ -12,6 +12,7 @@ export const composer = ({context, postId}, onData) => {
 export const depsMapper = (context, actions) => ({
   update: actions.posts.update,
   remove: actions.posts.remove,
+  can_access: actions.posts.can_access,
   context: () => context
 });
 

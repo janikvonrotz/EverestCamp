@@ -11,7 +11,7 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/posts', {
     name: 'post.list',
     triggersEnter: [function(context, redirect) {
-      actions.posts.read('post.list', redirect);
+      actions.posts.access_route('post.list', redirect);
     }],
     action() {
       mount(AppLayout, {
@@ -23,7 +23,7 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/posts/:postId/edit', {
     name: 'post.edit',
     triggersEnter: [function(context, redirect) {
-      actions.posts.read('post.edit', redirect);
+      actions.posts.access_route('post.edit', redirect);
     }],
     action({postId}) {
       mount(AppLayout, {
@@ -35,7 +35,7 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/posts/:postId/:slug', {
     name: 'post.view',
     triggersEnter: [function(context, redirect) {
-      actions.posts.read('post.view', redirect);
+      actions.posts.access_route('post.view', redirect);
     }],
     action({postId, slug}) {
       mount(AppLayout, {

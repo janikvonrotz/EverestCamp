@@ -52,13 +52,23 @@ export default {
     });
   },
 
-  read(routename, redirect) {
+  access_route(routename, redirect) {
     if(redirect_login(routename)){
       redirect('/login');
     } else if(redirect_verify()){
       redirect('/email-verification');
     } else if(cannot_access(routename)){
       redirect('/');
+    }
+  },
+
+  can_access({Meteor, FlowRouter}, routename){
+    return !cannot_access(routename);
+  },
+
+  redirect_slug({Meteor, FlowRouter}, post, slug){
+    if(post.slug != slug){
+      FlowRouter.go('/posts/' + post._id + '/' + post.slug);
     }
   }
 };

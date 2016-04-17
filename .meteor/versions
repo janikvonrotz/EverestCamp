@@ -53,6 +53,7 @@ ejson@1.0.10
 email@1.0.11
 es5-shim@4.5.9
 fastclick@1.0.10
+fortawesome:fontawesome@4.5.0
 geojson-utils@1.0.7
 hot-code-push@1.0.3
 html-tools@1.0.8

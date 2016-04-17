@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 import {App, NotFound} from './components/index.jsx';
-import {PostList} from '../posts/containers';
+import {PostSearch} from '../posts/containers';
 
 export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);
@@ -10,14 +10,14 @@ export default function (injectDeps, {FlowRouter}) {
     name: 'index',
     action() {
       mount(AppLayout, {
-        content: () => (<PostList />)
+        content: () => (<PostSearch />)
       });
     }
   });
 
   FlowRouter.notFound = {
     action() {
-      mount(<NotFound />, {});
+      mount(NotFound, {});
     }
   };
 }

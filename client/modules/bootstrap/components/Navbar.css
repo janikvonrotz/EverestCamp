@@ -6,3 +6,9 @@ body{
 .navbar{
   margin-bottom: 20px;
 }
+
+.navbar-logo{
+  width: 30px;
+  height: 30px;
+  margin-top: -5px;
+}

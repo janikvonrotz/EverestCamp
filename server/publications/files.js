@@ -1,5 +1,6 @@
 import {Meteor} from 'meteor/meteor';
-import { files_list, files_search, files_single } from '/lib/files_publications';
+import { files_list, files_search } from '/lib/files_publications';
+import {Files} from '/lib/collections';
 
 export default function () {
 
@@ -11,7 +12,9 @@ export default function () {
     return files_search(filterText, limit);
   });
 
-  Meteor.publish('files.single', function (nodeId) {
-    return files_single(nodeId);
+  Meteor.publish('files.item', function (fileId) {
+    check(fileId, String);
+    var selector = {_id: fileId};
+    return Files.find(selector);
   });
 }

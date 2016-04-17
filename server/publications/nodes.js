@@ -1,5 +1,6 @@
 import {Meteor} from 'meteor/meteor';
-import { nodes_list, nodes_search, nodes_single } from '/lib/nodes_publications';
+import { nodes_list, nodes_search } from '/lib/nodes_publications';
+import {Nodes} from '/lib/collections';
 
 export default function () {
 
@@ -11,7 +12,9 @@ export default function () {
     return nodes_search(filterText);
   });
 
-  Meteor.publish('nodes.single', function (nodeId) {
-    return nodes_single(nodeId);
+  Meteor.publish('nodes.item', function (nodeId) {
+    check(nodeId, String);
+    var selector = {_id: nodeId};
+    return Nodes.find(selector);
   });
 }

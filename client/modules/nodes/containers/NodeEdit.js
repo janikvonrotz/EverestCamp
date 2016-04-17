@@ -1,6 +1,6 @@
 import NodeEdit from '../components/NodeEdit.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
-import { nodes_list, nodes_single } from '/lib/nodes_publications';
+import { nodes_list } from '/lib/nodes_publications';
 
 export const composer = ({context, nodeId}, onData) => {
   const {Meteor, Collections} = context();
@@ -10,7 +10,7 @@ export const composer = ({context, nodeId}, onData) => {
   ]};
 
   if (Meteor.subscribe('nodes.list', selector).ready()) {
-    const node = nodes_single( nodeId ).fetch()[0];
+    const node = Collections.Nodes.findOne( nodeId );
     const nodes = nodes_list( { parent: nodeId } ).fetch().map( ( node ) => {
       var href=`/nodes/${ node._id }/edit`;
       if(node.type === 'post'){

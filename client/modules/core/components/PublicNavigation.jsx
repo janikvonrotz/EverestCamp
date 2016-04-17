@@ -5,7 +5,7 @@ export default class PublicNavigation extends React.Component {
   render() {
     return(
       <Navbar className="public-navigation" id="app-header" brandLink="/" brand="EverestCamp">
-        <NavbarNav items={ this.props.items.right } />
+        <NavbarNav className="pull-xs-right" items={ this.props.items.right } />
       </Navbar>
     );
   }
