@@ -51,7 +51,7 @@ export default class MainPage extends React.Component {
           onChange={ this.filterList.bind(this) }
           defaultValue="" />
         </FormGroup>
-        <TreeView activeNodeId={this.props.nodeId} filterText={this.state.filterText} />
+        <TreeView rootUrl="/posts" activeNodeId={this.props.nodeId} filterText={this.state.filterText} />
         </GridColumn>
         <GridColumn className="col-md-8">
         { this.renderItemView() }

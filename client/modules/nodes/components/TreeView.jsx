@@ -138,7 +138,7 @@ export default class TreeView extends React.Component {
             onDragLeave={this.handleDragLeave.bind(this)}
             onDrop={this.handleDrop.bind(this)}
             className="fa fa-globe">
-            </i> <a className="tree-view_label" href="/nodes/">root</a>
+            </i> <a className="tree-view_label" href={this.props.rootUrl}>root</a>
 
             { this.renderNodeTree() }
 

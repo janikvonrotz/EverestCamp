@@ -14,7 +14,7 @@ export const depsMapper = (context) => ({
       { uid: 'user.list', href: '/users', label: 'Users' }
     ],
     right: [
-      { uid: 'user.profile', href: '/profile', label: Meteor.user().emails[0].address },
+      { uid: 'user.profile', href: '/profile', label: Meteor.user().username },
       { uid: 'user.logout', href: '#', label: 'Logout', action: () => {
         return Meteor.logout( () => {
           FlowRouter.go( '/login' );
