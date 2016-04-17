@@ -9,9 +9,8 @@ export default () => {
         username: 'admin',
         verified: true,
         password: 'password',
-        profile: {
-          name:  { first: 'Admin', last: 'McAdmin' }
-        },
+        firstname: 'Admin',
+        lastname: 'McAdmin',
         role: 'Admin'
       },
       {
@@ -19,9 +18,8 @@ export default () => {
         username: 'manager',
         verified: true,
         password: 'password',
-        profile: {
-          name:  { first: 'Manager', last: 'McManager' }
-        },
+        firstname: 'Manager',
+        lastname: 'McManager',
         role: 'Manager'
       },
       {
@@ -29,9 +27,8 @@ export default () => {
         username: 'author',
         verified: true,
         password: 'password',
-        profile: {
-          name:  { first: 'Author', last: 'McAuthor' }
-        },
+        firstname: 'Author',
+        lastname: 'McAuthor',
         role: 'Author'
       },
     ];
@@ -42,7 +39,8 @@ export default () => {
         email: user.email,
         password: user.password,
         username: user.username,
-        profile: { name: {first: user.profile.name.first, last: user.profile.name.last }}
+        firstname: user.firstname,
+        lastname: user.lastname
       });
 
       Roles.addUsersToRoles(userId, user.role);

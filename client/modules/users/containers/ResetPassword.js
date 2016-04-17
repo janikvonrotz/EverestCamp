@@ -2,6 +2,7 @@ import ResetPassword from '../components/ResetPassword.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context, token}, onData) => {
+  const {Meteor, Collections} = context();
   onData(null, {token});
 };
 

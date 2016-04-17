@@ -10,6 +10,30 @@ export default class Register extends React.Component {
         <PageHeader tag="h1">Register</PageHeader>
         <Form onSubmit={this.register.bind(this)}>
           <FormGroup>
+            <Label>Firstname</Label>
+            <Input
+            ref="firstname"
+            style="input"
+            name="firstname"
+            required={ true } />
+          </FormGroup>
+          <FormGroup>
+            <Label>Lastname</Label>
+            <Input
+            ref="lastname"
+            style="input"
+            name="lastname"
+            required={ true } />
+          </FormGroup>
+          <FormGroup>
+            <Label>Username</Label>
+            <Input
+            ref="username"
+            style="input"
+            name="username"
+            required={ true } />
+          </FormGroup>
+          <FormGroup>
             <Label>Email Address</Label>
             <Input
             ref="email"
@@ -38,6 +62,13 @@ export default class Register extends React.Component {
   }
 
   register(event){
-    this.props.register(ReactDOM.findDOMNode(this.refs.email).value, ReactDOM.findDOMNode(this.refs.password).value);
+    let user = {
+      username: ReactDOM.findDOMNode(this.refs.username).value,
+      email: ReactDOM.findDOMNode(this.refs.email).value,
+      password: ReactDOM.findDOMNode(this.refs.password).value,
+      firstname: ReactDOM.findDOMNode(this.refs.firstname).value,
+      lastname: ReactDOM.findDOMNode(this.refs.lastname).value
+    }
+    this.props.register(user);
   }
 }

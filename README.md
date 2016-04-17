@@ -20,6 +20,9 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Longterm Task
 
+* Internationalization german, english
+* Password Strength measurer client and server
+* plural naming to singular
 * Make Posts and Files archiveable
 * Protect Overwriting in Edit mode
 * Add link by drag n drop
@@ -147,6 +150,9 @@ https://stackoverflow.com/questions/19826804/understanding-meteor-publish-subscr
 
 Multiple Subscriptions
 http://stackoverflow.com/questions/12632452/publishing-subscribing-multiple-subsets-of-the-same-server-collection
+
+Extending user
+https://medium.com/all-about-meteorjs/extending-meteor-users-300a6cb8e17f#.2fgjfwejb
 
 # Doku
 

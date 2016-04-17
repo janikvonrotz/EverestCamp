@@ -2,8 +2,9 @@ import {notify} from 'react-notify-toast';
 
 export default {
 
-  register({Meteor, LocalState}, email, password) {
-    Accounts.createUser({email, password}, (err, res) => {
+  register({Meteor, LocalState}, user) {
+    console.log(user);
+    Accounts.createUser(user, (err, res) => {
       if(err){
         notify.show(err.message, 'error');
       }else{

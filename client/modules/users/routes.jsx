@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'react-mounter';
 import App from '../core/components/App.jsx';
-import {Register, Login, RecoverPassword, ResetPassword, EmailVerification, UserSearch} from './containers';
+import {Register, Login, RecoverPassword, ResetPassword, EmailVerification, UserSearch, Profile} from './containers';
 
 export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);
@@ -17,7 +17,7 @@ export default function (injectDeps, {FlowRouter}) {
   FlowRouter.route('/profile', {
     name: 'users.profile', action() {
       mount(AppLayout, {
-        content: () => (<UserSearch />)
+        content: () => (<Profile />)
       });
     }
   });

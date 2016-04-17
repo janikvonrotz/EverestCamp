@@ -1,17 +1,18 @@
-import RecoverPassword from '../components/RecoverPassword.jsx';
+import Profile from '../components/Profile.jsx';
 import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context}, onData) => {
   const {Meteor, Collections} = context();
-  onData(null, {});
+  const user = Meteor.user();
+  onData(null, {user});
 };
 
 export const depsMapper = (context, actions) => ({
-  recover_password: actions.users.recover_password,
+  update: actions.users.update,
   context: () => context
 });
 
 export default composeAll(
   composeWithTracker(composer),
   useDeps(depsMapper)
-)(RecoverPassword);
+)(Profile);
