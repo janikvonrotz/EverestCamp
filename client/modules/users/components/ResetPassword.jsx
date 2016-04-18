@@ -27,7 +27,7 @@ export default class ResetPassword extends React.Component {
             <Input
             ref="repeatPassword"
             style="input"
-            name="RepeatPassword"
+            name="repeatPassword"
             type="password"
             required={ true } />
           </FormGroup>

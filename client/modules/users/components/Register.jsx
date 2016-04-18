@@ -66,8 +66,10 @@ export default class Register extends React.Component {
       username: ReactDOM.findDOMNode(this.refs.username).value,
       email: ReactDOM.findDOMNode(this.refs.email).value,
       password: ReactDOM.findDOMNode(this.refs.password).value,
-      firstname: ReactDOM.findDOMNode(this.refs.firstname).value,
-      lastname: ReactDOM.findDOMNode(this.refs.lastname).value
+      profile:{
+        firstname: ReactDOM.findDOMNode(this.refs.firstname).value,
+        lastname: ReactDOM.findDOMNode(this.refs.lastname).value
+      }
     }
     this.props.register(user);
   }

@@ -49,6 +49,17 @@ export default {
     }
   },
 
+  change_password({Meteor, LocalState}, oldPassword, newPassword) {
+    Accounts.changePassword( oldPassword, newPassword, ( err ) => {
+      if(err){
+        notify.show(err.message, 'error');
+      }else{
+        notify.show("New password has been saved.", 'success');
+        FlowRouter.go("/login");
+      }
+    });
+  },
+
   verify_email({Meteor, LocalState}, token) {
     var result = true;
     Accounts.verifyEmail( token, ( err ) => {

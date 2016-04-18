@@ -13,10 +13,8 @@ export default () => {
 
   Accounts.onCreateUser((options, user) => {
 
-    user.profile = options.profile || {};
-    // Assigns first and last names to the newly created user object
-    user.profile.firstname = options.firstname;
-    user.profile.lastname = options.lastname;
+    user.profile = options.profile ? options.profile : {};
+    user.roles = options.roles || ["Author"];
 
     // send verification mail
     Meteor.setTimeout(function() {

@@ -1,4 +1,6 @@
 import {Meteor} from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
+import {Roles} from 'meteor/alanning:roles';
 
 export default () => {
   if (Meteor.users.find().count() === 0 ) {
@@ -39,12 +41,15 @@ export default () => {
         email: user.email,
         password: user.password,
         username: user.username,
-        firstname: user.firstname,
-        lastname: user.lastname
+        profile: {
+          firstname: user.firstname,
+          lastname: user.lastname
+        },
+        roles: [user.role]
       });
 
-      Roles.addUsersToRoles(userId, user.role);
-      Meteor.users.update(userId, {$set: {"emails.0.verified": true}});
+      // Roles.addUsersToRoles(userId, user.role);
+      Meteor.users.update(userId, {$set: {'emails.0.verified': true}});
     });
   }
 };
