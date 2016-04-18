@@ -14,7 +14,7 @@ export default () => {
   Accounts.onCreateUser((options, user) => {
 
     user.profile = options.profile ? options.profile : {};
-    user.roles = options.roles || ["Author"];
+    user.roles = options.roles || Meteor.settings.private.defaultRole;
 
     // send verification mail
     Meteor.setTimeout(function() {

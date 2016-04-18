@@ -18,3 +18,7 @@ body.modal-open {
 .modal-body .row{
   margin: 0;
 }
+
+.modal-content{
+  border-radius: 0;
+}

@@ -17,7 +17,6 @@ export default class EmailVerification extends React.Component {
   renderVerification(){
     if(this.props.token){
       let result = this.props.verify(this.props.token);
-      console.log(result);
       if(result){
         return(
           <Alert style="success">Your email has been verified.</Alert>

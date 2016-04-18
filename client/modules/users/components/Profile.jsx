@@ -9,6 +9,7 @@ export default class Profile extends React.Component {
     this.state = {
       showPasswordModal: false,
       showEmailModal: false,
+      showUsernameModal: false
     };
   };
 
@@ -17,10 +18,27 @@ export default class Profile extends React.Component {
       ReactDOM.findDOMNode(this.refs.oldPassword).value,
       ReactDOM.findDOMNode(this.refs.newPassword).value
     );
+    this.togglePasswordModal();
+  }
+
+  changeEmail(){
+    this.props.change_email(
+      ReactDOM.findDOMNode(this.refs.email).value
+    );
+    this.toggleEmailModal();
+  }
+
+  changeUsername(){
+    this.props.change_username(
+      ReactDOM.findDOMNode(this.refs.username).value
+    );
+    this.toggleUsernameModal(); 
   }
 
   update(event){
-
+    let user = {};
+    user[event.target.name] = event.target.value;
+    this.props.update(user)
   }
 
   togglePasswordModal(event){
@@ -29,6 +47,10 @@ export default class Profile extends React.Component {
 
   toggleEmailModal(event){
     this.setState({showEmailModal: !this.state.showEmailModal});
+  }
+
+  toggleUsernameModal(event){
+    this.setState({showUsernameModal: !this.state.showUsernameModal});
   }
 
   render() {
@@ -40,14 +62,18 @@ export default class Profile extends React.Component {
           <Label>Firstname</Label>
           <Input
           style="input"
+          type="text"
           name="profile.firstname"
+          onChange={this.update.bind(this)}
           defaultValue={user.profile.firstname} />
         </FormGroup>
         <FormGroup>
           <Label>Lastname</Label>
           <Input
           style="input"
+          type="text"
           name="profile.lastname"
+          onChange={this.update.bind(this)}
           defaultValue={user.profile.lastname} />
         </FormGroup>
         <FormGroup>
@@ -55,13 +81,17 @@ export default class Profile extends React.Component {
           <Input
           style="input"
           name="username"
-          defaultValue={user.username} />
+          type="text"
+          defaultValue={user.username}
+          disabled="true" />
         </FormGroup>
+        <p><Button style="primary" onClick={this.toggleUsernameModal.bind(this)}>Change username</Button></p>
         <FormGroup>
           <Label>Email Address</Label>
           <Input
           style="input"
           name="email"
+          type="email"
           defaultValue={user.emails[0].address}
           disabled="true" />
         </FormGroup>
@@ -76,6 +106,43 @@ export default class Profile extends React.Component {
           disabled="true" />
         </FormGroup>
         <p><Button style="primary" onClick={this.togglePasswordModal.bind(this)}>Change password</Button></p>
+
+        <Modal
+        showModal={this.state.showUsernameModal}
+        title="Change username"
+        onCancel={this.toggleUsernameModal.bind(this)}
+        cancelLabel="Cancel"
+        onConfirm={this.changeUsername.bind(this)}
+        confirmLabel="Save">
+        <FormGroup>
+          <Label>New username</Label>
+          <Input
+          ref="username"
+          style="input"
+          name="username"
+          type="text"
+          required={ true } />
+        </FormGroup>
+        </Modal>
+
+        <Modal
+        showModal={this.state.showEmailModal}
+        title="Change email"
+        onCancel={this.toggleEmailModal.bind(this)}
+        cancelLabel="Cancel"
+        onConfirm={this.changeEmail.bind(this)}
+        confirmLabel="Save">
+        <FormGroup>
+          <Label>New email</Label>
+          <Input
+          ref="email"
+          style="input"
+          name="email"
+          type="email"
+          required={ true } />
+        </FormGroup>
+        </Modal>
+
         <Modal
         showModal={this.state.showPasswordModal}
         title="Change password"
@@ -102,6 +169,7 @@ export default class Profile extends React.Component {
           required={ true } />
         </FormGroup>
         </Modal>
+
       </GridColumn>
       </GridRow>
     );

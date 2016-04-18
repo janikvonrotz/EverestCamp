@@ -10,6 +10,8 @@ export const composer = ({context}, onData) => {
 export const depsMapper = (context, actions) => ({
   update: actions.users.update,
   change_password: actions.users.change_password,
+  change_email: actions.users.change_email,
+  change_username: actions.users.change_username,
   context: () => context
 });
 

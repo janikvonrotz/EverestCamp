@@ -2,8 +2,15 @@ import {notify} from 'react-notify-toast';
 
 export default {
 
+  update({Meteor, LocalState}, field) {
+    Meteor.call( 'user.update', field, ( err ) => {
+      if(err){
+        notify.show(err.message, 'error');
+      }
+    });
+  },
+
   register({Meteor, LocalState}, user) {
-    console.log(user);
     Accounts.createUser(user, (err, res) => {
       if(err){
         notify.show(err.message, 'error');
@@ -55,7 +62,26 @@ export default {
         notify.show(err.message, 'error');
       }else{
         notify.show("New password has been saved.", 'success');
-        FlowRouter.go("/login");
+      }
+    });
+  },
+
+  change_username({Meteor, LocalState}, username) {
+    Meteor.call( 'user.update', {username: username}, ( err ) => {
+      if(err){
+        notify.show(err.message, 'error');
+      }else{
+        notify.show("New username has been saved.", 'success');
+      }
+    });
+  },
+
+  change_email({Meteor, LocalState}, email) {
+    Meteor.call( 'user.update', {email: email}, ( err ) => {
+      if(err){
+        notify.show(err.message, 'error');
+      }else{
+        notify.show("New email has been saved.", 'success');
       }
     });
   },
@@ -73,7 +99,7 @@ export default {
   },
 
   send_verification_email({Meteor, LocalState}) {
-    Meteor.call("send_verification_email", ( err ) => {
+    Meteor.call("user.send_verification_email", ( err ) => {
       if(err){
         notify.show(err.message, 'error');
       }else{

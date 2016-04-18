@@ -5,13 +5,10 @@ EverestCamp is the most simple knoweldge base tool.
 * Multiple File paste
 * Routing Access Control
 * Data Acess Control
-* Add username and lastname, firstname to form
 * View visiblity Access - make nav el for unauthorized user in, add edit button on post view
 * Create AutoSave for every 3 seconds in editor.
-* Content optional?maybe?
-* Fix header title
-* Add user management site
-* User profile - change username, last and firstname, password
+* Add user management site - table with search and role dropdown
+* User profile - change username, email, last and firstname, password
 
 ## Bugs
 
@@ -20,6 +17,9 @@ EverestCamp is the most simple knoweldge base tool.
 
 ## Longterm Task
 
+* Fix header title
+* Content optional?maybe?
+* Add username and lastname, firstname to form
 * Internationalization german, english
 * Password Strength measurer client and server
 * plural naming to singular
