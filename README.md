@@ -1,5 +1,11 @@
 EverestCamp is the most simple knoweldge base tool.
 
+Work in progress:
+
+![Screenshot Desktop](https://raw.githubusercontent.com/BitSherpa/EverestCamp/gh-pages/screenshot-desktop.png)
+
+![Screenshot Mobile](https://raw.githubusercontent.com/BitSherpa/EverestCamp/gh-pages/screenshot-mobile.png)
+
 # Todo
 
 * Multiple File paste
@@ -154,33 +160,32 @@ http://stackoverflow.com/questions/12632452/publishing-subscribing-multiple-subs
 Extending user
 https://medium.com/all-about-meteorjs/extending-meteor-users-300a6cb8e17f#.2fgjfwejb
 
-# Doku
+# Docs
 
 ## Run
-
-More about some custom components.
 
     meteor --settings settings-default.json
 
 ## Roles and permissions
 
-Admin: Full Access on files, nodes, posts, users
-Builder: CRUD nodes, posts, files
-Author: CRUD posts, files
-Public: R public posts
+* Admin: Full Access on files, nodes, posts, users
+* Builder: CRUD nodes, posts, files
+* Author: CRU posts, files
+* Public: R public posts, files
 
-## Naming
+## Naming concept
 
 CamelCase is for visibility and unserscore_case is for readability.
 
 **Files**
 
-React components: CamelCase
+React components: CamelCase  
 Everything else: underscore_case
 
 **Functions**
 
-underscore_case
+React functions: CamelCase  
+Everything else: underscore_case
 
 ## ContentEditable
 
