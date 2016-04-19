@@ -1,1 +1,2 @@
-_site
+.meteor
+node_modules
