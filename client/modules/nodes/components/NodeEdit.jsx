@@ -3,8 +3,8 @@ import { GridRow, ContentEditable, GridColumn, Button, Modal, ListGroup } from '
 
 export default class NodeEdit extends React.Component {
 
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
 
     this.state = {
       shouldChildComponentUpdate: false,

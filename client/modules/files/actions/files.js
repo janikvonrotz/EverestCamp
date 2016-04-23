@@ -1,4 +1,4 @@
-import {notify} from 'react-notify-toast';
+import {notify} from '../../core/libs/notify';
 import {Files} from '/lib/collections';
 import slugify from '/lib/slugify';
 

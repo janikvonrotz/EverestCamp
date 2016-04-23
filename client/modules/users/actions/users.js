@@ -1,4 +1,4 @@
-import {notify} from 'react-notify-toast';
+import {notify} from '../../core/libs/notify';
 
 export default {
 

@@ -1,4 +1,4 @@
-import {notify} from 'react-notify-toast';
+import {notify} from '../../core/libs/notify';
 import {cannot_access, redirect_login, redirect_verify} from '/lib/access_control';
 
 export default {

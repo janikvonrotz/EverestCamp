@@ -19,7 +19,8 @@ Work in progress:
 
 ## Bugs
 
-* find Notification tool that works - https://github.com/igorprado/react-notification-system
+* find Notification tool that works - https://github.com/igorprado/react-notification-system or fork react-notify-toast
+* Replace FS Collection
 * Register return value is not processed
 
 ## Longterm Task

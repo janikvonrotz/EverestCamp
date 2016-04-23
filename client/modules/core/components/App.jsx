@@ -1,7 +1,7 @@
 import React from 'react';
 import { GridRow, GridColumn, PageHeader, Navbar } from '../../bootstrap/components/index.jsx';
 import { PublicNavigation, AuthenticatedNavigation } from '../containers/index.js';
-import Notifications from 'react-notify-toast';
+import Notifications from '../libs/notify';
 import Helmet from 'react-helmet';
 
 const App = ({content}) => (

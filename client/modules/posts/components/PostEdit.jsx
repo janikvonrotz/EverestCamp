@@ -5,8 +5,8 @@ import { MarkdownEditor } from '../../files/containers';
 
 export default class NodeEdit extends React.Component {
 
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       shouldChildComponentUpdate: false,
       showDeleteModal: false
