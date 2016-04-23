@@ -15,14 +15,16 @@ Work in progress:
 * Create AutoSave for every 3 seconds in editor.
 * Add user management site - table with search and role dropdown
 * User profile - change username, email, last and firstname, password
+* create collaborative editor prototype by syncing content block
 
 ## Bugs
 
-* find Notification tool that works
+* find Notification tool that works - https://github.com/igorprado/react-notification-system
 * Register return value is not processed
 
 ## Longterm Task
 
+* Demo deploy http://meteortips.com/deployment-tutorial/digitalocean-part-1/
 * Fix header title
 * Content optional?maybe?
 * Add username and lastname, firstname to form
