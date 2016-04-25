@@ -22,6 +22,7 @@ Work in progress:
 * find Notification tool that works - https://github.com/igorprado/react-notification-system or fork react-notify-toast
 * Replace FS Collection
 * Register return value is not processed
+* Notifcations are not persistend on route change
 
 ## Longterm Task
 
