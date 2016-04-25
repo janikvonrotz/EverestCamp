@@ -26,9 +26,6 @@ Work in progress:
 ## Longterm Task
 
 * Demo deploy http://meteortips.com/deployment-tutorial/digitalocean-part-1/
-* Fix header title
-* Content optional?maybe?
-* Add username and lastname, firstname to form
 * Internationalization german, english
 * Password Strength measurer client and server
 * plural naming to singular
@@ -39,13 +36,16 @@ Work in progress:
 * Support LDAP authentication
 * Support LDAP group membership check
 * Mark Node search results
-* Add Like Button
+* Add Helped Me Button for visitors
 * Add Elastic Search
 * Add REST API - http://meteor-rest.readthedocs.org/en/rtd/rest/
 * Create mobile app with Meteor Cordova
 
 ## Done
 
+* Fix header title
+* Content optional?maybe?
+* Add username and lastname, firstname to form
 * Routing Config into Meteor Settings
 * Guest user Fronted - PostSearch with SingleView with content and last author.
 * FlowRouter not found konfigurieren
