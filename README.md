@@ -6,6 +6,16 @@ Work in progress:
 
 ![Screenshot Mobile](https://raw.githubusercontent.com/BitSherpa/EverestCamp/gh-pages/screenshot-mobile.png)
 
+# Features
+
+* Intuitive user experience
+* AutoSave everywhere
+* Drag and Drop image upload
+* Data tree to structure knoweldge articles.
+* Drag and Drop sortable data tree
+* Responsive and reactive
+* Markdown editor with live preview
+
 # Todo
 
 * Multiple File paste
