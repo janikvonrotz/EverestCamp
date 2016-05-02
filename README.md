@@ -26,6 +26,7 @@ Work in progress:
 * Add user management site - table with search and role dropdown
 * User profile - change username, email, last and firstname, password
 * create collaborative editor prototype by syncing content block
+* Enable Tabulator usage in editor
 
 ## Bugs
 
@@ -36,8 +37,9 @@ Work in progress:
 
 ## Longterm Task
 
+* PDF Export of posts
 * Demo deploy http://meteortips.com/deployment-tutorial/digitalocean-part-1/
-* Internationalization german, english
+* Internationalization english (german)
 * Password Strength measurer client and server
 * plural naming to singular
 * Make Posts and Files archiveable
