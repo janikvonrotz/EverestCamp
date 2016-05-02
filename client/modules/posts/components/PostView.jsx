@@ -28,6 +28,12 @@ export default class NodeEdit extends React.Component {
     );
   }
 
+  componentDidMount(){
+    if(this.props.post){
+      this.props.redirect_slug(this.props.post, this.props.slug);
+    }
+  }
+
   componentDidUpdate(){
     if(this.props.post){
       this.props.redirect_slug(this.props.post, this.props.slug);

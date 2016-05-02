@@ -28,6 +28,6 @@ accounts-password
 cfs:standard-packages
 cfs:filesystem
 cfs:graphicsmagick
-twbs:bootstrap@=4.0.0-alpha.2
+twbs:bootstrap@4.0.0-alpha2
 alanning:roles
 fortawesome:fontawesome

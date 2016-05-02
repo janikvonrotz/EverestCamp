@@ -27,6 +27,7 @@ Work in progress:
 * User profile - change username, email, last and firstname, password
 * create collaborative editor prototype by syncing content block
 * Enable Tabulator usage in editor
+* Landing Page with jekyll - https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
 
 ## Bugs
 
