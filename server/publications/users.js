@@ -3,7 +3,7 @@ import { user_list, user_search } from '/lib/user_publications';
 
 export default function () {
 
-  Meteor.publish("userData", function () {
+  Meteor.publish("user.current", function () {
     if (this.userId) {
       var selector = {_id: this.userId};
       var options = {fields: {'profile': 1}};

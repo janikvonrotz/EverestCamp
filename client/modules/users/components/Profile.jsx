@@ -32,13 +32,14 @@ export default class Profile extends React.Component {
     this.props.change_username(
       ReactDOM.findDOMNode(this.refs.username).value
     );
-    this.toggleUsernameModal(); 
+    this.toggleUsernameModal();
+    this.forceUpdate();
   }
 
   update(event){
     let user = {};
     user[event.target.name] = event.target.value;
-    this.props.update(user)
+    this.props.update(user);
   }
 
   togglePasswordModal(event){

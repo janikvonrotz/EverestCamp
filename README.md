@@ -1,4 +1,7 @@
 EverestCamp is the most simple knoweldge base tool.
+It tackles these challenges:
+* Make the process of documentation worthwhile for your employees.
+* Provide tools to make use of the knoweldge of your employees.
 
 Work in progress:
 
@@ -10,10 +13,10 @@ Work in progress:
 
 * Intuitive user experience
 * AutoSave everywhere
-* Drag and Drop image upload
-* Data tree to structure knoweldge articles.
-* Drag and Drop sortable data tree
-* Responsive and reactive
+* Image upload by drag and drop or paste
+* Taxonomy editor to organize knowledge articles.
+* Drag and drop sortable taxonomy tree
+* Responsive and reactive layout
 * Markdown editor with live preview
 
 # Todo
@@ -33,6 +36,7 @@ Work in progress:
 
 * find Notification tool that works - https://github.com/igorprado/react-notification-system or fork react-notify-toast
 * Replace FS Collection
+* User Profile change process - reactiviy, change mail
 * Register return value is not processed
 * Notifcations are not persistend on route change
 

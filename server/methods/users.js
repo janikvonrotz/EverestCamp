@@ -10,14 +10,18 @@ export default function () {
 
     'user.update'(field) {
       check(field, Object);
+      const userId = Meteor.userId();
 
       if(field["email"] != undefined){
+        // Accounts.removeEmail(userId, Meteor.user().emails[0].address);
 
-        Accounts.sendVerificationEmail(Meteor.userId());
+        // add new mail and sen verification mail
+        Accounts.addEmail(userId, field.email, false);
+        Accounts.sendVerificationEmail(userId);
       }else if(field["username"] != undefined){
-        Accounts.setUsername(Meteor.userId(), field.username);
+        Accounts.setUsername(userId, field.username);
       }else{
-        Meteor.users.update( Meteor.userId(), { $set: field } );
+        Meteor.users.update(userId, { $set: field } );
       }
     }
   });

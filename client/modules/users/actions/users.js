@@ -82,6 +82,7 @@ export default {
         notify.show(err.message, 'error');
       }else{
         notify.show("New email has been saved.", 'success');
+        FlowRouter.go("/email-verification");
       }
     });
   },
