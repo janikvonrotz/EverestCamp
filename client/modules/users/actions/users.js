@@ -67,7 +67,7 @@ export default {
   },
 
   change_username({Meteor, LocalState}, username) {
-    Meteor.call( 'user.update', {username: username}, ( err ) => {
+    Meteor.call( 'user.update', {username: username}, ( err, res ) => {
       if(err){
         notify.show(err.message, 'error');
       }else{

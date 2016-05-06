@@ -20,6 +20,7 @@ export default function () {
         Accounts.sendVerificationEmail(userId);
       }else if(field["username"] != undefined){
         Accounts.setUsername(userId, field.username);
+        return field.username;
       }else{
         Meteor.users.update(userId, { $set: field } );
       }

@@ -13,6 +13,7 @@ export default class Input extends React.Component {
       placeholder={ this.props.placeholder }
       disabled={ this.props.disabled }
       onChange={ this.props.onChange }
+      value={ this.props.value }
       defaultValue={ this.props.defaultValue } />
     );
   }

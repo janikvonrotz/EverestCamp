@@ -4,8 +4,8 @@ import {GridRow, GridColumn, Button, Form, Input, FormGroup, Label, Modal} from 
 
 export default class Profile extends React.Component {
 
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     this.state = {
       showPasswordModal: false,
       showEmailModal: false,
@@ -33,7 +33,6 @@ export default class Profile extends React.Component {
       ReactDOM.findDOMNode(this.refs.username).value
     );
     this.toggleUsernameModal();
-    this.forceUpdate();
   }
 
   update(event){
@@ -83,7 +82,7 @@ export default class Profile extends React.Component {
           style="input"
           name="username"
           type="text"
-          defaultValue={user.username}
+          value={user.username}
           disabled="true" />
         </FormGroup>
         <p><Button style="primary" onClick={this.toggleUsernameModal.bind(this)}>Change username</Button></p>
@@ -122,6 +121,7 @@ export default class Profile extends React.Component {
           style="input"
           name="username"
           type="text"
+          defaultValue=""
           required={ true } />
         </FormGroup>
         </Modal>
