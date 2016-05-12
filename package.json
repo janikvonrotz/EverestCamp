@@ -4,6 +4,7 @@
   "scripts": {
     "testonly": "mocha client/**/tests/**/*.js --compilers js:babel-core/register",
     "test": "npm run testonly",
+    "dev": "meteor --settings ./settings-dev.json",
     "test-watch": "npm run testonly -- --watch --watch-extensions js,jsx"
   },
   "devDependencies": {
@@ -34,5 +35,17 @@
     "react-helmet": "^3.0.1",
     "react-mounter": "^1.0.0"
   },
-  "private": true
+  "private": true,
+  "description": "EverestCamp is the most simple knoweldge base tool.\r It tackles these challenges:\r * Make the process of documentation worthwhile for your employees.\r * Provide tools to make use of the knoweldge of your employees.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BitSherpa/EverestCamp.git"
+  },
+  "author": "Janik von Rotz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BitSherpa/EverestCamp/issues"
+  },
+  "homepage": "https://github.com/BitSherpa/EverestCamp#readme"
 }
