@@ -15,7 +15,7 @@ export default function () {
       if(field["email"] != undefined){
         // Accounts.removeEmail(userId, Meteor.user().emails[0].address);
 
-        // add new mail and sen verification mail
+        // add new mail and send verification mail
         Accounts.addEmail(userId, field.email, false);
         Accounts.sendVerificationEmail(userId);
       }else if(field["username"] != undefined){

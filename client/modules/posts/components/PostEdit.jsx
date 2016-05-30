@@ -28,7 +28,7 @@ export default class NodeEdit extends React.Component {
 
   remove(event){
     this.props.remove(this.props.post);
-    this.toggleModal();
+    this.toggleDeleteModal();
   }
 
   toggleDeleteModal(event){

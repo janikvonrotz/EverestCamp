@@ -17,6 +17,7 @@ import NavbarNav from './NavbarNav.jsx';
 import FormGroup from './FormGroup.jsx';
 import ContentEditable from './ContentEditable.jsx';
 import ButtonGroup from './ButtonGroup.jsx';
+import Table from './Table.jsx';
 
 export {
   NavbarNav,
@@ -36,5 +37,6 @@ export {
   GridColumn,
   Checkbox,
   GridRow,
-  PageHeader
+  PageHeader,
+  Table
 };

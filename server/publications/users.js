@@ -1,5 +1,6 @@
 import {Meteor} from 'meteor/meteor';
-import { user_list, user_search } from '/lib/user_publications';
+import { users_list, users_search } from '/lib/users_publications';
+import {is_allowed} from '/lib/access_control';
 
 export default function () {
 
@@ -14,10 +15,20 @@ export default function () {
   });
 
   Meteor.publish('user.list', function (selector, options) {
-    return user_list(selector, options);
+    if(is_allowed('user.read', this.userId)){
+      return users_list(selector, options);
+    }else{
+      this.stop();
+      return;
+    }
   });
 
-  Meteor.publish( 'user.search', function (filterText){
-    return user_search(filterText);
+  Meteor.publish('user.search', function (filterText){
+    if(is_allowed('user.read', this.userId)){
+      return users_search(filterText);
+    }else{
+      this.stop();
+      return;
+    }
   });
 }

@@ -2,12 +2,17 @@ import React from 'react';
 import {mount} from 'react-mounter';
 import App from '../core/components/App.jsx';
 import {Register, Login, RecoverPassword, ResetPassword, EmailVerification, UserSearch, Profile} from './containers';
+import actions from './actions';
 
 export default function (injectDeps, {FlowRouter}) {
   const AppLayout = injectDeps(App);
 
   FlowRouter.route('/users', {
-    name: 'users.list', action() {
+    name: 'user.list',
+    triggersEnter: [function(context, redirect) {
+      actions.users.access_route('user.list', redirect);
+    }],
+    action() {
       mount(AppLayout, {
         content: () => (<UserSearch />)
       });
@@ -15,7 +20,11 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/profile', {
-    name: 'users.profile', action() {
+    name: 'user.profile',
+    triggersEnter: [function(context, redirect) {
+      actions.users.access_route('user.profile', redirect);
+    }],
+    action() {
       mount(AppLayout, {
         content: () => (<Profile />)
       });
@@ -23,7 +32,11 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/login', {
-    name: 'user.login', action() {
+    name: 'user.login',
+    triggersEnter: [function(context, redirect) {
+      actions.users.access_route('user.login', redirect);
+    }],
+    action() {
       mount(AppLayout, {
         content: () => (<Login />)
       });
@@ -31,7 +44,11 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/register', {
-    name: 'user.register', action() {
+    name: 'user.register',
+    triggersEnter: [function(context, redirect) {
+      actions.users.access_route('user.register', redirect);
+    }],
+    action() {
       mount(AppLayout, {
         content: () => (<Register />)
       });
@@ -39,7 +56,11 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/recover-password', {
-    name: 'user.recover_password', action() {
+    name: 'user.recover_password',
+    triggersEnter: [function(context, redirect) {
+      actions.users.access_route('user.recover_password', redirect);
+    }],
+    action() {
       mount(AppLayout, {
         content: () => (<RecoverPassword />)
       });
@@ -47,7 +68,10 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/reset-password/:token', {
-    name: 'users.reset_password',
+    name: 'user.reset_password',
+    triggersEnter: [function(context, redirect) {
+      actions.users.access_route('user.reset_password', redirect);
+    }],
     action({token}) {
       mount(AppLayout, {
         content: () => (<ResetPassword token={token}/>)
@@ -56,7 +80,11 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/email-verification', {
-    name: 'users.email_verification', action() {
+    name: 'user.email_verification',
+    triggersEnter: [function(context, redirect) {
+      actions.users.access_route('user.email_verification', redirect);
+    }],
+    action() {
       mount(AppLayout, {
         content: () => (<EmailVerification />)
       });
@@ -64,7 +92,10 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/email-verification/:token', {
-    name: 'users.reset_password_with_token',
+    name: 'user.reset_password_with_token',
+    triggersEnter: [function(context, redirect) {
+      actions.users.access_route('user.reset_password_with_token', redirect);
+    }],
     action({token}) {
       mount(AppLayout, {
         content: () => (<EmailVerification token={token}/>)

@@ -1,6 +1,7 @@
 import {notify} from '../../core/libs/notify';
 import {Files} from '/lib/collections';
 import slugify from '/lib/slugify';
+import {cannot_access, redirect_login, redirect_verify} from '/lib/access_control';
 
 export default {
 
@@ -42,5 +43,19 @@ export default {
         notify.show(err.message, 'error');
       }
     });
+  },
+
+  access_route(routename, redirect) {
+    if(redirect_login(routename)){
+      redirect('/login');
+    } else if(redirect_verify()){
+      redirect('/email-verification');
+    } else if(cannot_access(routename)){
+      redirect('/');
+    }
+  },
+
+  can_access({Meteor, FlowRouter}, routename){
+    return !cannot_access(routename);
   }
 };

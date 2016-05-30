@@ -22,8 +22,7 @@ Work in progress:
 # Todo
 
 * Multiple File paste
-* Routing Access Control
-* Data Acess Control
+* Data Acess Control for files and users
 * View visiblity Access - make nav el for unauthorized user in, add edit button on post view
 * Create AutoSave for every 3 seconds in editor.
 * Add user management site - table with search and role dropdown
@@ -38,7 +37,7 @@ Work in progress:
 * Replace FS Collection
 * User Profile change process - reactiviy, change mail
 * Register return value is not processed
-* Notifcations are not persistend on route change
+* Notifcations are not persistent on route change
 
 ## Longterm Task
 
@@ -61,6 +60,7 @@ Work in progress:
 
 ## Done
 
+* Routing Access Control
 * Fix header title
 * Content optional?maybe?
 * Add username and lastname, firstname to form

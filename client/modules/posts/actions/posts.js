@@ -17,7 +17,7 @@ export default {
           type: "post"
         }
 
-        Meteor.call('nodes.insert', node, (err) => {
+        Meteor.call('node.insert', node, (err) => {
           if (err) {
             notify.show(err.message, 'error');
 
