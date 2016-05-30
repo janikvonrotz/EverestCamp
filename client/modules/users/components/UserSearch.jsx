@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert, GridColumn, GridRow, Modal } from '../../bootstrap/components/index.jsx';
+// import { UserList } from '../containers';
 
 export default class UserSearch extends React.Component {
 
@@ -7,7 +8,7 @@ export default class UserSearch extends React.Component {
     return (
       <GridRow class="user-list">
         <GridColumn className="col-md-12">
-        hello
+          hello
         </GridColumn>
       </GridRow>
     );

@@ -1,15 +1,11 @@
 import React from 'react';
-import {Alert, GridColumn, GridRow, Modal} from '../../bootstrap/components/index.jsx';
+import {Alert, GridColumn, GridRow, Modal, Table} from '../../bootstrap/components/index.jsx';
 
 export default class UserList extends React.Component {
 
   render() {
     return (
-      <GridRow class="user-list">
-        <GridColumn className="col-md-12">
-        hello
-        </GridColumn>
-      </GridRow>
+      <Table headers={["id","name"]} items={this.props.users} />
     );
   }
 }

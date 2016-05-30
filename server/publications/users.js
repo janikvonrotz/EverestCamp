@@ -4,7 +4,7 @@ import {is_allowed} from '/lib/access_control';
 
 export default function () {
 
-  Meteor.publish("user.current", function () {
+  Meteor.publish("users.current", function () {
     if (this.userId) {
       var selector = {_id: this.userId};
       var options = {fields: {'profile': 1}};
@@ -14,7 +14,7 @@ export default function () {
     }
   });
 
-  Meteor.publish('user.list', function (selector, options) {
+  Meteor.publish('users.list', function (selector, options) {
     if(is_allowed('user.read', this.userId)){
       return users_list(selector, options);
     }else{
@@ -23,7 +23,7 @@ export default function () {
     }
   });
 
-  Meteor.publish('user.search', function (filterText){
+  Meteor.publish('users.search', function (filterText){
     if(is_allowed('user.read', this.userId)){
       return users_search(filterText);
     }else{

@@ -3,7 +3,7 @@ import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 
 export const composer = ({context}, onData) => {
   const {Meteor} = context();
-  if(Meteor.subscribe("user.current").ready){
+  if(Meteor.subscribe('users.current').ready){
     var items = {
       left: [
         { uid: 'post.list', href: '/posts', label: 'Posts' },

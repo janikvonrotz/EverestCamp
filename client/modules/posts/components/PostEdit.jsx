@@ -16,7 +16,7 @@ export default class NodeEdit extends React.Component {
   update(event, commit_history){
     var post = this.props.post;
     if(commit_history){
-      post.commit_history = commit_history;
+      post.commit_history = true;
     }
     if(event.target && event.target.type && event.target.type == 'checkbox'){
       post[event.target.name] = Boolean(event.target.checked);
@@ -43,6 +43,7 @@ export default class NodeEdit extends React.Component {
 
   renderHistoryList(){
     var history = _.sortBy(this.props.post.history, 'date').reverse();
+
     var posts = history.map((post) => {
       return {_id: history.indexOf(post), label: post.title + " by " + post.author + " on " + moment(post.date).format('MMMM Do YYYY, h:mm:ss a')};
     });
@@ -86,7 +87,7 @@ export default class NodeEdit extends React.Component {
            </FullscreenViewer>
            <p></p>
           <ButtonGroup>
-            <Button onClick={this.update.bind(this, true)} style="success">Commit</Button>
+            <Button onClick={this.update.bind(this, ,true)} style="success">Commit</Button>
             { this.renderViewLink(post)}
             <Button onClick={this.toggleDeleteModal.bind(this)} style="danger">Delete</Button>
           </ButtonGroup>
