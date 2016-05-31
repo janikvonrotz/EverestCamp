@@ -18,6 +18,7 @@ import FormGroup from './FormGroup.jsx';
 import ContentEditable from './ContentEditable.jsx';
 import ButtonGroup from './ButtonGroup.jsx';
 import Table from './Table.jsx';
+import Select from './Select.jsx';
 
 export {
   NavbarNav,
@@ -38,5 +39,6 @@ export {
   Checkbox,
   GridRow,
   PageHeader,
-  Table
+  Table,
+  Select
 };

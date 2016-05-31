@@ -18,9 +18,9 @@ export default class NodeEdit extends React.Component {
     if(commit_history){
       post.commit_history = true;
     }
-    if(event.target && event.target.type && event.target.type == 'checkbox'){
+    if(event && event.target && event.target.type && event.target.type == 'checkbox'){
       post[event.target.name] = Boolean(event.target.checked);
-    }else if(event.target){
+    }else if(event && event.target){
       post[event.target.name] = event.target.value;
     }
     this.props.update(post);
@@ -87,7 +87,7 @@ export default class NodeEdit extends React.Component {
            </FullscreenViewer>
            <p></p>
           <ButtonGroup>
-            <Button onClick={this.update.bind(this, ,true)} style="success">Commit</Button>
+            <Button onClick={this.update.bind(this, null, true)} style="success">Commit</Button>
             { this.renderViewLink(post)}
             <Button onClick={this.toggleDeleteModal.bind(this)} style="danger">Delete</Button>
           </ButtonGroup>

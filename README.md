@@ -23,6 +23,7 @@ Work in progress:
 
 * Multiple File paste
 * Data Acess Control for files and users
+* Filter not public images for public users
 * View visiblity Access - make nav el for unauthorized user in, add edit button on post view
 * Create AutoSave for every 3 seconds in editor.
 * Add user management site - table with search and role dropdown
@@ -42,6 +43,7 @@ Work in progress:
 ## Longterm Task
 
 * PDF Export of posts
+* Add sort and load more button to bootstrap table
 * Demo deploy http://meteortips.com/deployment-tutorial/digitalocean-part-1/
 * Internationalization english (german)
 * Password Strength measurer client and server
