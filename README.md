@@ -26,7 +26,6 @@ Work in progress:
 * Filter not public images for public users
 * View visiblity Access - make nav el for unauthorized user in, add edit button on post view
 * Create AutoSave for every 3 seconds in editor.
-* Add user management site - table with search and role dropdown
 * User profile - change username, email, last and firstname, password
 * create collaborative editor prototype by syncing content block
 * Enable Tabulator usage in editor
@@ -35,13 +34,14 @@ Work in progress:
 ## Bugs
 
 * find Notification tool that works - https://github.com/igorprado/react-notification-system or fork react-notify-toast
-* Replace FS Collection
+* Replace FS Collection with Meteor-Files
 * User Profile change process - reactiviy, change mail
 * Register return value is not processed
 * Notifcations are not persistent on route change
 
 ## Longterm Task
 
+* Write Tests (waiting for ken rogers next book)
 * PDF Export of posts
 * Add sort and load more button to bootstrap table
 * Demo deploy http://meteortips.com/deployment-tutorial/digitalocean-part-1/
@@ -62,6 +62,7 @@ Work in progress:
 
 ## Done
 
+* Add user management site - table with search and role dropdown
 * Routing Access Control
 * Fix header title
 * Content optional?maybe?

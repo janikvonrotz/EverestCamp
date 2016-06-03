@@ -36,9 +36,9 @@ export default class Profile extends React.Component {
   }
 
   update(event){
-    let user = {};
-    user[event.target.name] = event.target.value;
-    this.props.update(user);
+    let field = {};
+    field[event.target.name] = event.target.value;
+    this.props.update(field);
   }
 
   togglePasswordModal(event){

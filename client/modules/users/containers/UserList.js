@@ -15,7 +15,6 @@ export const composer = ({context, filterText}, onData) => {
   }else{
     if(Meteor.subscribe('users.list').ready()) {
       const users = users_list().fetch().map( ( user ) => {
-        console.log(user)
         return { _id: user._id, name: user.profile.firstname + " " + user.profile.lastname,
           username: user.username, role: user.roles[0]};
       });
@@ -24,7 +23,12 @@ export const composer = ({context, filterText}, onData) => {
   }
 };
 
+export const depsMapper = (context, actions) => ({
+  update: actions.users.update,
+  context: () => context
+});
+
 export default composeAll(
   composeWithTracker(composer),
-  useDeps()
+  useDeps(depsMapper)
 )(UserList);

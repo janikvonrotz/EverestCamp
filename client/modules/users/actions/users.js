@@ -3,8 +3,8 @@ import {cannot_access, redirect_login, redirect_verify} from '/lib/access_contro
 
 export default {
 
-  update({Meteor, LocalState}, field) {
-    Meteor.call( 'user.update', field, ( err ) => {
+  update({Meteor, LocalState}, field, userId) {
+    Meteor.call( 'user.update', field, userId, ( err ) => {
       if(err){
         notify.show(err.message, 'error');
       }

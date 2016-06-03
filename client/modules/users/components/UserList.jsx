@@ -3,9 +3,16 @@ import {Alert, GridColumn, GridRow, Modal, Table, Select} from '../../bootstrap/
 
 export default class UserList extends React.Component {
 
-  renderCell(header, value){
+  update(userId, event){
+    let field = {};
+    field[event.target.name] = [event.target.value];
+    console.log(field);
+    this.props.update(field, userId);
+  }
+
+  renderCell(header, value, callback, itemId){
     if (header === 'role') {
-      value = 'Dropdown';
+      return (<Select name="roles" onChange={callback.bind(this, itemId)} options={Meteor.settings.public.roles} defaultValue={value} />);
     }
     return value;
   }
@@ -13,8 +20,7 @@ export default class UserList extends React.Component {
   render() {
     return (
       <div className="user-list">
-        <Select options={Meteor.settings.public.roles} defaultValue="Manager" />
-        <Table headers={["id", "name", "username", "role"]} items={this.props.users} renderCell={this.renderCell} />
+        <Table callback={this.update.bind(this)} headers={["id", "name", "username", "role"]} items={this.props.users} renderCell={this.renderCell} />
       </div>
     );
   }

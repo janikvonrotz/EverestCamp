@@ -2,6 +2,10 @@ import React from 'react';
 
 export default class Table extends React.Component {
 
+  update(event){
+    this.props.update(event);
+  }
+
   renderHeader(headers){
     return (
       <tr>
@@ -17,6 +21,7 @@ export default class Table extends React.Component {
         return (
           <tr key={item._id}>
             {_.map(item, (value, key) => {
+              var value = this.props.renderCell ? this.props.renderCell(key, value, this.props.callback, item._id) : value;
               return (<td key={key}>{value}</td>);
             })}
           </tr>
