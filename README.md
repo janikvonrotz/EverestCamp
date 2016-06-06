@@ -25,19 +25,16 @@ Work in progress:
 * Data Acess Control for files and users
 * Filter not public images for public users
 * View visiblity Access - make nav el for unauthorized user in, add edit button on post view
+* Finishing change email process
 * Create AutoSave for every 3 seconds in editor.
-* User profile - change username, email, last and firstname, password
 * create collaborative editor prototype by syncing content block
 * Enable Tabulator usage in editor
 * Landing Page with jekyll - https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
 
 ## Bugs
 
-* find Notification tool that works - https://github.com/igorprado/react-notification-system or fork react-notify-toast
 * Replace FS Collection with Meteor-Files
-* User Profile change process - reactiviy, change mail
-* Register return value is not processed
-* Notifcations are not persistent on route change
+* User Register return value is not processed
 
 ## Longterm Task
 
@@ -62,6 +59,10 @@ Work in progress:
 
 ## Done
 
+* User profile - change username, email, last and firstname, password
+* User Profile change process - reactiviy, change mail
+* Notifcations are not persistent on route change
+* find Notification tool that works - https://github.com/igorprado/react-notification-system or fork react-notify-toast or https://github.com/jaredreich/notie
 * Add user management site - table with search and role dropdown
 * Routing Access Control
 * Fix header title

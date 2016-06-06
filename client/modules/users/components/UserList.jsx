@@ -6,7 +6,6 @@ export default class UserList extends React.Component {
   update(userId, event){
     let field = {};
     field[event.target.name] = [event.target.value];
-    console.log(field);
     this.props.update(field, userId);
   }
 

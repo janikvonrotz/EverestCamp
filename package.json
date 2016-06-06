@@ -16,12 +16,15 @@
     "babel-preset-stage-2": "6.x.x"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-alpha.2",
     "classnames": "2.x.x",
     "domready": "1.x.x",
     "draft-js": "0.x.x",
+    "font-awesome": "4.x.x",
     "mantra-core": "1.x.x",
     "marked": "0.x.x",
     "moment": "2.x.x",
+    "notie": "3.x.x",
     "react": "15.x.x",
     "react-dom": "15.x.x",
     "react-helmet": "3.x.x",

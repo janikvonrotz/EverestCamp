@@ -11,7 +11,7 @@ export default function () {
 
     'user.update'(field, userId) {
       check(field, Object);
-      check(userId, Match.Optional(String));
+      check(userId, Match.Maybe(String));
 
       // check current user should be updated
       if(!userId){

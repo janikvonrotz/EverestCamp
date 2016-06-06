@@ -68,9 +68,9 @@ export default function (injectDeps, {FlowRouter}) {
   });
 
   FlowRouter.route('/reset-password/:token', {
-    name: 'user.reset_password',
+    name: 'user.reset_password_with_token',
     triggersEnter: [function(context, redirect) {
-      actions.users.access_route('user.reset_password', redirect);
+      actions.users.access_route('user.reset_password_with_token', redirect);
     }],
     action({token}) {
       mount(AppLayout, {

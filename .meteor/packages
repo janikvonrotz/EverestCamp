@@ -28,7 +28,7 @@ accounts-password
 cfs:standard-packages
 cfs:filesystem
 cfs:graphicsmagick
-twbs:bootstrap@4.0.0-alpha2
 alanning:roles
-fortawesome:fontawesome
 ostrio:files
+twbs:bootstrap@4.0.0-alpha2
+fortawesome:fontawesome

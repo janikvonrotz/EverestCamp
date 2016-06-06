@@ -1,11 +1,10 @@
-import {notify} from '../../core/libs/notify';
 import {Files} from '/lib/collections';
 import slugify from '/lib/slugify';
 import {cannot_access, redirect_login, redirect_verify} from '/lib/access_control';
 
 export default {
 
-  upload({Meteor, FlowRouter}, file) {
+  upload({Meteor, FlowRouter, Notification}, file) {
 
     if(!("name" in file)){
       var extension = file.type.split("/")[1];
@@ -22,25 +21,25 @@ export default {
 
     return Files.insert(file, (err, res) => {
         if (err) {
-          notify.show(err.message, 'error');
+          Notification.alert(3, err.message, 2.5);
         }
     });
   },
 
-  remove({Meteor, FlowRouter}, file) {
+  remove({Meteor, FlowRouter, Notification}, file) {
     Files.remove(file._id, ( err, res ) => {
       if (err) {
-        notify.show(err.message, 'error');
+        Notification.alert(3, err.message, 2.5);
       } else {
         FlowRouter.go( '/files' );
       }
     });
   },
 
-  update({Meteor, FlowRouter}, fileId, fields) {
+  update({Meteor, FlowRouter, Notification}, fileId, fields) {
     Files.update({_id: fileId}, {$set: fields}, (err, res) => {
       if(err) {
-        notify.show(err.message, 'error');
+        Notification.alert(3, err.message, 2.5);
       }
     });
   },
@@ -55,7 +54,7 @@ export default {
     }
   },
 
-  can_access({Meteor, FlowRouter}, routename){
+  can_access({Meteor, FlowRouter, Notification}, routename){
     return !cannot_access(routename);
   }
 };

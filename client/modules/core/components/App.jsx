@@ -1,8 +1,8 @@
 import React from 'react';
 import { GridRow, GridColumn, PageHeader, Navbar } from '../../bootstrap/components/index.jsx';
 import { PublicNavigation, AuthenticatedNavigation } from '../containers/index.js';
-import Notifications from '../libs/notify';
 import Helmet from 'react-helmet';
+import 'notie/dist/notie.css';
 
 export default class App extends React.Component {
 
@@ -13,7 +13,6 @@ export default class App extends React.Component {
         meta={[
           {"name": "viewport", "content": "width=device-width, initial-scale=1"}
         ]} />
-        <Notifications />
         { Meteor.userId() ? <AuthenticatedNavigation /> : <PublicNavigation /> }
         {this.props.content()}
       </div>
