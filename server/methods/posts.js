@@ -48,9 +48,8 @@ export default function () {
       is_allowed('post.remove', Meteor.userId());
       var node = Nodes.findOne({ref_id: post._id});
       if(node){
-        Meteor.call('nodes.remove', node);
+        Meteor.call('node.remove', node);
       }
-
       Posts.remove( post._id );
     }
   });

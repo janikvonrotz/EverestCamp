@@ -33,6 +33,9 @@ Work in progress:
 
 ## Bugs
 
+* On Page reload route.edit is denied -> rework redirect
+* IE Image selector does not work
+* IE scrollbar does not show up
 * Replace FS Collection with Meteor-Files
 * User Register return value is not processed
 
@@ -59,6 +62,7 @@ Work in progress:
 
 ## Done
 
+* If user cannot create node make sure he can create a post -> check type
 * User profile - change username, email, last and firstname, password
 * User Profile change process - reactiviy, change mail
 * Notifcations are not persistent on route change
