@@ -6,6 +6,7 @@
         "name": "post.insert",
         "roles": [
           "Admin",
+          "Manager",
           "Author"
         ]
       },
@@ -13,6 +14,7 @@
         "name": "post.update",
         "roles": [
           "Admin",
+          "Manager",
           "Author"
         ]
       },
@@ -20,19 +22,121 @@
         "name": "post.remove",
         "roles": [
           "Admin",
-          "Author"
+          "Manager"
         ]
       },
       {
         "name": "post.read",
         "roles": [
           "Admin",
+          "Manager",
           "Author",
           "Public"
+        ]
+      },
+      {
+        "name": "node.insert",
+        "roles": [
+          "Admin",
+          "Manager"
+        ]
+      },
+      {
+        "name": "node.update",
+        "roles": [
+          "Admin",
+          "Manager"
+        ]
+      },
+      {
+        "name": "node.update_parent",
+        "roles": [
+          "Admin",
+          "Manager"
+        ]
+      },
+      {
+        "name": "node.remove",
+        "roles": [
+          "Admin",
+          "Manager"
+        ]
+      },
+      {
+        "name": "node.read",
+        "roles": [
+          "Admin",
+          "Manager",
+          "Author"
+        ]
+      },
+      {
+        "name": "file.insert",
+        "roles": [
+          "Admin",
+          "Manager",
+          "Autor"
+        ]
+      },
+      {
+        "name": "file.update",
+        "roles": [
+          "Admin",
+          "Manager",
+          "Author"
+        ]
+      },
+      {
+        "name": "file.remove",
+        "roles": [
+          "Admin",
+          "Manager"
+        ]
+      },
+      {
+        "name": "file.read",
+        "roles": [
+          "Admin",
+          "Manager",
+          "Author",
+          "Public"
+        ]
+      },
+      {
+        "name": "user.insert",
+        "roles": [
+          "Admin"
+        ]
+      },
+      {
+        "name": "user.update",
+        "roles": [
+          "Admin"
+        ]
+      },
+      {
+        "name": "user.remove",
+        "roles": [
+          "Admin"
+        ]
+      },
+      {
+        "name": "user.read",
+        "roles": [
+          "Admin"
         ]
       }
     ],
     "routes": [
+      {
+        "name": "index",
+        "roles": [
+          "Admin",
+          "Author",
+          "Manager",
+          "Public"
+        ]
+      },
       {
         "name": "post.list",
         "roles": [
@@ -45,6 +149,7 @@
         "name": "post.edit",
         "roles": [
           "Admin",
+          "Manager",
           "Author"
         ]
       },
@@ -52,13 +157,82 @@
         "name": "post.view",
         "roles": [
           "Admin",
+          "Manager",
           "Author",
           "Public"
         ]
+      },
+      {
+        "name": "node.edit",
+        "roles": [
+          "Admin",
+          "Author",
+          "Manager"
+        ]
+      },
+      {
+        "name": "file.list",
+        "roles": [
+          "Admin",
+          "Manager",
+          "Author"
+        ]
+      },
+      {
+        "name": "file.edit",
+        "roles": [
+          "Admin",
+          "Manager",
+          "Author"
+        ]
+      },
+      {
+        "name": "user.list",
+        "roles": [
+          "Admin"
+        ]
+      },
+      {
+        "name": "user.profile",
+        "roles": [
+          "Public"
+        ]
+      },
+      {
+        "name": "user.login",
+        "roles": [
+          "Public"
+        ]
+      },
+      {
+        "name": "user.register",
+        "roles": [
+          "Public"
+        ]
+      },
+      {
+        "name": "user.recover_password",
+        "roles": [
+          "Public"
+        ]
+      },
+      {
+        "name": "user.email_verification",
+        "roles": [
+          "Public"
+        ]
+      },
+      {
+        "name": "user.reset_password_with_token",
+        "roles": [
+          "Public"
+        ]
       }
-    ]
+    ],
+    "roles": ["Admin", "Author", "Manager"]
   },
   "private": {
-    "MAIL_URL": "smtp://localhost:1025"
+    "MAIL_URL": "smtp://localhost:1025",
+    "defaultRole": ["Author"]
   }
 }

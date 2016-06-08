@@ -18,6 +18,8 @@ Work in progress:
 * Drag and drop sortable taxonomy tree
 * Responsive and reactive layout
 * Markdown editor with live preview
+* Instant fulltext search
+* Configurable access rights
 
 # Todo
 
