@@ -11,7 +11,6 @@ marked.setOptions({
 });
 
 var marked_file_url = (file) => {
-  console.log(file);
   var response = "![Upload failed.](/UploadFailed.png)";
   if(file){
     response = '![' + file._id + '](/cfs/files/files/' + file._id + ')'

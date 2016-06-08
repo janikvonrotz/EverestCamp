@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import {Alert, Button, GridRow, GridColumn, Form, Input, FormGroup, Label, PageHeader} from '../../bootstrap/components/index.jsx';
 
 export default class Login extends React.Component {
+
+  login(event){
+    this.props.login(ReactDOM.findDOMNode(this.refs.email).value, ReactDOM.findDOMNode(this.refs.password).value);
+  }
+
   render() {
     return(
       <GridRow className="login">
@@ -39,9 +44,5 @@ export default class Login extends React.Component {
       </GridColumn>
       </GridRow>
     );
-  }
-
-  login(event){
-    this.props.login(ReactDOM.findDOMNode(this.refs.email).value, ReactDOM.findDOMNode(this.refs.password).value);
   }
 }

@@ -13,13 +13,11 @@ export default function () {
       check(field, Object);
       check(userId, Match.Maybe(String));
 
-      // check current user should be updated
+      // check if current user should be updated
       if(!userId){
         userId = Meteor.userId();
 
         if(field["email"] != undefined){
-          // Accounts.removeEmail(userId, Meteor.user().emails[0].address);
-
           // add new mail and send verification mail
           Accounts.addEmail(userId, field.email, false);
           Accounts.sendVerificationEmail(userId);
@@ -29,7 +27,8 @@ export default function () {
         }else{
           Meteor.users.update(userId, { $set: field } );
         }
-      }else{userId}{
+
+      }else{
         is_allowed('user.update', Meteor.userId());
         Meteor.users.update(userId, { $set: field } );
       }

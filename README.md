@@ -35,7 +35,6 @@ Work in progress:
 
 ## Bugs
 
-* On Page reload route.edit is denied -> rework redirect
 * IE Image selector does not work
 * IE scrollbar does not show up
 * Replace FS Collection with Meteor-Files
@@ -43,6 +42,7 @@ Work in progress:
 
 ## Longterm Task
 
+* On Page reload route.edit is denied -> rework redirect
 * Write Tests (waiting for ken rogers next book)
 * PDF Export of posts
 * Add sort and load more button to bootstrap table

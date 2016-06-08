@@ -40,7 +40,6 @@ export default class MarkdownEditor extends React.Component {
   }
 
   selectedFile(file){
-    console.log(file);
     this.setState({
       selectedFile: file
     });

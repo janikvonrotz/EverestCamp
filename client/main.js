@@ -19,3 +19,13 @@ app.loadModule(postsModule);
 app.loadModule(usersModule);
 app.loadModule(filesModule);
 app.init();
+
+// make sure FlowRouter runs once Roles are loaded
+Tracker.autorun(() => {
+  if(!Roles.subscription.ready()){
+    FlowRouter.wait();
+  }
+  if(Roles.subscription.ready() && !FlowRouter._initialized) {
+    FlowRouter.initialize();
+  };
+});
