@@ -11,7 +11,10 @@ export default class UserList extends React.Component {
 
   renderCell(header, value, callback, itemId){
     if (header === 'role') {
-      return (<Select name="roles" onChange={callback.bind(this, itemId)} options={Meteor.settings.public.roles} defaultValue={value} />);
+      var options = Meteor.settings.public.roles.map((option) => {
+        return {key: option, value: option}
+      });
+      return (<Select name="roles" onChange={callback.bind(this, itemId)} options={options} defaultValue={value} />);
     }
     return value;
   }

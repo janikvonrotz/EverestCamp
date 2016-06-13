@@ -1,5 +1,5 @@
 EverestCamp is the most simple knoweldge base tool.
-It tackles these challenges:
+Vision of this project:
 * Make the process of documentation worthwhile for your employees.
 * Provide tools to make use of the knoweldge of your employees.
 
@@ -23,26 +23,27 @@ Work in progress:
 
 # Todo
 
+* Replace FS Collection with Meteor-Files
+* Move Access Control into components.
 * Multiple File paste
-* Data Acess Control for files and users
 * Filter not public images for public users
 * View visiblity Access - make nav el for unauthorized user in, add edit button on post view
 * Finishing change email process
 * Create AutoSave for every 3 seconds in editor.
-* create collaborative editor prototype by syncing content block
 * Enable Tabulator usage in editor
-* Landing Page with jekyll - https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
 
 ## Bugs
 
 * IE Image selector does not work
 * IE scrollbar does not show up
-* Replace FS Collection with Meteor-Files
 * User Register return value is not processed
+* Fix ref error for input
 
 ## Longterm Task
 
-* On Page reload route.edit is denied -> rework redirect
+* Add server side rendering
+* Landing Page with jekyll - https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/
+* create collaborative editor prototype by syncing content block
 * Write Tests (waiting for ken rogers next book)
 * PDF Export of posts
 * Add sort and load more button to bootstrap table
@@ -64,6 +65,8 @@ Work in progress:
 
 ## Done
 
+* On Page reload route.edit is denied -> rework redirect
+* Data Acess Control for users
 * If user cannot create node make sure he can create a post -> check type
 * User profile - change username, email, last and firstname, password
 * User Profile change process - reactiviy, change mail

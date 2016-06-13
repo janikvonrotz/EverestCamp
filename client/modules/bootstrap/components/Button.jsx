@@ -23,3 +23,5 @@ export default class Button extends React.Component {
     }
   }
 }
+
+Button.defaultProps = { type: "button" };

@@ -11,7 +11,7 @@ export default class Select extends React.Component {
       onChange={ this.props.onChange }
       defaultValue={ this.props.defaultValue }>
         {this.props.options.map((option) => {
-          return (<option value={option} key={option}>{option}</option>)
+          return (<option value={option.value} key={option.key || option.value}>{option.value}</option>)
         })}
       </select>
     );

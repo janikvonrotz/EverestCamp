@@ -16,7 +16,6 @@
     "babel-preset-stage-2": "6.x.x"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.2",
     "classnames": "2.x.x",
     "domready": "1.x.x",
     "draft-js": "0.x.x",
